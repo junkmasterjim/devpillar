@@ -77,6 +77,7 @@ const ResourceCard = ({
 							<div className="flex flex-wrap gap-2">
 								{category.map((cat) => (
 									<Badge
+										key={Math.random()}
 										className="font-medium opacity-75"
 										variant={"secondary"}
 									>
