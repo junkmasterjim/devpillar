@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Badge } from "./ui/badge";
+
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { ArrowUpRightFromSquare } from "lucide-react";
 import Image from "next/image";
@@ -43,8 +44,8 @@ const ResourceCard = ({
 }) => {
 	return (
 		<>
-			<Card key={name} className="max-w-md">
-				<CardHeader className="h-full justify-between space-y-2 p-4">
+			<Card key={name} className="max-w-md max-h-96">
+				<CardHeader className="justify-between space-y-2 p-4">
 					<div className="space-y-4">
 						<CardTitle>
 							<Link
@@ -66,7 +67,7 @@ const ResourceCard = ({
 									src={image}
 									alt={name}
 									fill
-									className="rounded-lg object-cover w-full h-full"
+									className="rounded-lg object-cover"
 								/>
 							</Link>
 						</div>
