@@ -27,9 +27,10 @@ export interface Resource {
 	url: string;
 	paid: "Free" | "Paid" | "Free Plan Available";
 	keywords?: string[];
+	image: string;
 }
 
-export const Resources: Resource[] = [
+export const resources: Resource[] = [
 	{
 		name: "ShipFast",
 		description: "A Next.js boilerplate for building SaaS applications",
@@ -37,6 +38,7 @@ export const Resources: Resource[] = [
 		url: "https://shipfa.st/",
 		paid: "Paid",
 		keywords: ["next.js", "boilerplate", "saas"],
+		image: "/shipfast.jpg",
 	},
 	{
 		name: "LogoFast",
@@ -45,15 +47,17 @@ export const Resources: Resource[] = [
 		url: "https://logofa.st/",
 		paid: "Free",
 		keywords: ["logo", "design", "images"],
+		image: "/logofast.jpg",
 	},
 	{
 		name: "Precedent",
 		description:
 			"A Next.js starter template with framer motion and reusable hooks/components",
 		category: ["Boilerplate", "Components", "Hooks"],
-		url: "https://github.com/steven-tey/precedent",
+		url: "https://precedent.dev",
 		paid: "Free",
 		keywords: ["next.js", "boilerplate", "framer motion", "hooks"],
+		image: "/precedent.jpg",
 	},
 	{
 		name: "Shipixen",
@@ -63,14 +67,16 @@ export const Resources: Resource[] = [
 		url: "https://shipixen.com",
 		paid: "Paid",
 		keywords: ["boilerplate", "website builder", "saas"],
+		image: "/shipixen.jpg",
 	},
 	{
-		name: "React Hooks",
+		name: "useHooks",
 		description: "Collection of React hooks curated by the community",
 		category: ["Documentation", "Hooks"],
 		url: "https://usehooks.com",
 		paid: "Free",
 		keywords: ["react", "hooks", "documentation"],
+		image: "/usehooks.jpg",
 	},
 	{
 		name: "shadcn-ui",
@@ -80,6 +86,7 @@ export const Resources: Resource[] = [
 		url: "https://ui.shadcn.com",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components"],
+		image: "/shadcnui.jpg",
 	},
 	{
 		name: "shadcn-ui Theme Generator",
@@ -88,6 +95,7 @@ export const Resources: Resource[] = [
 		url: "https://zippystarter.com/tools/shadcn-ui-theme-generator",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components", "theme", "generator"],
+		image: "/shadcnthemes.jpg",
 	},
 	{
 		name: "Ibelick UI",
@@ -96,6 +104,7 @@ export const Resources: Resource[] = [
 		url: "https://ui.ibelick.com",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components"],
+		image: "/ibelickui.jpg",
 	},
 	{
 		name: "Ibelick LAB",
@@ -104,6 +113,7 @@ export const Resources: Resource[] = [
 		url: "https://www.julienthibeaut.xyz/lab",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components", "experimental"],
+		image: "/ibelicklab.jpg",
 	},
 	{
 		name: "Ibelick Backgrounds",
@@ -113,6 +123,7 @@ export const Resources: Resource[] = [
 		url: "https://bg.ibelick.com",
 		paid: "Free",
 		keywords: ["backgrounds", "images", "ui", "css", "web"],
+		image: "/ibelickbg.jpg",
 	},
 	{
 		name: "Ibelick Buttons",
@@ -121,6 +132,7 @@ export const Resources: Resource[] = [
 		url: "https://buttons.ibelick.com",
 		paid: "Free",
 		keywords: ["buttons", "ui", "css", "web"],
+		image: "/ibelickbuttons.jpg",
 	},
 	{
 		name: "Ibelick Animations",
@@ -130,6 +142,7 @@ export const Resources: Resource[] = [
 		url: "https://animation.ibelick.com",
 		paid: "Free",
 		keywords: ["animations", "css", "tailwind", "ui"],
+		image: "/ibelickanimations.jpg",
 	},
 	{
 		name: "CSS Background Generator",
@@ -139,6 +152,7 @@ export const Resources: Resource[] = [
 		url: "https://www.magicpattern.design/tools/css-backgrounds",
 		paid: "Free",
 		keywords: ["css", "background", "patterns", "images"],
+		image: "/cssbackgrounds.jpg",
 	},
 	{
 		name: "MagicPattern",
@@ -147,6 +161,7 @@ export const Resources: Resource[] = [
 		url: "https://www.magicpattern.design",
 		paid: "Paid",
 		keywords: [],
+		image: "/magicpattern.jpg",
 	},
 	{
 		name: "UploadThing",
@@ -155,6 +170,7 @@ export const Resources: Resource[] = [
 		url: "https://uploadthing.com",
 		paid: "Free Plan Available",
 		keywords: ["file uploader", "api", "cms", "images", "video"],
+		image: "/uploadthing.jpg",
 	},
 	{
 		name: "Tailwind UI",
@@ -164,6 +180,7 @@ export const Resources: Resource[] = [
 		url: "https://tailwindui.com",
 		paid: "Paid",
 		keywords: ["tailwind", "ui", "components", "css", "boilerplate"],
+		image: "/tailwindui.jpg",
 	},
 	{
 		name: "Tailwind CSS",
@@ -173,14 +190,16 @@ export const Resources: Resource[] = [
 		url: "https://tailwindcss.com",
 		paid: "Free",
 		keywords: ["tailwind", "css", "ui", "framework"],
+		image: "/tailwindcss.jpg",
 	},
 	{
 		name: "DevUI",
 		description: "A collection of modern UI components for developers",
 		category: ["UI/UX", "CSS", "Components"],
-		url: "https://www.devui.io/components",
+		url: "https://www.devui.io/",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components", "css"],
+		image: "/devui.jpg",
 	},
 	{
 		name: "UIVerse",
@@ -189,6 +208,7 @@ export const Resources: Resource[] = [
 		url: "https://uiverse.io",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components"],
+		image: "/uiverse.jpg",
 	},
 	{
 		name: "Code Animations",
@@ -197,6 +217,7 @@ export const Resources: Resource[] = [
 		url: "https://www.animate-code.com",
 		paid: "Free",
 		keywords: ["code", "animations", "video", "social media", "websites"],
+		image: "/codeanimations.jpg",
 	},
 	{
 		name: "sharpen.design",
@@ -205,6 +226,7 @@ export const Resources: Resource[] = [
 		url: "https://sharpen.design",
 		paid: "Free",
 		keywords: ["design prompts", "ui", "ux", "practice", "design"],
+		image: "/sharpendesign.jpg",
 	},
 	{
 		name: "Design Resources",
@@ -213,6 +235,7 @@ export const Resources: Resource[] = [
 		url: "https://github.com/bradtraversy/design-resources-for-developers",
 		paid: "Free",
 		keywords: ["design resources", "ui", "ux", "design", "resources"],
+		image: "/designresources.jpg",
 	},
 	{
 		name: "Figma",
@@ -221,6 +244,7 @@ export const Resources: Resource[] = [
 		url: "https://www.figma.com",
 		paid: "Free Plan Available",
 		keywords: ["design tool", "ui", "ux", "figma"],
+		image: "/figma.jpg",
 	},
 	{
 		name: "Spline - 3D Design Tool",
@@ -229,6 +253,7 @@ export const Resources: Resource[] = [
 		url: "https://spline.design",
 		paid: "Free",
 		keywords: ["3d design", "ui", "ux", "design", "animations"],
+		image: "/spline.jpg",
 	},
 	{
 		name: "Stack Sorted",
@@ -236,7 +261,8 @@ export const Resources: Resource[] = [
 		category: ["UI/UX", "Components", "CSS"],
 		url: "https://stacksorted.com",
 		paid: "Free",
-		keywords: [],
+		keywords: ["element designs", "ui", "ux", "components"],
+		image: "/stacksorted.jpg",
 	},
 	{
 		name: "Dribbble",
@@ -245,6 +271,7 @@ export const Resources: Resource[] = [
 		url: "https://dribbble.com",
 		paid: "Free",
 		keywords: ["designers", "creatives", "ui", "ux", "design"],
+		image: "/dribbble.jpg",
 	},
 	{
 		name: "LogoShaper",
@@ -253,6 +280,7 @@ export const Resources: Resource[] = [
 		url: "https://www.logoshaper.co",
 		paid: "Free",
 		keywords: ["logo", "design", "images", "logoshaper"],
+		image: "/logoshaper.jpg",
 	},
 	{
 		name: "Next-Auth",
@@ -261,6 +289,7 @@ export const Resources: Resource[] = [
 		url: "https://next-auth.js.org",
 		paid: "Free",
 		keywords: ["next.js", "authentication", "next-auth"],
+		image: "/nextauth.jpg",
 	},
 	{
 		name: "Clerk",
@@ -269,6 +298,7 @@ export const Resources: Resource[] = [
 		url: "https://clerk.com",
 		paid: "Free Plan Available",
 		keywords: ["user management", "authentication", "clerk"],
+		image: "/clerk.jpg",
 	},
 	{
 		name: "Lucide",
@@ -277,6 +307,7 @@ export const Resources: Resource[] = [
 		url: "https://lucide.dev",
 		paid: "Free",
 		keywords: ["icon set", "icons", "images", "components"],
+		image: "/lucide.jpg",
 	},
 	{
 		name: "Strapi",
@@ -285,6 +316,7 @@ export const Resources: Resource[] = [
 		url: "https://strapi.io",
 		paid: "Free Plan Available",
 		keywords: ["open-source", "headless", "cms", "strapi"],
+		image: "/strapi.jpg",
 	},
 	{
 		name: "Replicate",
@@ -293,6 +325,7 @@ export const Resources: Resource[] = [
 		url: "https://replicate.com/",
 		paid: "Paid",
 		keywords: ["ai", "api", "synthetic data", "replicate"],
+		image: "/replicate.jpg",
 	},
 	{
 		name: "MongoDB",
@@ -301,6 +334,7 @@ export const Resources: Resource[] = [
 		url: "https://www.mongodb.com",
 		paid: "Free Plan Available",
 		keywords: ["database", "mongodb"],
+		image: "/mongodb.jpg",
 	},
 	{
 		name: "PlanetScale",
@@ -309,6 +343,7 @@ export const Resources: Resource[] = [
 		url: "https://planetscale.com",
 		paid: "Free Plan Available",
 		keywords: ["database", "planetscale", "mysql"],
+		image: "/planetscale.jpg",
 	},
 	{
 		name: "Convex",
@@ -318,6 +353,7 @@ export const Resources: Resource[] = [
 		url: "https://www.convex.dev",
 		paid: "Free Plan Available",
 		keywords: ["database", "convex", "authentication", "api"],
+		image: "/convex.jpg",
 	},
 	{
 		name: "Supabase",
@@ -326,14 +362,16 @@ export const Resources: Resource[] = [
 		url: "https://supabase.com",
 		paid: "Free Plan Available",
 		keywords: ["database", "supabase", "authentication", "firebase"],
+		image: "/supabase.jpg",
 	},
 	{
-		name: "Coding Projects",
+		name: "BigDevSoon",
 		description: "Discover new projects to practice your coding skills",
 		category: ["Practice"],
 		url: "https://app.bigdevsoon.me/projects",
 		paid: "Free",
 		keywords: ["coding projects", "projects", "coding", "bigdevsoon"],
+		image: "/bigdevsoon.jpg",
 	},
 	{
 		name: "AI Skeletons",
@@ -342,6 +380,7 @@ export const Resources: Resource[] = [
 		url: "https://gpt-skeleton.vercel.app",
 		paid: "Free",
 		keywords: ["ai", "skeletons", "components", "ui", "ux"],
+		image: "/aiskeletons.jpg",
 	},
 	{
 		name: "Framer Motion",
@@ -350,15 +389,17 @@ export const Resources: Resource[] = [
 		url: "https://www.framer.com/motion/",
 		paid: "Free",
 		keywords: ["animation library", "react", "framer motion", "animations"],
+		image: "/framermotion.jpg",
 	},
 	{
 		name: "Aceternity UI",
 		description:
 			"Copy paste the most trending components and use them in your websites without having to worry about styling and animations.",
-		category: ["UI/UX", "CSS", "Components", "Animations"],
+		category: ["UI/UX", "Components", "Animations"],
 		url: "https://ui.aceternity.com",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components", "css", "animations"],
+		image: "/aceternityui.jpg",
 	},
 	{
 		name: "Squoosh",
@@ -367,6 +408,7 @@ export const Resources: Resource[] = [
 		url: "https://squoosh.app",
 		paid: "Free",
 		keywords: ["compress", "images", "quality", "compress images", "squoosh"],
+		image: "/squoosh.jpg",
 	},
 	{
 		name: "Google Fonts",
@@ -375,6 +417,7 @@ export const Resources: Resource[] = [
 		url: "https://fonts.google.com",
 		paid: "Free",
 		keywords: ["google fonts", "fonts", "open-source", "web", "google"],
+		image: "/googlefonts.jpg",
 	},
 	{
 		name: "CodePen",
@@ -384,6 +427,7 @@ export const Resources: Resource[] = [
 		url: "https://codepen.io",
 		paid: "Free",
 		keywords: ["codepen", "front-end", "designers", "developers"],
+		image: "/codepen.jpg",
 	},
 	{
 		name: "Clippy",
@@ -392,6 +436,7 @@ export const Resources: Resource[] = [
 		url: "https://bennettfeely.com/clippy/",
 		paid: "Free",
 		keywords: ["css", "clip-path", "clip-path maker", "clippy"],
+		image: "/clippy.jpg",
 	},
 	// {
 	// 	name: "",

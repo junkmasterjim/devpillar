@@ -1,22 +1,33 @@
-import { Resources } from "../../resources";
+import { Resource, resources } from "../../resources";
+import Navbar from "@/components/Navbar";
+import ResourceCard from "@/components/ResourceCard";
 
 const Home = () => {
 	return (
-		<div>
-			{Resources.map((resource, i = 0) => (
-				<div key={resource.name} className="py-2">
-					<div>
-						<p>
-							{i + 1}. {resource.name}
-						</p>
-						<p className="ml-8">{resource.description}</p>
-						<p className="ml-16">{resource.category}</p>
-						<p className="ml-24">{resource.url}</p>
-						<p className="ml-32">{resource.paid}</p>
-					</div>
+		<>
+			<Navbar />
+
+			<div className="flex max-w-screen-2xl mx-auto justify-between pt-24">
+				<div className="lg:block hidden max-w-sm w-full">sidebar</div>
+
+				{/* Cards */}
+
+				<div className="max-w-screen-xl gap-4 grid grid-cols-3">
+					{resources.map((resource: Resource) => (
+						<>
+							<ResourceCard
+								name={resource.name}
+								category={resource.category}
+								description={resource.description}
+								paid={resource.paid}
+								url={resource.url}
+								image={resource?.image}
+							/>
+						</>
+					))}
 				</div>
-			))}
-		</div>
+			</div>
+		</>
 	);
 };
 
