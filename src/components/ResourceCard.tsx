@@ -56,17 +56,19 @@ const ResourceCard = ({
 								<ArrowUpRightFromSquare className="ml-2 inline h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
 							</Link>
 						</CardTitle>
-						<div className="w-full relative aspect-video bg-muted rounded-lg">
-							<Image
-								loading="lazy"
-								placeholder="blur"
-								blurDataURL={`${image}`}
-								src={image}
-								alt={name}
-								layout="fill"
-								objectFit="cover"
-								className="rounded-lg"
-							/>
+
+						<div className="w-full relative aspect-video bg-muted rounded-lg hover:opacity-90 transition-opacity">
+							<Link href={url} target="_blank">
+								<Image
+									loading="lazy"
+									placeholder="blur"
+									blurDataURL={`${image}`}
+									src={image}
+									alt={name}
+									fill
+									className="rounded-lg object-cover w-full h-full"
+								/>
+							</Link>
 						</div>
 						<CardDescription>{description}</CardDescription>
 					</div>

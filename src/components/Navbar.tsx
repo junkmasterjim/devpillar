@@ -10,7 +10,7 @@ const Navbar = () => {
 					</h1>
 				</div>
 				<div className="flex items-center gap-4">
-					<Button>Add Resource</Button>
+					{/* <Button>Add Resource</Button> */}
 				</div>
 			</div>
 		</nav>
