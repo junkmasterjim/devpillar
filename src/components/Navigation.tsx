@@ -48,14 +48,14 @@ export const Sidebar = () => {
 export const Burger = () => {
 	return (
 		<Sheet>
-			<SheetTrigger asChild id="burgerMenu">
-				<Button
-					size={"icon"}
-					className="p-0 w-8 h-8 bg-background/50 border border-border/75"
-				>
-					<Menu className="h-5 w-5" />
-				</Button>
-			</SheetTrigger>
+			<SheetTrigger id="burgerMenu"></SheetTrigger>
+			<Button
+				onClick={() => document.getElementById("burgerMenu")?.click()}
+				size={"icon"}
+				className="p-0 w-8 h-8 bg-background/50 border border-border/75"
+			>
+				<Menu className="h-5 w-5" />
+			</Button>
 			<SheetContent className="flex flex-col overflow-scroll">
 				<div className="py-4 w-5/6">
 					<SheetTitle>Search</SheetTitle>
