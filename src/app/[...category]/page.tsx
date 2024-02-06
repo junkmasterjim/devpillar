@@ -1,16 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
 import { Resource, categories, resources } from "../../../resources";
 import { redirect } from "next/navigation";
 import ResourceCard from "@/components/ResourceCard";
 import { motion } from "framer-motion";
 
 const Page = ({ params }: { params: any }) => {
-	useEffect(() => {
-		console.log(params?.category[0]);
-	}, []);
-
 	if (!params.category[0]) {
 		redirect("/");
 	}
