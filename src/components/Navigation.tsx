@@ -24,7 +24,7 @@ export const Sidebar = () => {
 			</div>
 
 			<div className="flex flex-col w-3/4 overflow-auto max-w-sm max-h-[calc(100svh-99px)] group">
-				<p className=" px-1 tracking-wide font-medium underline text-muted-foreground group-hover:text-foreground transition-colors">
+				<p className=" px-1 tracking-wide font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
 					Categories
 				</p>
 				{categories.map((cat: { name: string; icon: LucideIcon }) => (
