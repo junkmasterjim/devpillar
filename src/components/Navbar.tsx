@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Burger } from "./Navigation";
 
 const Navbar = () => {
 	return (
@@ -21,8 +22,8 @@ const Navbar = () => {
 						</p>
 					</Link>
 				</div>
-				<div className="flex items-center gap-4">
-					{/* <Button>Add Resource</Button> */}
+				<div className="md:hidden flex items-center gap-4">
+					<Burger />
 				</div>
 			</div>
 		</nav>
