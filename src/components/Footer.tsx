@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator";
 
 export const Footer = () => {
 	return (
-		<footer className="mt-16 flex gap-4 flex-col">
+		<footer className="mt-16 pb-12 flex gap-4 flex-col">
 			<Separator />
 			<div>
 				<div className="flex items-end justify-between">
