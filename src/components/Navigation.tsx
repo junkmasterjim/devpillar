@@ -34,7 +34,7 @@ export const Sidebar = () => {
 						variant={"link"}
 						className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all w-3/4"
 					>
-						<Link href={`/${cat.name}`}>
+						<Link href={`/categories/${cat.name}`}>
 							<cat.icon className="h-4 w-4 mr-2 inline" />
 							{cat.name}
 						</Link>
@@ -74,7 +74,7 @@ export const Burger = () => {
 						variant={"link"}
 						className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all w-3/4"
 					>
-						<Link href={`/${cat.name}`}>
+						<Link href={`/categories/${cat.name}`}>
 							<cat.icon className="h-4 w-4 mr-2 inline" />
 							{cat.name}
 						</Link>

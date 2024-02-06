@@ -23,8 +23,8 @@ const ResourceCard = ({
 }) => {
 	return (
 		<>
-			<Card key={name} className="max-w-md max-h-96">
-				<CardHeader className="justify-between space-y-2 p-4">
+			<Card key={name} className="max-w-md max-h-[30rem]">
+				<CardHeader className="space-y-2 p-4 justify-between h-full">
 					<div className="space-y-4">
 						<CardTitle>
 							<Link

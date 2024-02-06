@@ -1,31 +1,27 @@
 "use client";
 
-import { Resource, categories, resources } from "../../../resources";
-import { redirect } from "next/navigation";
+import { Resource, resources, categories } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
-const Page = ({ params }: { params: any }) => {
-	if (!params.category[0]) {
-		redirect("/");
-	}
-
-	const category = params.category[0];
-
+const Home = () => {
 	return (
 		<>
 			<motion.section
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
-				className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
+				className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
 			>
 				{resources
 					.sort((a: Resource, b: Resource) => {
 						return a.name.localeCompare(b.name);
 					})
-					.filter((resource) => resource.category.includes(category))
-					.map((resource) => (
+					.map((resource: Resource) => (
 						<ResourceCard
 							key={Math.random()}
 							name={resource.name}
@@ -41,4 +37,4 @@ const Page = ({ params }: { params: any }) => {
 	);
 };
 
-export default Page;
+export default Home;
