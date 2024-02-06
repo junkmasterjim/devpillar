@@ -37,7 +37,7 @@
 }
 
 ::-webkit-scrollbar {
-	@apply w-1 bg-muted/10 rounded-full absolute;
+	@apply w-1 bg-muted/10 rounded-full absolute hidden md:block;
 }
 
 ::-webkit-scrollbar-thumb {
