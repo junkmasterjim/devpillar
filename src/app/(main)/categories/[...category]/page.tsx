@@ -10,7 +10,14 @@ import { Reply } from "lucide-react";
 import Link from "next/link";
 
 const Page = ({ params }: { params: any }) => {
+	// If there is no category, redirect to home
 	if (!params.category[0]) {
+		redirect("/");
+	}
+
+	// If the category is not recognized, redirect to home
+	const allowedCategories = categories.map((category) => category.name);
+	if (!allowedCategories.includes(params.category[0])) {
 		redirect("/");
 	}
 

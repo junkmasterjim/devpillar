@@ -53,7 +53,12 @@ export interface Resource {
 	image: string;
 }
 
-export const categories: { name: string; icon: LucideIcon }[] = [
+export interface Category {
+	name: string;
+	icon: LucideIcon;
+}
+
+export const categories: Category[] = [
 	{ icon: FileJsonIcon, name: "Boilerplate" },
 
 	{ icon: Paintbrush, name: "CSS" },
@@ -570,7 +575,7 @@ export const resources: Resource[] = [
 		url: "https://prettier.io",
 		paid: "Free",
 		keywords: ["prettier", "code", "formatter", "vscode"],
-		image: "",
+		image: "/resources/prettier.jpg",
 	},
 	{
 		name: "Console Ninja",
@@ -580,7 +585,7 @@ export const resources: Resource[] = [
 		url: "https://console-ninja.com",
 		paid: "Free",
 		keywords: ["console", "ninja", "debugging", "vscode"],
-		image: "",
+		image: "/resources/consoleninja.jpg",
 	},
 	{
 		name: "Error Lens",
@@ -590,7 +595,7 @@ export const resources: Resource[] = [
 		url: "https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens",
 		paid: "Free",
 		keywords: ["error lens", "diagnostics", "vscode"],
-		image: "",
+		image: "/resources/errorlens.jpg",
 	},
 	{
 		name: "Path Intellisense",
@@ -599,7 +604,7 @@ export const resources: Resource[] = [
 		url: "https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense",
 		paid: "Free",
 		keywords: ["path", "intellisense", "vscode"],
-		image: "",
+		image: "/resources/pathintellisense.jpg",
 	},
 	{
 		name: "Tailwind CSS Intellisense",
@@ -609,7 +614,7 @@ export const resources: Resource[] = [
 		url: "https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss",
 		paid: "Free",
 		keywords: ["tailwind", "css", "intellisense", "vscode"],
-		image: "",
+		image: "/resources/tailwindintellisense.jpg",
 	},
 	{
 		name: "npm Intellisense",
@@ -619,7 +624,7 @@ export const resources: Resource[] = [
 		url: "https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense",
 		paid: "Free",
 		keywords: ["npm", "intellisense", "vscode"],
-		image: "",
+		image: "/resources/npmintellisense.jpg",
 	},
 	// {
 	// 	name: "",
@@ -628,6 +633,6 @@ export const resources: Resource[] = [
 	// 	url: "",
 	// 	paid: "Free",
 	// 	keywords: [],
-	// 	image: "",
+	// 	image: "/resources/",
 	// },
 ];
