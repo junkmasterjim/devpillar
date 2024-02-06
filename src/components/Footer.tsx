@@ -7,7 +7,7 @@ export const Footer = () => {
 			<Separator />
 			<div>
 				<div className="flex items-end gap-4 justify-between">
-					<ul className="flex flex-wrap gap-4">
+					<ul className="flex leading-none flex-wrap gap-4">
 						<Link
 							className="hover:text-foreground font-medium
 								line-through pointer-events-none text-muted"
