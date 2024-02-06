@@ -4,7 +4,7 @@ import { Burger } from "./Navigation";
 
 const Navbar = () => {
 	return (
-		<nav className="flex p-2 fixed z-50 bg-gradient-to-b from-background via-background/50 to-background/0 w-full justify-center backdrop-blur-lg backdrop-brightness-90 items-center py-2 ">
+		<nav className="flex p-4 fixed z-50 bg-gradient-to-b from-background via-background/50 to-background/0 w-full justify-center backdrop-blur-lg backdrop-brightness-90 items-center py-2 ">
 			<div className="flex max-w-screen-2xl justify-between items-center w-full px-2">
 				<div className="select-none">
 					<Link

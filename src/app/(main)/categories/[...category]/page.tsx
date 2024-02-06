@@ -5,6 +5,10 @@ import { redirect } from "next/navigation";
 import ResourceCard from "@/components/ResourceCard";
 import { motion } from "framer-motion";
 
+import { Button } from "@/components/ui/button";
+import { Reply } from "lucide-react";
+import Link from "next/link";
+
 const Page = ({ params }: { params: any }) => {
 	if (!params.category[0]) {
 		redirect("/");
@@ -14,8 +18,30 @@ const Page = ({ params }: { params: any }) => {
 
 	return (
 		<>
+			<motion.div
+				initial={{ opacity: 0, y: 5 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.3 }}
+				className="flex py-20 text-center justify-center items-center flex-col"
+			>
+				<div className="flex justify-center items-center flex-col">
+					<h1 className="text-6xl pb-4 pt-6 font-bold text-foreground">
+						{category}
+					</h1>
+					<Button
+						variant={"ghost"}
+						className="mt-4 text-muted-foreground"
+						asChild
+					>
+						<Link href="/">
+							<Reply className="mr-2" />
+							All Categories
+						</Link>
+					</Button>
+				</div>
+			</motion.div>
 			<motion.section
-				initial={{ opacity: 0, y: 20 }}
+				initial={{ opacity: 0, y: 10 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
 				className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"

@@ -1,18 +1,18 @@
 "use client";
 
+import { Hero } from "@/components/Hero";
 import { Resource, resources, categories } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 
 const Home = () => {
 	return (
 		<>
+			<Hero />
+
 			<motion.section
-				initial={{ opacity: 0, y: 20 }}
+				initial={{ opacity: 0, y: 10 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
 				className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
