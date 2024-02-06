@@ -3,7 +3,6 @@ import { categories } from "../../resources";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import Link from "next/link";
-import { Scrollbar } from "react-scrollbars-custom";
 
 export const Sidebar = () => {
 	return (
