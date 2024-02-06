@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
 export const Footer = () => {
