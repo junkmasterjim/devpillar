@@ -48,7 +48,7 @@ export const Sidebar = () => {
 export const Burger = () => {
 	return (
 		<Sheet>
-			<SheetTrigger id="burgerMenu"></SheetTrigger>
+			<SheetTrigger id="burgerMenu" />
 			<Button
 				onClick={() => document.getElementById("burgerMenu")?.click()}
 				size={"icon"}
