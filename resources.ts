@@ -4,7 +4,6 @@ import {
 	Monitor,
 	FileSearchIcon,
 	Hammer,
-	Building,
 	FileJsonIcon,
 	Paintbrush,
 	Camera,
@@ -42,7 +41,7 @@ export interface Resource {
 		| "AI"
 		| "Database"
 		| "Practice"
-		| "SaaS"
+		| "SAAS"
 		| "Design"
 		| "Fonts"
 	)[];
@@ -70,7 +69,7 @@ export const categories: { name: string; icon: LucideIcon }[] = [
 	{ icon: Bot, name: "AI" },
 	{ icon: Database, name: "Database" },
 	{ icon: BookOpenCheck, name: "Practice" },
-	{ icon: ShoppingBasket, name: "SaaS" },
+	{ icon: ShoppingBasket, name: "SAAS" },
 	{ icon: PaintRoller, name: "Design" },
 	{ icon: CaseSensitive, name: "Fonts" },
 ].sort((a, b) => {
@@ -81,10 +80,10 @@ export const resources: Resource[] = [
 	{
 		name: "ShipFast",
 		description: "A Next.js boilerplate for building SaaS applications",
-		category: ["Boilerplate", "SaaS"],
+		category: ["Boilerplate", "SAAS"],
 		url: "https://shipfa.st/",
 		paid: "Paid",
-		keywords: ["next.js", "boilerplate", "saas"],
+		keywords: ["next.js", "boilerplate", "sAAs"],
 		image: "/resources/shipfast.jpg",
 	},
 	{
@@ -475,6 +474,92 @@ export const resources: Resource[] = [
 		keywords: ["css", "clip-path", "clip-path maker", "clippy"],
 		image: "/resources/clippy.jpg",
 	},
+	{
+		name: "godly.website",
+		description:
+			"Astronomically good web design inspiration from all over the internet.",
+		category: ["UI-UX", "Design"],
+		url: "https://godly.website",
+		paid: "Free",
+		keywords: ["web design", "inspiration", "web", "design", "godly"],
+		image: "/resources/godly.jpg",
+	},
+	{
+		name: "Open Doodles",
+		description:
+			"Open Doodles is a set of free illustrations that embraces the idea of Open Design.",
+		category: ["UI-UX", "Design", "Images"],
+		url: "https://www.opendoodles.com",
+		paid: "Free",
+		keywords: ["illustrations", "open design", "design", "images", "doodles"],
+		image: "/resources/opendoodles.jpg",
+	},
+	{
+		name: "Footer.design",
+		description:
+			"Footer fills the need for footer-specific inspiration in the web design space.",
+		category: ["UI-UX", "Design"],
+		url: "https://www.footer.design",
+		paid: "Free",
+		keywords: ["footer", "inspiration", "web", "design", "footer.design"],
+		image: "/resources/footer.jpg",
+	},
+	{
+		name: "Blitz.js",
+		description:
+			"The Missing Fullstack Toolkit for Next.js. Providing battle-tested libraries and conventions for shipping and scaling world wide applications.",
+		category: ["Boilerplate", "Components", "API", "Authentication"],
+		url: "https://blitzjs.com",
+		paid: "Free",
+		keywords: ["next.js", "fullstack", "toolkit", "blitz.js"],
+		image: "/resources/blitz.jpg",
+	},
+	{
+		name: "Favicon.io",
+		description:
+			"The only favicon generator you need for your next project. Quickly generate your favicon from text, image, or choose from hundreds of emojis.",
+		category: ["Images"],
+		url: "https://favicon.io",
+		paid: "Free",
+		keywords: ["favicon", "generator", "favicon.io"],
+		image: "/resources/faviconio.jpg",
+	},
+	{
+		name: "Fontshare",
+		description:
+			"Fontshare is a free fonts service launched by the Indian Type Foundry (ITF). It’s a growing collection of professional grade fonts that are 100% free for personal and commercial use.",
+		category: ["Fonts", "Design"],
+		url: "https://www.fontshare.com",
+		paid: "Free",
+		keywords: ["fonts", "fontshare", "itf", "indian type foundry"],
+		image: "/resources/fontshare.jpg",
+	},
+	{
+		name: "React TS Cheatsheet",
+		description:
+			"Cheatsheets for experienced React developers getting started with TypeScript.",
+		category: ["Documentation"],
+		url: "https://react-typescript-cheatsheet.netlify.app",
+		paid: "Free",
+		keywords: [
+			"react",
+			"typescript",
+			"cheatsheet",
+			"documentation",
+			"react-ts",
+		],
+		image: "/resources/reactts.jpg",
+	},
+	{
+		name: "Flowbite",
+		description:
+			"Build websites even faster with components on top of Tailwind CSS.",
+		category: ["Components", "UI-UX", "CSS"],
+		url: "",
+		paid: "Free Plan Available",
+		keywords: ["tailwind", "css", "components", "flowbite", "ui", "ux"],
+		image: "/resources/flowbite.jpg",
+	},
 	// {
 	// 	name: "",
 	// 	description: "",
@@ -482,5 +567,6 @@ export const resources: Resource[] = [
 	// 	url: "",
 	// 	paid: "Free",
 	// 	keywords: [],
+	// 	image: "",
 	// },
 ];

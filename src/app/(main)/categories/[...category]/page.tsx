@@ -25,7 +25,7 @@ const Page = ({ params }: { params: any }) => {
 				className="flex py-20 text-center justify-center items-center flex-col"
 			>
 				<div className="flex justify-center items-center flex-col">
-					<h1 className="text-6xl pb-4 pt-6 font-bold text-foreground">
+					<h1 className="text-4xl leading-10 pb-4 pt-6 font-medium text-foreground">
 						{category}
 					</h1>
 					<Button
