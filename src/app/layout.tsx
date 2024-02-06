@@ -29,7 +29,9 @@ export default function RootLayout({
 				<Navbar />
 				<main className="flex px-2 max-w-screen-2xl mx-auto gap-4 justify-between max-h-screen">
 					<Sidebar />
-					{children}
+					<div className="max-w-screen-xl py-8 pt-24 lg:pr-4 overflow-auto mx-auto ">
+						{children}
+					</div>
 				</main>
 			</body>
 		</html>

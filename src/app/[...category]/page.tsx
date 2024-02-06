@@ -23,7 +23,7 @@ const Page = ({ params }: { params: any }) => {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
-				className="max-w-screen-xl pt-24 pr-4 overflow-auto gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto"
+				className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
 			>
 				{resources
 					.sort((a: Resource, b: Resource) => {
