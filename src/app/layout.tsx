@@ -1,6 +1,8 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Sidebar } from "@/components/Navigation";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -21,7 +23,12 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={(poppins.className, "overflow-hidden")}>
 				<div className="absolute top-0 z-[-2] h-screen w-screen bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
-				{children}
+
+				<Navbar />
+				<main className="flex px-2 max-w-screen-2xl mx-auto gap-4 justify-between max-h-screen">
+					<Sidebar />
+					{children}
+				</main>
 			</body>
 		</html>
 	);

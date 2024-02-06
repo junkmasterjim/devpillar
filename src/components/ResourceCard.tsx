@@ -4,6 +4,7 @@ import { Badge } from "./ui/badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { ArrowUpRightFromSquare } from "lucide-react";
 import Image from "next/image";
+import { Resource } from "../../resources";
 
 const ResourceCard = ({
 	name,
@@ -15,29 +16,7 @@ const ResourceCard = ({
 }: {
 	name: string;
 	description: string;
-	category: (
-		| "Boilerplate"
-		| "Website Builder"
-		| "npm"
-		| "CSS"
-		| "Components"
-		| "Documentation"
-		| "Backgrounds"
-		| "Images"
-		| "Video"
-		| "UI/UX"
-		| "Hooks"
-		| "Authentication"
-		| "Animations"
-		| "CMS"
-		| "API"
-		| "AI"
-		| "Database"
-		| "Practice"
-		| "SaaS"
-		| "Design"
-		| "Fonts"
-	)[];
+	category: Resource["category"];
 	url: string;
 	paid: "Free" | "Paid" | "Free Plan Available";
 	image: string;

@@ -35,3 +35,11 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+::-webkit-scrollbar {
+	@apply w-1 bg-muted/10 rounded-full absolute;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-muted-foreground/10 rounded-full absolute;
+}
