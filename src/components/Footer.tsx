@@ -9,20 +9,20 @@ export const Footer = () => {
 			<div>
 				<div className="flex items-end justify-between">
 					<ul className="flex gap-4">
-						<Button
-							disabled
-							variant={"link"}
-							className="text-muted-foreground hover:text-foreground px-0 disabled:line-through"
+						<Link
+							className="hover:text-foreground font-medium
+								line-through pointer-events-none text-muted"
+							href="/contact"
 						>
-							<Link href="/about">Contact</Link>
-						</Button>
-						<Button
-							disabled
-							variant={"link"}
-							className="text-muted-foreground hover:text-foreground px-0 disabled:line-through"
+							Contact
+						</Link>
+						<Link
+							className="hover:text-foreground font-medium
+								line-through pointer-events-none text-muted"
+							href="/contact"
 						>
-							<Link href="/about">Contribute</Link>
-						</Button>
+							Contribute
+						</Link>
 					</ul>
 
 					<div className="flex items-end text-end gap-0.5 flex-col">
