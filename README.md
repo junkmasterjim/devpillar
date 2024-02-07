@@ -10,7 +10,9 @@ This section will be updated when submissions are open.
 
 ## Roadmap
 
-~~- 50 Resources~~
+- ~~50 Resources~~
+
+- Auth & Storage (Clerk & Supabase)
 
 - Add sorting methods
 
@@ -18,7 +20,7 @@ This section will be updated when submissions are open.
 
 - Search functionality
 
-- Scroll to top functionality for mobile users
+- ~~Scroll to top functionality for mobile users~~
 
 - Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
 

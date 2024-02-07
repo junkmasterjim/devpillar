@@ -5,17 +5,19 @@ import { Resource, resources, categories } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 
 import { motion } from "framer-motion";
-
+import { ScrollToTop } from "@/components/ScrollToTop";
 const Home = () => {
 	return (
 		<>
 			<Hero />
 
+			<ScrollToTop />
+
 			<motion.section
 				initial={{ opacity: 0, y: 10 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
-				className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
+				className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto"
 			>
 				{resources
 					.sort((a: Resource, b: Resource) => {
