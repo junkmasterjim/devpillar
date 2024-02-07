@@ -20,6 +20,7 @@ import {
 	PaintRoller,
 	CaseSensitive,
 	Laptop,
+	Mail,
 } from "lucide-react";
 
 export interface Resource {
@@ -46,6 +47,7 @@ export interface Resource {
 		| "Design"
 		| "Fonts"
 		| "VSCode"
+		| "Email"
 	)[];
 	url: string;
 	paid: "Free" | "Paid" | "Free Plan Available";
@@ -80,6 +82,7 @@ export const categories: Category[] = [
 	{ icon: PaintRoller, name: "Design" },
 	{ icon: CaseSensitive, name: "Fonts" },
 	{ icon: Laptop, name: "VSCode" },
+	{ icon: Mail, name: "Email" },
 ].sort((a, b) => {
 	return a.name.localeCompare(b.name);
 });
@@ -641,6 +644,60 @@ export const resources: Resource[] = [
 		],
 		image: "/resources/readmeso.jpg",
 	},
+	{
+		name: "React Email",
+		description:
+			"The next generation of writing emails. A collection of high-quality, unstyled components for creating beautiful emails using React and TypeScript.",
+		category: ["Email"],
+		url: "https://react.email",
+		paid: "Free",
+		keywords: [
+			"react",
+			"email",
+			"typescript",
+			"components",
+			"email components",
+		],
+		image: "/resources/reactemail.jpg",
+	},
+	{
+		name: "Resend",
+		description:
+			"Email for developers. The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.",
+		category: ["Email"],
+		url: "https://resend.com",
+		paid: "Free",
+		keywords: ["email", "developers", "transactional", "marketing", "resend"],
+		image: "/resources/resend.jpg",
+	},
+	{
+		name: "EmailJS",
+		description:
+			"Send email directly from your code, no server side code required. Add static or dynamic attachments, dynamic parameters, captcha code and more. 200 free emails per month.",
+		category: ["Email"],
+		url: "https://www.emailjs.com",
+		paid: "Free",
+		keywords: ["email", "code", "attachments", "captcha", "emailjs"],
+		image: "/resources/emailjs.jpg",
+	},
+	// {
+	// 	name: "",
+	// 	description: "",
+	// 	category: [],
+	// 	url: "",
+	// 	paid: "Free",
+	// 	keywords: [],
+	// 	image: "/resources/",
+	// },
+	// {
+	// 	name: "",
+	// 	description: "",
+	// 	category: [],
+	// 	url: "",
+	// 	paid: "Free",
+	// 	keywords: [],
+	// 	image: "/resources/",
+	// },
 	// {
 	// 	name: "",
 	// 	description: "",

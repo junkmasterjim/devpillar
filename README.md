@@ -12,6 +12,8 @@ This section will be updated when submissions are open.
 
 - ~~50 Resources~~
 
+- Newsletter
+
 - Auth & Storage
 
 - Add sorting methods
