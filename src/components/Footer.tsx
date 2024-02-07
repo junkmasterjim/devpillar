@@ -37,6 +37,7 @@ export const Footer = () => {
 						<p className="text-muted-foreground text-xs">
 							Made with ❤️ by{" "}
 							<Link
+								target="_blank"
 								className="text-foreground hover:underline"
 								href={"https://github.com/noahpittman"}
 							>

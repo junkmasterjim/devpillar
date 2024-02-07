@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Burger } from "./Navigation";
+import { Button } from "./ui/button";
+import { Github } from "lucide-react";
 
 const Navbar = () => {
 	return (
@@ -22,6 +24,24 @@ const Navbar = () => {
 						</p>
 					</Link>
 				</div>
+
+				<div className="flex items-center gap-4 pr-4">
+					<Button
+						asChild
+						variant={"secondary"}
+						className="text-muted-foreground"
+						size={"sm"}
+					>
+						<Link
+							target="_blank"
+							href={"https://github.com/noahpittman/devpillar"}
+						>
+							<Github className=" h-5 w-5 mr-2" />
+							Github
+						</Link>
+					</Button>
+				</div>
+
 				<div className="lg:hidden flex items-center gap-4">
 					<Burger />
 				</div>

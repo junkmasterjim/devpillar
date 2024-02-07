@@ -10,6 +10,8 @@ This section will be updated when submissions are open.
 
 ## Roadmap
 
+~~- 50 Resources~~
+
 - Add sorting methods
 
 - Add submissions form

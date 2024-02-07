@@ -1,9 +1,9 @@
 "use client";
 
-import { LucideIcon, Menu } from "lucide-react";
+import { LucideIcon, Menu, Search } from "lucide-react";
 import { categories } from "../../resources";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+
 import Link from "next/link";
 import {
 	Sheet,
@@ -11,15 +11,21 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
+import { InputUnstyled } from "./ui/input-unstyled";
 
 export const Sidebar = () => {
 	return (
 		<div className="lg:flex flex-col hidden max-w-sm w-full pt-24">
-			<div className="py-4 w-3/5">
-				<Input
+			<div className="mb-8 w-3/5 text-foreground h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 grid grid-flow-col bg-background ">
+				<Search
+					onClick={() => document?.getElementById("search")?.focus()}
+					className="h-5 w-5 mr-2"
+				/>
+				<InputUnstyled
+					id="search"
 					disabled
-					className="line-through"
-					placeholder={"Search for a resource"}
+					className="line-through border-0 bg-background "
+					placeholder={`Search for a resource`}
 				/>
 			</div>
 
@@ -56,14 +62,23 @@ export const Burger = () => {
 			>
 				<Menu className="h-5 w-5" />
 			</Button>
-			<SheetContent className="flex flex-col overflow-scroll">
-				<div className="py-4 w-5/6">
-					<SheetTitle>Search</SheetTitle>
-					<Input
-						disabled
-						className="line-through"
-						placeholder={"Search for a resource"}
-					/>
+			<SheetContent className="flex pt-5 flex-col overflow-scroll">
+				<SheetTitle className="line-through text-muted-foreground">
+					Search
+				</SheetTitle>
+				<div className="w-5/6">
+					<div className="mb-8 w-full text-foreground h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 grid grid-flow-col bg-background ">
+						<Search
+							onClick={() => document?.getElementById("search")?.focus()}
+							className="h-5 w-5 mr-2"
+						/>
+						<InputUnstyled
+							id="search"
+							disabled
+							className="line-through border-0 bg-background "
+							placeholder={`Search for a resource`}
+						/>
+					</div>
 				</div>
 				<SheetTitle>Categories</SheetTitle>
 				{categories.map((cat: { name: string; icon: LucideIcon }) => (
