@@ -1,6 +1,6 @@
 "use client";
 
-import { LucideIcon, Menu, Search } from "lucide-react";
+import { Github, LogIn, LucideIcon, Menu, Search } from "lucide-react";
 import { categories } from "../../resources";
 import { Button } from "./ui/button";
 
@@ -62,15 +62,44 @@ export const Burger = () => {
 			>
 				<Menu className="h-5 w-5" />
 			</Button>
-			<SheetContent className="flex pt-5 flex-col overflow-scroll">
-				<SheetTitle className="line-through text-muted-foreground">
-					Search
-				</SheetTitle>
-				<div className="w-5/6">
+			<SheetContent className="flex pt-16 flex-col overflow-scroll">
+				<Button
+					onClick={() => document.getElementById("githubLink")?.click()}
+					variant={"secondary"}
+					className="text-muted-foreground"
+				>
+					<Link
+						id="githubLink"
+						className="flex items-center gap-1"
+						target="_blank"
+						href={"https://github.com/noahpittman/devpillar"}
+					>
+						<Github className=" h-5 w-5 mr-2" />
+						Github
+					</Link>
+				</Button>
+				<Button
+					disabled
+					onClick={() => document.getElementById("signInLink")?.click()}
+					variant={"outline"}
+					className="text-muted-foreground"
+				>
+					<Link
+						id="signInLink"
+						className="flex items-center gap-1"
+						target="_blank"
+						href={"https://github.com/noahpittman/devpillar"}
+					>
+						<LogIn className=" h-5 w-5 mr-2" />
+						Sign In
+					</Link>
+				</Button>
+
+				<div className="">
 					<div className="mb-8 w-full text-foreground h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 grid grid-flow-col bg-background ">
 						<Search
 							onClick={() => document?.getElementById("search")?.focus()}
-							className="h-5 w-5 mr-2"
+							className="h-5 w-5"
 						/>
 						<InputUnstyled
 							id="search"
