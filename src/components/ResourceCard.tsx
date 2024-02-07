@@ -67,11 +67,10 @@ const ResourceCard = ({
 									</Badge>
 								))}
 							</div>
-
-							<div className="">
+							<div className="invert">
 								{paid == "Paid" && (
 									<Badge
-										className="font-normal opacity-50"
+										className="font-normal opacity-100"
 										variant={"secondary"}
 									>
 										$$$
@@ -79,7 +78,7 @@ const ResourceCard = ({
 								)}
 								{paid == "Free" && (
 									<Badge
-										className="font-normal opacity-50"
+										className="font-normal opacity-100"
 										variant={"secondary"}
 									>
 										Free
@@ -87,10 +86,10 @@ const ResourceCard = ({
 								)}
 								{paid == "Free Plan Available" && (
 									<Badge
-										className="font-normal opacity-50"
+										className="font-normal opacity-100"
 										variant={"secondary"}
 									>
-										Free Plan
+										Free Plan Available
 									</Badge>
 								)}
 							</div>

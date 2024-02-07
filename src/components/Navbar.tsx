@@ -36,7 +36,7 @@ const Navbar = () => {
 					>
 						<Link
 							id="githubLink"
-							className="flex items-center gap-1"
+							className="flex items-center gap-1 pointer-events-none"
 							target="_blank"
 							href={"https://github.com/noahpittman/devpillar"}
 						>

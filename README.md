@@ -12,7 +12,7 @@ This section will be updated when submissions are open.
 
 - ~~50 Resources~~
 
-- Auth & Storage (Clerk & Supabase)
+- Auth & Storage
 
 - Add sorting methods
 
