@@ -39,7 +39,7 @@ export const Footer = () => {
 							<Link
 								target="_blank"
 								className="text-foreground hover:underline"
-								href={"https://github.com/noahpittman"}
+								href={"https://twitter.com/_pittman"}
 							>
 								Noah Pittman
 							</Link>
