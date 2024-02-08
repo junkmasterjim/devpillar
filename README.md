@@ -12,9 +12,15 @@ This section will be updated when submissions are open.
 
 - ~~50 Resources~~
 
-- Newsletter
+- ~~Newsletter~~
+
+- Spice up newsletter welcome email
 
 - Auth & Storage
+
+- User sign in & favourites (backend)
+
+- Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
 
 - Add sorting methods
 
@@ -23,9 +29,5 @@ This section will be updated when submissions are open.
 - Search functionality
 
 - ~~Scroll to top functionality for mobile users~~
-
-- Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
-
-- User sign in & favourites (backend)
 
 - More resources!
