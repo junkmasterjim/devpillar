@@ -18,7 +18,7 @@ export const Footer = () => {
 						Join our newsletter to be notified of major updates and new
 						resources every two weeks.
 					</CardDescription>
-					<div className="max-w-sm w-full mx-auto">
+					<div className="max-w-sm w-full mx-auto overflow-hidden">
 						<iframe
 							src="https://embeds.beehiiv.com/083e2abd-d1cb-4d50-b5d5-3146de92c860?slim=true"
 							data-test-id="beehiiv-embed"
