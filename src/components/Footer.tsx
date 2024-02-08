@@ -20,10 +20,11 @@ export const Footer = () => {
 					</CardDescription>
 					<div className="max-w-sm w-full mx-auto overflow-hidden">
 						<iframe
+							scrolling="no"
 							src="https://embeds.beehiiv.com/083e2abd-d1cb-4d50-b5d5-3146de92c860?slim=true"
 							data-test-id="beehiiv-embed"
 							height="52"
-							className="scale-[80%] rounded-md w-full bg-black opacity-95"
+							className="scale-[80%] overflow-hidden rounded-md w-full bg-black opacity-95"
 						></iframe>
 					</div>
 				</CardHeader>
