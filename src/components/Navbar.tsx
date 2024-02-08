@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Burger } from "./Navigation";
 import { Button } from "./ui/button";
-import { Github, LogIn } from "lucide-react";
+import { Github, Inbox, LogIn } from "lucide-react";
 
 const Navbar = () => {
 	return (
@@ -36,11 +36,11 @@ const Navbar = () => {
 					>
 						<Link
 							id="githubLink"
-							className="flex items-center gap-1 pointer-events-none"
+							className="flex items-center gap-2 pointer-events-none"
 							target="_blank"
 							href={"https://github.com/noahpittman/devpillar"}
 						>
-							<Github className=" h-5 w-5 mr-2" />
+							<Github className=" h-5 w-5" />
 							Github
 						</Link>
 					</Button>
@@ -53,12 +53,28 @@ const Navbar = () => {
 					>
 						<Link
 							id="signInLink"
-							className="flex items-center gap-1"
+							className="flex items-center gap-2 pointer-events-none"
 							target="_blank"
 							href={"https://github.com/noahpittman/devpillar"}
 						>
-							<LogIn className=" h-5 w-5 mr-2" />
+							<LogIn className=" h-5 w-5 rotate-180" />
 							Sign In
+						</Link>
+					</Button>
+					<Button
+						onClick={() => document.getElementById("newsletterLink")?.click()}
+						variant={"outline"}
+						className="text-muted-foreground"
+						size={"sm"}
+					>
+						<Link
+							id="newsletterLink"
+							className="flex items-center gap-2 pointer-events-none scroll-smooth"
+							scroll
+							href={"#newsletter"}
+						>
+							<Inbox className=" h-5 w-5" />
+							Newsletter
 						</Link>
 					</Button>
 				</div>
