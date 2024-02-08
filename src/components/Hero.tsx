@@ -9,7 +9,7 @@ export const Hero = () => {
 			initial={{ opacity: 0, y: 5 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.3 }}
-			className="flex py-20 text-center justify-center items-center flex-col"
+			className="flex py-20 text-center justify-center items-center flex-col select-none"
 		>
 			<div className="flex justify-center items-center flex-col">
 				<Badge variant={"outline"} className="w-fit font-normal">

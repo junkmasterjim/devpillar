@@ -680,6 +680,16 @@ export const resources: Resource[] = [
 		keywords: ["email", "code", "attachments", "captcha", "emailjs"],
 		image: "/resources/emailjs.jpg",
 	},
+	{
+		name: "Mobbin",
+		description:
+			"Mobbin is the world's largest UI & UX reference library. It's always up-to-date, includes mobile and web, and lets you filter by specific app categories, UI elements, flow patterns, and more.",
+		category: ["UI-UX", "Design"],
+		url: "https://mobbin.com",
+		paid: "Free Plan Available",
+		keywords: ["ui", "ux", "design", "mobbin", "mobile"],
+		image: "/resources/mobbin.jpg",
+	},
 	// {
 	// 	name: "",
 	// 	description: "",
@@ -689,15 +699,11 @@ export const resources: Resource[] = [
 	// 	keywords: [],
 	// 	image: "/resources/",
 	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
+
+	// https://recharts.org/en-US/
+	// https://recharts.org/en-US/
+	// https://recharts.org/en-US/
+
 	// {
 	// 	name: "",
 	// 	description: "",

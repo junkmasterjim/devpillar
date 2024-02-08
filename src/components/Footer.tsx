@@ -24,7 +24,7 @@ export const Footer = () => {
 							src="https://embeds.beehiiv.com/083e2abd-d1cb-4d50-b5d5-3146de92c860?slim=true"
 							data-test-id="beehiiv-embed"
 							height="52"
-							className="scale-[80%] overflow-hidden rounded-md w-full bg-black opacity-95"
+							className="scale-[80%] overflow-hidden rounded-md w-full bg-black opacity-95 border"
 						></iframe>
 					</div>
 				</CardHeader>
