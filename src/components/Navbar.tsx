@@ -29,22 +29,6 @@ const Navbar = () => {
 				<div className="lg:flex flex-row-reverse hidden items-center gap-4 pr-2">
 					<ResponsiveDialog />
 					<Button
-						variant={"secondary"}
-						className="text-muted-foreground"
-						size={"sm"}
-						asChild
-					>
-						<Link
-							id="githubLink"
-							className="flex items-center gap-2"
-							target="_blank"
-							href={"https://github.com/noahpittman/devpillar"}
-						>
-							<Github className=" h-5 w-5" />
-							Github
-						</Link>
-					</Button>
-					<Button
 						disabled
 						// asChild
 						variant={"outline"}

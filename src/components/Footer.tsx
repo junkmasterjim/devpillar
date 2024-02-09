@@ -4,7 +4,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 export const Footer = () => {
 	return (
-		<footer className="mt-20 pb-16 flex gap-4 flex-col space-y-16">
+		<footer className="mt-20 pb-16 pt-20 flex gap-4 flex-col space-y-16">
 			<Card
 				id="newsletter"
 				className="
