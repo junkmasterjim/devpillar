@@ -45,6 +45,12 @@ export default function Requests() {
 
 	return (
 		<div className="flex flex-wrap gap-2 justify-center">
+			{requests?.length === 0 && (
+				<p className="text-center text-muted-foreground">
+					No resource requests found.
+				</p>
+			)}
+
 			{requests?.map((request: ResourceRequest) => (
 				<Card
 					key={request.id}
