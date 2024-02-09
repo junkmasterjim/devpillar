@@ -1,7 +1,7 @@
 "use client";
 
 import { Hero } from "@/components/Hero";
-import { Resource, resources, categories } from "../../../resources";
+import { Resource, resources } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 
 import { motion } from "framer-motion";

@@ -1,14 +1,13 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Burger } from "./Navigation";
 import { Button } from "./ui/button";
-import { Github, Inbox, LogIn } from "lucide-react";
+import { Github, Inbox, LogIn, PlusCircle } from "lucide-react";
+import { ResponsiveDialog } from "./ResponsiveDialog";
 
 const Navbar = () => {
 	return (
-		<nav className="flex p-3 fixed z-50 bg-gradient-to-b from-background via-background/50 to-background/0 w-full justify-center backdrop-blur-lg backdrop-brightness-90 items-center ">
+		<nav className="flex p-3 fixed z-50 bg-gradient-to-b from-background via-background/50 to-background/0 w-full justify-center backdrop-blur-lg backdrop-brightness-90 items-center select-none">
 			<div className="flex max-w-screen-2xl justify-between items-center w-full px-2">
 				<div className="select-none">
 					<Link
@@ -28,15 +27,16 @@ const Navbar = () => {
 				</div>
 
 				<div className="lg:flex flex-row-reverse hidden items-center gap-4 pr-2">
+					<ResponsiveDialog />
 					<Button
-						onClick={() => document.getElementById("githubLink")?.click()}
 						variant={"secondary"}
 						className="text-muted-foreground"
 						size={"sm"}
+						asChild
 					>
 						<Link
 							id="githubLink"
-							className="flex items-center gap-2 pointer-events-none"
+							className="flex items-center gap-2"
 							target="_blank"
 							href={"https://github.com/noahpittman/devpillar"}
 						>
@@ -45,15 +45,15 @@ const Navbar = () => {
 						</Link>
 					</Button>
 					<Button
-						onClick={() => document.getElementById("signInLink")?.click()}
 						disabled
+						// asChild
 						variant={"outline"}
 						className="text-muted-foreground"
 						size={"sm"}
 					>
 						<Link
 							id="signInLink"
-							className="flex items-center gap-2 pointer-events-none"
+							className="flex items-center gap-2"
 							target="_blank"
 							href={"https://github.com/noahpittman/devpillar"}
 						>
@@ -61,15 +61,16 @@ const Navbar = () => {
 							Sign In
 						</Link>
 					</Button>
+
 					<Button
-						onClick={() => document.getElementById("newsletterLink")?.click()}
 						variant={"outline"}
+						asChild
 						className="text-muted-foreground"
 						size={"sm"}
 					>
 						<Link
 							id="newsletterLink"
-							className="flex items-center gap-2 pointer-events-none scroll-smooth"
+							className="flex items-center gap-2 scroll-smooth"
 							scroll
 							href={"#newsletter"}
 						>

@@ -12,10 +12,11 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 import { InputUnstyled } from "./ui/input-unstyled";
+import { ResponsiveDialog } from "./ResponsiveDialog";
 
 export const Sidebar = () => {
 	return (
-		<div className="lg:flex flex-col hidden max-w-sm w-full pt-24">
+		<div className="lg:flex flex-col hidden max-w-sm w-full pt-24 ">
 			<div className="mb-8 w-3/5 text-foreground h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 grid grid-flow-col bg-background ">
 				<Search
 					onClick={() => document?.getElementById("search")?.focus()}
@@ -29,7 +30,7 @@ export const Sidebar = () => {
 				/>
 			</div>
 
-			<div className="flex flex-col w-3/4 overflow-auto max-w-sm max-h-[calc(100svh-99px)] group">
+			<div className="flex flex-col w-3/4 overflow-auto max-w-sm max-h-[calc(100svh-99px)] group select-none">
 				<p className=" px-1 tracking-wide font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
 					Categories
 				</p>
@@ -62,22 +63,9 @@ export const Burger = () => {
 			>
 				<Menu className="h-5 w-5" />
 			</Button>
-			<SheetContent className="flex pt-16 flex-col overflow-scroll">
-				<Button
-					onClick={() => document.getElementById("githubLink")?.click()}
-					variant={"secondary"}
-					className="text-muted-foreground"
-				>
-					<Link
-						id="githubLink"
-						className="flex items-center gap-1 pointer-events-none"
-						target="_blank"
-						href={"https://github.com/noahpittman/devpillar"}
-					>
-						<Github className=" h-5 w-5 mr-2" />
-						Github
-					</Link>
-				</Button>
+			<SheetContent className="flex pt-16 flex-col overflow-scroll select-none">
+				<ResponsiveDialog />
+
 				<Button
 					disabled
 					onClick={() => document.getElementById("signInLink")?.click()}

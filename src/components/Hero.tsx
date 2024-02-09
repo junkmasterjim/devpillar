@@ -12,8 +12,11 @@ export const Hero = () => {
 			className="flex py-20 text-center justify-center items-center flex-col select-none"
 		>
 			<div className="flex justify-center items-center flex-col">
-				<Badge variant={"outline"} className="w-fit font-normal">
-					Submissions, profiles, and more. Coming soon!
+				<Badge
+					variant={"outline"}
+					className="w-fit scale-[115%] mb-2 font-normal"
+				>
+					Resource submissions now open!
 				</Badge>
 				<h1 className="text-6xl pb-4 font-bold text-foreground">
 					Welcome to DevPillar

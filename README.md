@@ -4,15 +4,15 @@ DevPillar is an open source resource library for Full Stack Developers, UI/UX De
 
 ## Contributing
 
-Submissions are currently under development.
-
-This section will be updated when submissions are open.
+Contributions are welcome! Resources can be submitted through the submissions form on the website, or send it to me directly and I'll take a look.
 
 ## Roadmap
 
 - ~~50 Resources~~
 
 - ~~Newsletter~~
+
+- ~~Add submissions form~~
 
 - Spice up newsletter welcome email
 
@@ -23,8 +23,6 @@ This section will be updated when submissions are open.
 - Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
 
 - Add sorting methods
-
-- Add submissions form
 
 - Search functionality
 
