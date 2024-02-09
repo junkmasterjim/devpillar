@@ -70,12 +70,16 @@ export const Footer = () => {
 								Noah Pittman
 							</Link>
 						</p>
-						{/* <p className="text-muted-foreground text-xs">
-                    Resources by{" "}
-                    <Link className="text-foreground hover:underline" href={""}>
-                        the community
-                    </Link>
-                </p> */}
+						<p className="text-muted-foreground text-xs">
+							Resources provided by{" "}
+							<Link
+								target="_blank"
+								className="text-foreground hover:underline"
+								href={"https://github.com/noahpittman/devpillar"}
+							>
+								the people
+							</Link>
+						</p>
 					</div>
 				</div>
 			</div>
