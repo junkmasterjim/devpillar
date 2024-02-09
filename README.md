@@ -14,9 +14,11 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~Add submissions form~~
 
-- Spice up newsletter welcome email
+- User authentication.
 
-- Auth & Storage
+- Authenticate resources submissions
+
+- Spice up newsletter welcome email
 
 - User sign in & favourites (backend)
 
