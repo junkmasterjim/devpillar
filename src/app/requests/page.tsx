@@ -66,7 +66,9 @@ export default function Requests() {
 						</Button>
 						<p>
 							{request.categories.map((cat) => (
-								<Badge variant={"secondary"}>{cat}</Badge>
+								<Badge key={Math.random()} variant={"secondary"}>
+									{cat}
+								</Badge>
 							))}
 						</p>
 					</CardContent>

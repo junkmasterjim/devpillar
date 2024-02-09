@@ -49,8 +49,8 @@ export function ResponsiveDialog() {
 					<DialogHeader>
 						<DialogTitle>Request a resource</DialogTitle>
 						<DialogDescription>
-							Request a resource to be added to the collection. We'll review it
-							and add it if it meets our standards.
+							Request a resource to be added to the collection. We&apos;ll
+							review it and add it if it meets our standards.
 						</DialogDescription>
 					</DialogHeader>
 
@@ -73,8 +73,8 @@ export function ResponsiveDialog() {
 				<DrawerHeader className="text-left">
 					<DrawerTitle>Request a resource</DrawerTitle>
 					<DrawerDescription>
-						Request a resource to be added to the collection. We'll review it
-						and add it if it meets our standards.
+						Request a resource to be added to the collection. We&apos;ll review
+						it and add it if it meets our standards.
 					</DrawerDescription>
 				</DrawerHeader>
 
