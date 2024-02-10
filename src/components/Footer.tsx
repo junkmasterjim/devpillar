@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -41,13 +43,16 @@ export const Footer = () => {
 						>
 							Contact
 						</Link>
-						<Link
-							className="hover:text-foreground font-medium
-								line-through pointer-events-none text-muted"
-							href="/contact"
+						<p
+							onClick={() => {
+								document.getElementById("add-resource")?.click();
+							}}
+							className="hover:text-foreground font-medium cursor-pointer
+							text-muted-foreground transition-colors"
 						>
 							Contribute
-						</Link>
+						</p>
+						<Link href="/contact"></Link>
 					</ul>
 
 					<div className="flex items-end text-end gap-0.5 flex-col">

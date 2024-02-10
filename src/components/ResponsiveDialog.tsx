@@ -37,6 +37,7 @@ export function ResponsiveDialog() {
 			<Dialog open={open} onOpenChange={setOpen}>
 				<DialogTrigger asChild>
 					<Button
+						id="add-resource"
 						aria-hidden
 						variant="white"
 						size={"sm"}
@@ -45,7 +46,7 @@ export function ResponsiveDialog() {
 						<PlusCircle /> Add resource
 					</Button>
 				</DialogTrigger>
-				<DialogContent className="sm:max-w-[425px]">
+				<DialogContent className="sm:max-w-[425px] ">
 					<DialogHeader>
 						<DialogTitle>Request a resource</DialogTitle>
 						<DialogDescription>
@@ -65,7 +66,11 @@ export function ResponsiveDialog() {
 	return (
 		<Drawer open={open} onOpenChange={setOpen}>
 			<DrawerTrigger asChild>
-				<Button variant="white" className="flex items-center gap-2">
+				<Button
+					id="add-resource"
+					variant="white"
+					className="flex items-center gap-2"
+				>
 					<PlusCircle /> Add resource
 				</Button>
 			</DrawerTrigger>
