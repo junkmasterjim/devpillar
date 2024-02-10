@@ -16,7 +16,7 @@ const githubSignIn = async () => {
 				access_type: "offline",
 				prompt: "consent",
 			},
-			redirectTo: "http://localhost:3000/login",
+			redirectTo: "/login",
 		},
 	});
 
