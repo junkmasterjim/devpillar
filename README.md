@@ -18,6 +18,8 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - Authenticate resources submissions
 
+- More/Bette categories
+
 - Spice up newsletter welcome email
 
 - User sign in & favourites (backend)
