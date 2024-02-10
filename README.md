@@ -18,7 +18,7 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - Privacy Policy, TOS, Cookies Policy
 
-- OAuth providers
+- OAuth providers (google, github)
 
 - Authenticate resources submissions
 
