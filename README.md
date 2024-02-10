@@ -16,7 +16,13 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - User authentication.
 
+- Privacy Policy, TOS, Cookies Policy
+
+- OAuth providers (google, github)
+
 - Authenticate resources submissions
+
+- More/Better categories
 
 - Spice up newsletter welcome email
 
