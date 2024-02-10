@@ -16,6 +16,8 @@ import { ResponsiveDialog } from "./ResponsiveDialog";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const supabase = createClient();
 
@@ -58,6 +60,8 @@ export const Sidebar = () => {
 };
 
 export const Burger = () => {
+	const router = useRouter();
+
 	const [loading, setLoading] = useState<boolean>(true);
 	const [isAuth, setIsAuth] = useState<boolean>();
 
@@ -70,11 +74,11 @@ export const Burger = () => {
 			setLoading(false);
 		} else if (data) {
 			if (data.session?.user) {
-				console.log(data);
+				// console.log(data);
 				setIsAuth(true);
 				setLoading(false);
 			} else {
-				console.log(data);
+				// console.log(data);
 				setIsAuth(false);
 				setLoading(false);
 			}
@@ -115,19 +119,26 @@ export const Burger = () => {
 					{!loading && isAuth === true && (
 						<>
 							<Button
+								asChild
 								variant={"outline"}
-								disabled
 								className="text-muted-foreground"
 							>
-								<User className="h-5 w-5 mr-2" />
-								Dashboard
+								<Link href={"/profile"}>
+									<User className="h-5 w-5 mr-2" />
+									Profile
+								</Link>
 							</Button>
 							<Button
 								variant={"outline"}
 								className="text-muted-foreground"
 								onClick={async () => {
 									let { error } = await supabase.auth.signOut();
-									if (!error) setIsAuth(false);
+
+									if (!error) {
+										console.error(error);
+										toast.error("Error signing out");
+									}
+									setIsAuth(false);
 								}}
 							>
 								<LogIn className="h-5 w-5 mr-2" />
@@ -195,6 +206,8 @@ export const Burger = () => {
 };
 
 export const Navbar = () => {
+	const router = useRouter();
+
 	const [loading, setLoading] = useState<boolean>(true);
 	const [isAuth, setIsAuth] = useState<boolean>();
 
@@ -207,11 +220,11 @@ export const Navbar = () => {
 			setLoading(false);
 		} else if (data) {
 			if (data.session?.user) {
-				console.log(data);
+				// console.log(data);
 				setIsAuth(true);
 				setLoading(false);
 			} else {
-				console.log(data);
+				// console.log(data);
 				setIsAuth(false);
 				setLoading(false);
 			}
@@ -267,20 +280,27 @@ export const Navbar = () => {
 									size={"sm"}
 									onClick={async () => {
 										let { error } = await supabase.auth.signOut();
-										if (!error) setIsAuth(false);
+
+										if (!error) {
+											console.error(error);
+											toast.error("Error signing out");
+										}
+										setIsAuth(false);
 									}}
 								>
 									<LogIn className="h-5 w-5 mr-2" />
 									Sign Out
 								</Button>
 								<Button
+									asChild
 									variant={"outline"}
-									disabled
 									className="text-muted-foreground"
 									size={"sm"}
 								>
-									<User className="h-5 w-5 mr-2" />
-									Dashboard
+									<Link href={"/profile"}>
+										<User className="h-5 w-5 mr-2" />
+										Profile
+									</Link>
 								</Button>
 							</>
 						)}

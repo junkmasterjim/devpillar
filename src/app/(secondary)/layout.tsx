@@ -1,16 +1,6 @@
 import "../globals.css";
 
-export const metadata = {
-	title: "DevPillar | Request Log",
-	description:
-		"The DevPillar request log. A collection of resources requested by the community. 🚀",
-};
-
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<body className="overflow-hidden">
