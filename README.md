@@ -14,11 +14,13 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~Add submissions form~~
 
+- ~~Scroll to top functionality for mobile users~~
+
+- ~~OAuth providers (github)~~
+
 - User authentication.
 
 - Privacy Policy, TOS, Cookies Policy
-
-- OAuth providers (google, github)
 
 - Authenticate resources submissions
 
@@ -33,7 +35,5 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 - Add sorting methods
 
 - Search functionality
-
-- ~~Scroll to top functionality for mobile users~~
 
 - More resources!
