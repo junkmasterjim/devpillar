@@ -27,25 +27,73 @@ import { PlusCircle } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { ResourceRequestForm } from "./ResourceRequestForm";
 
+import { createClient } from "@/lib/supabase/client";
+import { toast } from "sonner";
+
+const supabase = createClient();
+
 export function ResponsiveDialog() {
+	const [loading, setLoading] = React.useState(true);
+	const [isAuth, setIsAuth] = React.useState<boolean>();
 	const [open, setOpen] = React.useState(false);
 	const isDesktop = useMediaQuery("(min-width: 768px)");
+
+	const getSession = async () => {
+		const { data, error } = await supabase.auth.getSession();
+
+		if (error) {
+			console.error(error);
+			setIsAuth(false);
+			setLoading(false);
+		} else if (data) {
+			if (data.session?.user) {
+				setIsAuth(true);
+				setLoading(false);
+			} else {
+				console.log(data);
+				setIsAuth(false);
+				setLoading(false);
+			}
+		}
+	};
+
+	React.useEffect(() => {
+		getSession();
+	}, [isAuth]);
 
 	// Desktop
 	if (isDesktop) {
 		return (
 			<Dialog open={open} onOpenChange={setOpen}>
-				<DialogTrigger asChild>
+				{isAuth && (
+					<DialogTrigger asChild>
+						<Button
+							disabled={loading}
+							id="add-resource"
+							aria-hidden
+							variant="white"
+							size={"sm"}
+							className="flex items-center gap-2 "
+						>
+							<PlusCircle /> Add resource
+						</Button>
+					</DialogTrigger>
+				)}
+				{!isAuth && (
 					<Button
+						disabled={loading}
 						id="add-resource"
 						aria-hidden
 						variant="white"
 						size={"sm"}
 						className="flex items-center gap-2 "
+						onClick={() =>
+							toast.error("You need to be logged in to add a resource.")
+						}
 					>
 						<PlusCircle /> Add resource
 					</Button>
-				</DialogTrigger>
+				)}
 				<DialogContent className="sm:max-w-[425px] ">
 					<DialogHeader>
 						<DialogTitle>Request a resource</DialogTitle>
@@ -65,15 +113,33 @@ export function ResponsiveDialog() {
 	// Mobile
 	return (
 		<Drawer open={open} onOpenChange={setOpen}>
-			<DrawerTrigger asChild>
+			{isAuth && (
+				<DialogTrigger asChild>
+					<Button
+						disabled={loading}
+						id="add-resource"
+						aria-hidden
+						variant="white"
+						className="flex items-center gap-2 "
+					>
+						<PlusCircle /> Add resource
+					</Button>
+				</DialogTrigger>
+			)}
+			{!isAuth && (
 				<Button
+					disabled={loading}
 					id="add-resource"
+					aria-hidden
 					variant="white"
-					className="flex items-center gap-2"
+					className="flex items-center gap-2 "
+					onClick={() =>
+						toast.error("You need to be logged in to add a resource.")
+					}
 				>
 					<PlusCircle /> Add resource
 				</Button>
-			</DrawerTrigger>
+			)}
 			<DrawerContent>
 				<DrawerHeader className="text-left">
 					<DrawerTitle>Request a resource</DrawerTitle>

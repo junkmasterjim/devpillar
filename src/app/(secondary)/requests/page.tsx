@@ -23,22 +23,25 @@ export interface ResourceRequest {
 	categories: string[];
 }
 
+const supabase = createClient();
+
 export default function Requests() {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [requests, setRequests] = useState<ResourceRequest[]>();
 
 	const getData = async () => {
-		const supabase = createClient();
 		const { data: resourceRequests } = await supabase
 			.from("resourceRequests")
 			.select();
 
 		resourceRequests && setRequests(resourceRequests);
 
-		setTimeout(() => setLoading(false), 500);
+		setTimeout(() => setLoading(false), 250);
 	};
 
-	getData();
+	useEffect(() => {
+		getData();
+	}, []);
 
 	if (loading) {
 		return (
@@ -101,13 +104,13 @@ export default function Requests() {
 										Resource
 									</Link>
 								</Button>
-								<p>
+								<div>
 									{request.categories.map((cat) => (
 										<Badge key={Math.random()} variant={"secondary"}>
 											{cat}
 										</Badge>
 									))}
-								</p>
+								</div>
 							</CardContent>
 						</Card>
 					))}

@@ -31,7 +31,6 @@ import { cn } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
 import { useState } from "react";
-import { set } from "date-fns";
 
 const formSchema = z.object({
 	name: z
@@ -57,6 +56,8 @@ const formSchema = z.object({
 	category2: z.string().optional(),
 });
 
+const supabase = createClient();
+
 export function ResourceRequestForm({
 	className,
 }: React.ComponentProps<"form">) {
@@ -77,7 +78,6 @@ export function ResourceRequestForm({
 		setSubmitting(true);
 		const { name, description, url, category, category2 } = values;
 
-		const supabase = createClient();
 		const promise = new Promise(
 			async (resolve, reject) =>
 				await supabase
@@ -93,6 +93,7 @@ export function ResourceRequestForm({
 					.then((res) => {
 						if (res.error) {
 							reject(res.error);
+							console.log(res.error);
 							setSubmitting(false);
 						}
 						resolve(res);

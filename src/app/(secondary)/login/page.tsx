@@ -23,40 +23,38 @@ const githubSignIn = async () => {
 	console.log(data, error);
 };
 
-const signOut = async () => {
-	const { error } = await supabase.auth.signOut();
-
-	console.log(error);
-};
-
 const LoginPage = () => {
 	const [loading, setLoading] = useState(true);
 	const router = useRouter();
 
-	useEffect(() => {
-		setLoading(true);
-		const getSession = async () => {
-			const { data, error } = await supabase.auth.getSession();
+	const getSession = async () => {
+		const { data, error } = await supabase.auth.getSession();
 
-			if (error) {
-				console.error(error);
-			} else if (data) {
-				console.log(data.session?.user);
-				if (data.session?.user) {
-					router.push("/");
-				}
+		if (error) {
+			console.error(error);
+			router.push(`/?error=${error.message}`);
+		} else if (data) {
+			if (data?.session === null) {
+				setLoading(false);
 			}
-		};
 
+			console.log(data.session?.user);
+			if (data.session?.user) {
+				router.push("/");
+			}
+		}
+	};
+
+	useEffect(() => {
 		getSession();
-		setTimeout(() => setLoading(false), 750);
+		// setTimeout(() => setLoading(false), 500);
 	}, []);
 
 	return (
 		<div className="flex flex-col items-center justify-center h-screen p-2">
 			{loading && (
-				<div className="fixed top-0 left-0 w-full h-full bg-black/50 z-50 flex items-center justify-center">
-					<div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white"></div>
+				<div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center">
+					<div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
 				</div>
 			)}
 

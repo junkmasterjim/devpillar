@@ -18,11 +18,13 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~OAuth providers (github)~~
 
-- User authentication.
+- ~~User authentication.~~
 
-- Privacy Policy, TOS, Cookies Policy
+- User favourites & dashboard
 
-- Authenticate resources submissions
+- Privacy Policy, TOS, Cookies Policy (mdx)
+
+- ~~Authenticate resources submissions~~
 
 - More/Better categories
 

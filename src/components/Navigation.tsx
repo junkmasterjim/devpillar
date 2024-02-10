@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, LogIn, LucideIcon, Menu, Search } from "lucide-react";
+import { Inbox, LogIn, LucideIcon, Menu, Search, User } from "lucide-react";
 import { categories } from "../../resources";
 import { Button } from "./ui/button";
 
@@ -13,6 +13,11 @@ import {
 } from "@/components/ui/sheet";
 import { InputUnstyled } from "./ui/input-unstyled";
 import { ResponsiveDialog } from "./ResponsiveDialog";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { createClient } from "@/lib/supabase/client";
+
+const supabase = createClient();
 
 export const Sidebar = () => {
 	return (
@@ -53,6 +58,33 @@ export const Sidebar = () => {
 };
 
 export const Burger = () => {
+	const [loading, setLoading] = useState<boolean>(true);
+	const [isAuth, setIsAuth] = useState<boolean>();
+
+	const getSession = async () => {
+		const { data, error } = await supabase.auth.getSession();
+
+		if (error) {
+			console.error(error);
+			setIsAuth(false);
+			setLoading(false);
+		} else if (data) {
+			if (data.session?.user) {
+				console.log(data);
+				setIsAuth(true);
+				setLoading(false);
+			} else {
+				console.log(data);
+				setIsAuth(false);
+				setLoading(false);
+			}
+		}
+	};
+
+	useEffect(() => {
+		getSession();
+	}, [isAuth]);
+
 	return (
 		<Sheet>
 			<SheetTrigger id="burgerMenu" />
@@ -66,22 +98,61 @@ export const Burger = () => {
 			<SheetContent className="flex pt-16 flex-col overflow-scroll select-none">
 				<ResponsiveDialog />
 
-				<Button
-					disabled
-					onClick={() => document.getElementById("signInLink")?.click()}
-					variant={"outline"}
-					className="text-muted-foreground"
-				>
-					<Link
-						id="signInLink"
-						className="flex items-center gap-1"
-						target="_blank"
-						href={"https://github.com/noahpittman/devpillar"}
-					>
-						<LogIn className=" h-5 w-5 mr-2" />
-						Sign In
-					</Link>
-				</Button>
+				<>
+					{loading && (
+						<>
+							<Button
+								disabled
+								variant={"outline"}
+								className="text-muted-foreground"
+							>
+								<div className="animate-spin rounded-full h-5 w-5 mr-2 border-b-2 border-t-2 border-primary" />
+								Loading...
+							</Button>
+						</>
+					)}
+
+					{!loading && isAuth === true && (
+						<>
+							<Button
+								variant={"outline"}
+								disabled
+								className="text-muted-foreground"
+							>
+								<User className="h-5 w-5 mr-2" />
+								Dashboard
+							</Button>
+							<Button
+								variant={"outline"}
+								className="text-muted-foreground"
+								onClick={async () => {
+									let { error } = await supabase.auth.signOut();
+									if (!error) setIsAuth(false);
+								}}
+							>
+								<LogIn className="h-5 w-5 mr-2" />
+								Sign Out
+							</Button>
+						</>
+					)}
+
+					{!loading && isAuth === false && (
+						<Button
+							variant={"outline"}
+							disabled={isAuth === null}
+							className="text-muted-foreground"
+						>
+							<Link
+								id="signInLink"
+								className="flex items-center gap-2"
+								href={"/login"}
+							>
+								<LogIn className="h-5 w-5 rotate-180" />
+								Sign In
+							</Link>
+						</Button>
+					)}
+				</>
 
 				<div className="">
 					<div className="mb-8 w-full text-foreground h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 grid grid-flow-col bg-background ">
@@ -120,5 +191,141 @@ export const Burger = () => {
 				</div>
 			</SheetContent>
 		</Sheet>
+	);
+};
+
+export const Navbar = () => {
+	const [loading, setLoading] = useState<boolean>(true);
+	const [isAuth, setIsAuth] = useState<boolean>();
+
+	const getSession = async () => {
+		const { data, error } = await supabase.auth.getSession();
+
+		if (error) {
+			console.error(error);
+			setIsAuth(false);
+			setLoading(false);
+		} else if (data) {
+			if (data.session?.user) {
+				console.log(data);
+				setIsAuth(true);
+				setLoading(false);
+			} else {
+				console.log(data);
+				setIsAuth(false);
+				setLoading(false);
+			}
+		}
+	};
+
+	useEffect(() => {
+		getSession();
+	}, [isAuth]);
+
+	return (
+		<nav className="flex p-3 fixed z-50 bg-gradient-to-b from-background via-background/50 to-background/0 w-full justify-center backdrop-blur-lg backdrop-brightness-90 items-center select-none">
+			<div className="flex max-w-screen-2xl justify-between items-center w-full px-2">
+				<div className="select-none">
+					<Link
+						href={"/"}
+						className="text-2xl tracking-tight font-medium flex gap-2"
+					>
+						<Image
+							alt="DevPillar Logo"
+							width={32}
+							height={32}
+							src={"/logo.png"}
+						/>
+						<p>
+							<span className="text-muted-foreground">Dev</span>Pillar
+						</p>
+					</Link>
+				</div>
+
+				<div className="lg:flex flex-row-reverse hidden items-center gap-4 pr-2">
+					<ResponsiveDialog />
+
+					<>
+						{loading && (
+							<>
+								<Button
+									disabled
+									variant={"outline"}
+									className="text-muted-foreground"
+								>
+									<div className="animate-spin rounded-full h-5 w-5 mr-2 border-b-2 border-t-2 border-primary" />
+									Loading...
+								</Button>
+							</>
+						)}
+
+						{!loading && isAuth === true && (
+							<>
+								<Button
+									variant={"outline"}
+									className="text-muted-foreground"
+									size={"sm"}
+									onClick={async () => {
+										let { error } = await supabase.auth.signOut();
+										if (!error) setIsAuth(false);
+									}}
+								>
+									<LogIn className="h-5 w-5 mr-2" />
+									Sign Out
+								</Button>
+								<Button
+									variant={"outline"}
+									disabled
+									className="text-muted-foreground"
+									size={"sm"}
+								>
+									<User className="h-5 w-5 mr-2" />
+									Dashboard
+								</Button>
+							</>
+						)}
+
+						{!loading && isAuth === false && (
+							<Button
+								variant={"outline"}
+								disabled={isAuth === null}
+								className="text-muted-foreground"
+								size={"sm"}
+							>
+								<Link
+									id="signInLink"
+									className="flex items-center gap-2"
+									href={"/login"}
+								>
+									<LogIn className="h-5 w-5 rotate-180" />
+									Sign In
+								</Link>
+							</Button>
+						)}
+					</>
+
+					<Button
+						variant={"outline"}
+						asChild
+						className="text-muted-foreground"
+						size={"sm"}
+					>
+						<Link
+							id="newsletterLink"
+							className="flex items-center gap-2 scroll-smooth"
+							scroll
+							href={"#newsletter"}
+						>
+							<Inbox className=" h-5 w-5" />
+							Newsletter
+						</Link>
+					</Button>
+				</div>
+
+				<div className="lg:hidden flex items-center gap-4">
+					<Burger />
+				</div>
+			</div>
+		</nav>
 	);
 };

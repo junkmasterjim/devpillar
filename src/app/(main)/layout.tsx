@@ -1,8 +1,7 @@
-import Navbar from "@/components/Navbar";
 import "../globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Sidebar } from "@/components/Navigation";
+import { Navbar, Sidebar } from "@/components/Navigation";
 import { resources } from "../../../resources";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
