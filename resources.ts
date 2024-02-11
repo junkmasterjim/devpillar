@@ -566,7 +566,7 @@ export const resources: Resource[] = [
 		description:
 			"Build websites even faster with components on top of Tailwind CSS.",
 		category: ["Components", "UI UX", "CSS"],
-		url: "",
+		url: "https://flowbite.com",
 		paid: "Free Plan Available",
 		keywords: ["tailwind", "css", "components", "flowbite", "ui", "ux"],
 		image: "/resources/flowbite.jpg",
