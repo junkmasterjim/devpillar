@@ -118,6 +118,7 @@ const Profile = () => {
 							.filter((res) => favs.includes(res.name))
 							.map((res) => (
 								<ResourceCard
+									className="mx-auto w-full"
 									key={res.name}
 									name={res.name}
 									description={res.description}

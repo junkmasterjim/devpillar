@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 						id="mainContent"
 						className="max-w-screen-xl w-full py-8 pt-24 lg:pr-4 overflow-auto mx-auto flex flex-col justify-between "
 					>
-						<div className="min-h-screen">{children}</div>
+						{children}
 						<Footer />
 					</div>
 				</main>

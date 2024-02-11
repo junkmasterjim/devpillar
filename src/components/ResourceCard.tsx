@@ -26,6 +26,7 @@ const ResourceCard = ({
 	url,
 	paid,
 	image,
+	className,
 }: {
 	name: string;
 	description: string;
@@ -33,6 +34,7 @@ const ResourceCard = ({
 	url: string;
 	paid: "Free" | "Paid" | "Free Plan Available";
 	image: string;
+	className?: string;
 }) => {
 	const [email, setEmail] = useState<string | null>(null);
 	const [favs, setFavs] = useState<string[]>([]);
@@ -96,7 +98,7 @@ const ResourceCard = ({
 
 	return (
 		<>
-			<Card key={name} className="max-w-md max-h-[30rem]">
+			<Card key={name} className={cn("max-w-md max-h-[30rem]", className)}>
 				<CardHeader className="space-y-2 p-4 justify-between h-full">
 					<div className="space-y-4">
 						<CardTitle className="grid auto-cols-min grid-cols-1 grid-flow-col justify-between items-center">
