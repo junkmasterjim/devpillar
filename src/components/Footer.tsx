@@ -37,9 +37,9 @@ export const Footer = () => {
 				<div className="flex items-end gap-4 justify-between">
 					<ul className="flex leading-none flex-wrap gap-4">
 						<Link
-							className="hover:text-foreground font-medium
-								line-through pointer-events-none text-muted"
-							href="/contact"
+							className="hover:text-foreground font-medium text-muted-foreground"
+							target="_blank"
+							href="mailto:noah@devpillar.org"
 						>
 							Contact
 						</Link>
