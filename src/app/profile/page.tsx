@@ -7,7 +7,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { createClient } from "@/lib/supabase/client";
 import { UserMetadata } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { resources } from "../../../resources";
+import ResourceCard from "@/components/ResourceCard";
 
 const supabase = createClient();
 
@@ -16,6 +18,9 @@ const Profile = () => {
 
 	const [loading, setLoading] = useState<boolean>(true);
 	const [authenticated, setAuthenticated] = useState<boolean>(false);
+	const [email, setEmail] = useState<string | null>(null);
+	const [favs, setFavs] = useState<string[]>([]);
+
 	const [user, setUser] = useState<
 		| {
 				avatar_url: string;
@@ -44,12 +49,34 @@ const Profile = () => {
 			setAuthenticated(true);
 			setLoading(false);
 			setUser(data.user?.user_metadata);
+			setEmail(data.user?.user_metadata.email);
+		}
+	};
+
+	const getFavs = async () => {
+		const { data, error } = await supabase
+			.from("userFavs")
+			.select("*")
+			.eq("email", email)
+			.select();
+
+		if (error) console.error(error);
+		if (data) {
+			if (data[0]?.favs) {
+				setFavs(data[0].favs);
+			}
 		}
 	};
 
 	useEffect(() => {
 		getUser();
 	}, []);
+
+	useEffect(() => {
+		if (email) {
+			getFavs();
+		}
+	}, [email]);
 
 	if (loading) {
 		return (
@@ -85,15 +112,22 @@ const Profile = () => {
 
 				<div className="space-y-4">
 					<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground">
-						<span className="line-through mr-2">Your Favorites</span>
-						{"(Coming soon)"}
+						Your Favorites
 					</h2>
 					<div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-						<Skeleton className="h-56 w-full" />
-						<Skeleton className="h-56 w-full" />
-						<Skeleton className="h-56 w-full" />
-						<Skeleton className="h-56 w-full" />
-						<Skeleton className="h-56 w-full" />
+						{resources
+							.filter((res) => favs.includes(res.name))
+							.map((res) => (
+								<ResourceCard
+									key={res.name}
+									name={res.name}
+									description={res.description}
+									category={res.category}
+									url={res.url}
+									paid={res.paid}
+									image={res.image}
+								/>
+							))}
 					</div>
 				</div>
 			</main>

@@ -6,7 +6,18 @@ import { ArrowUpRightFromSquare, Bookmark } from "lucide-react";
 import Image from "next/image";
 import { Resource } from "../../resources";
 import { Button } from "./ui/button";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+
+export interface userFavourites {
+	id: string;
+	email: string;
+	favs: string[];
+}
+
+const supabase = createClient();
 
 const ResourceCard = ({
 	name,
@@ -23,6 +34,66 @@ const ResourceCard = ({
 	paid: "Free" | "Paid" | "Free Plan Available";
 	image: string;
 }) => {
+	const [email, setEmail] = useState<string | null>(null);
+	const [favs, setFavs] = useState<string[]>([]);
+	const [favTimeout, setFavTimeout] = useState<boolean>(true);
+
+	const getUserEmail = async () => {
+		const { data } = await supabase.auth.getSession();
+
+		if (data.session?.user?.email) {
+			const userEmail = data.session?.user.email;
+			setEmail(userEmail);
+		}
+	};
+
+	const getFavs = async () => {
+		const { data, error } = await supabase
+			.from("userFavs")
+			.select("*")
+			.eq("email", email)
+			.select();
+
+		if (error) console.error(error);
+		if (data) {
+			if (data[0]?.favs) {
+				setFavs(data[0].favs);
+				setFavTimeout(false);
+			}
+		}
+	};
+
+	// function to toggle favs in supabase
+	const toggleFav = async (favName: string) => {
+		setFavTimeout(true);
+		const { data, error } = await supabase
+			.from("userFavs")
+			.update({
+				favs: favs.includes(favName)
+					? favs.filter((fav) => fav !== favName)
+					: [...favs, favName],
+			})
+			.eq("email", email)
+			.select();
+
+		if (error) console.error(error);
+		if (data) {
+			if (data[0].favs) {
+				setFavs(data[0].favs);
+				setTimeout(() => setFavTimeout(false), 1000);
+			}
+			toast.success("Favourite updated!", { duration: 1500 });
+		}
+	};
+
+	useEffect(() => {
+		getUserEmail();
+	}, []);
+
+	useEffect(() => {
+		getFavs();
+	}, [email]);
+
 	return (
 		<>
 			<Card key={name} className="max-w-md max-h-[30rem]">
@@ -40,15 +111,23 @@ const ResourceCard = ({
 							<Button
 								variant={"ghost"}
 								size={"icon"}
-								className=""
+								disabled={favTimeout}
+								className="text-muted-foreground  transition-colors"
 								onClick={() => {
-									toast.info("Feature coming soon!", { duration: 1500 });
+									// toast.info("Feature coming soon!", { duration: 1500 });
+
+									// console.log("email", email);
+									// console.log(name);
+									toggleFav(name);
+
+									console.log("favs", favs);
 								}}
 							>
 								<Bookmark
-									className="h-4 w-4 
-								-fill-yellow-500 -text-yellow-500
-								"
+									className={cn(
+										"h-4 w-4",
+										favs.includes(name) && "text-yellow-500 fill-yellow-500"
+									)}
 								/>
 							</Button>
 						</CardTitle>
