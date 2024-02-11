@@ -26,15 +26,15 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~Privacy Policy, TOS~~
 
+- ~~Add sorting methods to profile~~
+
+- Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
+
 - More/Better categories
 
 - Spice up newsletter welcome email
 
 - Revamp submission form
-
-- Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
-
-- Add sorting methods
 
 - Search functionality
 

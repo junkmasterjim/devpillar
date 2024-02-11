@@ -7,8 +7,17 @@ import { createClient } from "@/lib/supabase/client";
 import { UserMetadata } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { resources } from "../../../resources";
+import { categories, resources } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
 
 const supabase = createClient();
 
@@ -19,6 +28,9 @@ const Profile = () => {
 	const [authenticated, setAuthenticated] = useState<boolean>(false);
 	const [email, setEmail] = useState<string | null>(null);
 	const [favs, setFavs] = useState<string[]>([]);
+
+	const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+	// const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
 
 	const [user, setUser] = useState<
 		| {
@@ -110,24 +122,68 @@ const Profile = () => {
 				<Separator />
 
 				<div className="space-y-4">
-					<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground">
-						Your Favorites
-					</h2>
+					<div className="flex flex-col gap-2">
+						<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground">
+							Your Favorites
+						</h2>
+						<div>
+							<Select
+								onValueChange={(e: "A-Z" | "Z-A") => setSort(e)}
+								defaultValue={sort}
+							>
+								<SelectTrigger className="w-fit">
+									<SelectValue placeholder="Sort by: " />
+								</SelectTrigger>
+								<SelectContent>
+									<SelectGroup>
+										<SelectLabel></SelectLabel>
+										<SelectItem value={"A-Z"}>
+											<span className="text-muted-foreground">Sort by: </span>
+											A-Z
+										</SelectItem>
+										<SelectItem value={"Z-A"}>
+											<span className="text-muted-foreground">Sort by: </span>
+											Z-A
+										</SelectItem>
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+						</div>
+					</div>
 					<div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-						{resources
-							.filter((res) => favs.includes(res.name))
-							.map((res) => (
-								<ResourceCard
-									className="mx-auto w-full"
-									key={res.name}
-									name={res.name}
-									description={res.description}
-									category={res.category}
-									url={res.url}
-									paid={res.paid}
-									image={res.image}
-								/>
-							))}
+						{sort === "A-Z" &&
+							resources
+								.filter((res) => favs.includes(res.name))
+								.sort((a, b) => a.name.localeCompare(b.name))
+								.map((res) => (
+									<ResourceCard
+										className="mx-auto w-full"
+										key={res.name}
+										name={res.name}
+										description={res.description}
+										category={res.category}
+										url={res.url}
+										paid={res.paid}
+										image={res.image}
+									/>
+								))}
+						{sort === "Z-A" &&
+							resources
+								.filter((res) => favs.includes(res.name))
+								.sort((a, b) => a.name.localeCompare(b.name))
+								.reverse()
+								.map((res) => (
+									<ResourceCard
+										className="mx-auto w-full"
+										key={res.name}
+										name={res.name}
+										description={res.description}
+										category={res.category}
+										url={res.url}
+										paid={res.paid}
+										image={res.image}
+									/>
+								))}
 					</div>
 				</div>
 			</main>
