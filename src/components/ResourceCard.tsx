@@ -99,7 +99,7 @@ const ResourceCard = ({
 			<Card key={name} className="max-w-md max-h-[30rem]">
 				<CardHeader className="space-y-2 p-4 justify-between h-full">
 					<div className="space-y-4">
-						<CardTitle className="grid auto-cols-min grid-cols-1 grid-flow-col justify-between ">
+						<CardTitle className="grid auto-cols-min grid-cols-1 grid-flow-col justify-between items-center">
 							<Link
 								href={url}
 								target="_blank"
@@ -112,15 +112,9 @@ const ResourceCard = ({
 								variant={"ghost"}
 								size={"icon"}
 								disabled={favTimeout}
-								className="text-muted-foreground  transition-colors"
+								className="text-muted-foreground"
 								onClick={() => {
-									// toast.info("Feature coming soon!", { duration: 1500 });
-
-									// console.log("email", email);
-									// console.log(name);
 									toggleFav(name);
-
-									console.log("favs", favs);
 								}}
 							>
 								<Bookmark
