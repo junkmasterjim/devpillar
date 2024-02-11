@@ -134,11 +134,10 @@ export const Burger = () => {
 								onClick={async () => {
 									let { error } = await supabase.auth.signOut();
 
-									if (!error) {
+									if (error) {
 										console.error(error);
 										toast.error("Error signing out");
-									}
-									setIsAuth(false);
+									} else setIsAuth(false);
 								}}
 							>
 								<LogIn className="h-5 w-5 mr-2" />
@@ -281,11 +280,10 @@ export const Navbar = () => {
 									onClick={async () => {
 										let { error } = await supabase.auth.signOut();
 
-										if (!error) {
+										if (error) {
 											console.error(error);
 											toast.error("Error signing out");
-										}
-										setIsAuth(false);
+										} else setIsAuth(false);
 									}}
 								>
 									<LogIn className="h-5 w-5 mr-2" />

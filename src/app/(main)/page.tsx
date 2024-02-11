@@ -6,7 +6,39 @@ import ResourceCard from "@/components/ResourceCard";
 
 import { motion } from "framer-motion";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { useSearchParams } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+import { Session } from "@supabase/supabase-js";
+
+const supabase = createClient();
+
 const Home = () => {
+	const params = useSearchParams();
+
+	const createUserFavs = async (session: Session | null) => {
+		if (session === null) return;
+
+		const { data, error } = await supabase
+			.from("userFavs")
+			.select("*")
+			.eq("email", session.user.email);
+		if (error) console.error(error);
+
+		if (data?.length === 0) {
+			const { data, error } = await supabase
+				.from("userFavs")
+				.insert([{ email: session.user.email, favs: null }]);
+			if (error) console.error(error);
+			else console.log(data);
+		}
+	};
+
+	supabase.auth.onAuthStateChange((event, session) => {
+		if (event === "SIGNED_IN") {
+			createUserFavs(session);
+		}
+	});
+
 	return (
 		<>
 			<Hero />

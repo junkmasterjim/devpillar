@@ -94,7 +94,7 @@ const Profile = () => {
 			<main className="md:space-y-16 space-y-8 p-2">
 				<div className="flex flex-wrap items-center justify-between gap-2">
 					<h1 className="md:text-4xl text-2xl font-semibold">
-						Welcome to DevPillar {user?.name.split(" ")[0] || user?.name}! 🎉
+						Welcome to DevPillar, {user?.name.split(" ")[0] || user?.name}! 🎉
 					</h1>
 					<div className="flex gap-2 md:flex-row flex-row-reverse items-center line-through">
 						<Button variant={"ghost"} disabled>

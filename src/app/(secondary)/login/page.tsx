@@ -40,14 +40,13 @@ const LoginPage = () => {
 
 			console.log(data.session?.user);
 			if (data.session?.user) {
-				router.push("/");
+				router.push("/?loggedIn=true");
 			}
 		}
 	};
 
 	useEffect(() => {
 		getSession();
-		// setTimeout(() => setLoading(false), 500);
 	}, []);
 
 	return (
