@@ -18,9 +18,9 @@ const TermsOfService = () => {
 						11,2024
 						<br />
 						<br />
-						By accessing or using DevPillar (the "Website"), you agree to be
+						{`By accessing or using DevPillar (the "Website"), you agree to be
 						bound by these Terms of Service ("Terms"). Please read these Terms
-						carefully before accessing or using the Website.
+						carefully before accessing or using the Website.`}
 					</CardDescription>
 				</CardHeader>
 				<CardContent>

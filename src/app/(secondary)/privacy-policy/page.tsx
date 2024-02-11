@@ -19,9 +19,9 @@ const TermsOfService = () => {
 						11,2024
 						<br />
 						<br />
-						This Privacy Policy describes how DevPillar ("we", "us", or "our")
+						{`This Privacy Policy describes how DevPillar ("we", "us", or "our")
 						collects, uses, and shares your information when you use our website
-						located at{" "}
+						located at `}
 						<Link
 							href="https://devpillar.org"
 							className="text-blue-500 hover:underline"
