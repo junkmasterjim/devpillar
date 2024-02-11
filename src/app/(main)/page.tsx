@@ -6,15 +6,13 @@ import ResourceCard from "@/components/ResourceCard";
 
 import { motion } from "framer-motion";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { useSearchParams } from "next/navigation";
+
 import { createClient } from "@/lib/supabase/client";
 import { Session } from "@supabase/supabase-js";
 
 const supabase = createClient();
 
 const Home = () => {
-	const params = useSearchParams();
-
 	const createUserFavs = async (session: Session | null) => {
 		if (session === null) return;
 
@@ -27,7 +25,7 @@ const Home = () => {
 		if (data?.length === 0) {
 			const { data, error } = await supabase
 				.from("userFavs")
-				.insert([{ email: session.user.email, favs: null }]);
+				.insert([{ email: session.user.email, favs: [] }]);
 			if (error) console.error(error);
 			else console.log(data);
 		}
