@@ -28,7 +28,7 @@ const ResourceCard = ({
 			<Card key={name} className="max-w-md max-h-[30rem]">
 				<CardHeader className="space-y-2 p-4 justify-between h-full">
 					<div className="space-y-4">
-						<CardTitle className="grid grid-cols-2">
+						<CardTitle className="grid auto-cols-min grid-cols-1 grid-flow-col justify-between ">
 							<Link
 								href={url}
 								target="_blank"
@@ -40,7 +40,7 @@ const ResourceCard = ({
 							<Button
 								variant={"ghost"}
 								size={"icon"}
-								className="place-self-end"
+								className=""
 								onClick={() => {
 									toast.info("Feature coming soon!", { duration: 1500 });
 								}}
