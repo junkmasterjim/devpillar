@@ -28,7 +28,7 @@ const TermsOfService = () => {
 						>
 							https://devpillar.org
 						</Link>{" "}
-						(the "Website").
+						{`(the "Website").`}
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
@@ -81,7 +81,7 @@ const TermsOfService = () => {
 
 						<div>
 							<h2 className="text-lg font-semibold mb-2">
-								4. Children's Privacy
+								{`4. Children's Privacy`}
 							</h2>
 							<p>
 								We do not knowingly collect any data from children under the age
