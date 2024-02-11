@@ -2,9 +2,11 @@ import Link from "next/link";
 import { Badge } from "./ui/badge";
 
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { ArrowUpRightFromSquare } from "lucide-react";
+import { ArrowUpRightFromSquare, Bookmark } from "lucide-react";
 import Image from "next/image";
 import { Resource } from "../../resources";
+import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 const ResourceCard = ({
 	name,
@@ -26,7 +28,7 @@ const ResourceCard = ({
 			<Card key={name} className="max-w-md max-h-[30rem]">
 				<CardHeader className="space-y-2 p-4 justify-between h-full">
 					<div className="space-y-4">
-						<CardTitle>
+						<CardTitle className="grid grid-cols-2">
 							<Link
 								href={url}
 								target="_blank"
@@ -35,6 +37,20 @@ const ResourceCard = ({
 								{name}
 								<ArrowUpRightFromSquare className="ml-2 inline h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
 							</Link>
+							<Button
+								variant={"ghost"}
+								size={"icon"}
+								className="place-self-end"
+								onClick={() => {
+									toast.info("Feature coming soon!", { duration: 1500 });
+								}}
+							>
+								<Bookmark
+									className="h-4 w-4 
+								-fill-yellow-500 -text-yellow-500
+								"
+								/>
+							</Button>
 						</CardTitle>
 
 						<div className="w-full relative aspect-video bg-muted rounded-lg hover:opacity-90 transition-opacity">

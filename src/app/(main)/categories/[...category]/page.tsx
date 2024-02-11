@@ -15,13 +15,21 @@ const Page = ({ params }: { params: any }) => {
 		redirect("/");
 	}
 
-	// If the category is not recognized, redirect to home
-	const allowedCategories = categories.map((category) => category.name);
-	if (!allowedCategories.includes(params.category[0])) {
-		redirect("/");
+	let category = params.category[0];
+
+	while (category.includes("%26")) {
+		category = category.replace("%26", "&");
 	}
 
-	const category = params.category[0];
+	while (category.includes("%20")) {
+		category = category.replace("%20", " ");
+	}
+
+	// If the category is not recognized, redirect to home
+	const allowedCategories = categories.map((category) => category.name);
+	if (!allowedCategories.includes(category)) {
+		redirect("/");
+	}
 
 	return (
 		<>
