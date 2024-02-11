@@ -20,7 +20,7 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~User authentication.~~
 
-- User favourites & dashboard
+- ~~User favourites & dashboard~~
 
 - Privacy Policy, TOS, Cookies Policy (mdx)
 
@@ -29,8 +29,6 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 - More/Better categories
 
 - Spice up newsletter welcome email
-
-- User sign in & favourites (backend)
 
 - Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
 
