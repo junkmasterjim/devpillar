@@ -22,13 +22,15 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~User favourites & dashboard~~
 
-- Privacy Policy, TOS, Cookies Policy (mdx)
-
 - ~~Authenticate resources submissions~~
+
+- ~~Privacy Policy, TOS~~
 
 - More/Better categories
 
 - Spice up newsletter welcome email
+
+- Revamp submission form
 
 - Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
 
