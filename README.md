@@ -28,6 +28,13 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~Add sorting methods to profile~~
 
+- Collections
+  -Recently Added (last week - 2 weeks)
+  -Quickstart
+  -Designers Toolbox
+  -Frictionless Backend
+  -Etc
+
 - Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
 
 - More/Better categories
