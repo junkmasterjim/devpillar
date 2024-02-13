@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import {
-	Category,
-	Resource,
-	categories,
-	resources,
-} from "../../../../resources";
+import { Category, Resource, resources } from "../../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
