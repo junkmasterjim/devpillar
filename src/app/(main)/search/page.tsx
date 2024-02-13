@@ -2,18 +2,26 @@
 
 import { motion } from "framer-motion";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { Resource, categories, resources } from "../../../../resources";
+import {
+	Category,
+	Resource,
+	categories,
+	resources,
+} from "../../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { SortingSelect } from "@/components/SortingSelect";
+import { FilterSelect } from "@/components/FilterSelect";
 
 const Page = () => {
 	const searchParams = useSearchParams();
 	const params = searchParams.get("q");
 	const router = useRouter();
+
 	const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+	const [filter, setFilter] = useState<Category["name"] | "none">("none");
 
 	const searchResults = params
 		? resources.filter((resource: Resource) => {
@@ -65,11 +73,13 @@ const Page = () => {
 						</h2>
 						<div className="space-y-4">
 							<Separator />
-							<div>
+							<div className="flex gap-2">
 								<SortingSelect sort={sort} setSort={setSort} />
+								<FilterSelect filter={filter} setFilter={setFilter} />
 							</div>
 						</div>
 					</motion.div>
+
 					{searchResults.length === 0 && (
 						<motion.p
 							initial={{ opacity: 0, y: 10 }}
@@ -86,6 +96,7 @@ const Page = () => {
 							</span>
 						</motion.p>
 					)}
+
 					<motion.section
 						initial={{ opacity: 0, y: 10 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -96,6 +107,12 @@ const Page = () => {
 							? searchResults
 									.sort((a: Resource, b: Resource) => {
 										return a.name.localeCompare(b.name);
+									})
+									.filter((resource: Resource) => {
+										if (filter === "none") return resource;
+
+										// @ts-ignore
+										return resource.category.includes(filter);
 									})
 									.map((resource: Resource) => (
 										<ResourceCard
@@ -111,6 +128,12 @@ const Page = () => {
 							: searchResults
 									.sort((a: Resource, b: Resource) => {
 										return b.name.localeCompare(a.name);
+									})
+									.filter((resource: Resource) => {
+										if (filter === "none") return resource;
+
+										// @ts-ignore
+										return resource.category.includes(filter);
 									})
 									.map((resource: Resource) => (
 										<ResourceCard

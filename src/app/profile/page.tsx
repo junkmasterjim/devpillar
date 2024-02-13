@@ -7,18 +7,11 @@ import { createClient } from "@/lib/supabase/client";
 import { UserMetadata } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { categories, resources } from "../../../resources";
+import { Category, Resource, resources } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
-import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectLabel,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
+
 import { SortingSelect } from "@/components/SortingSelect";
+import { FilterSelect } from "@/components/FilterSelect";
 
 const supabase = createClient();
 
@@ -31,7 +24,7 @@ const Profile = () => {
 	const [favs, setFavs] = useState<string[]>([]);
 
 	const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
-	// const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+	const [filter, setFilter] = useState<Category["name"] | "none">("none");
 
 	const [user, setUser] = useState<
 		| {
@@ -127,14 +120,21 @@ const Profile = () => {
 						<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground">
 							Your Favorites
 						</h2>
-						<div>
+						<div className="flex gap-2">
 							<SortingSelect sort={sort} setSort={setSort} />
+							<FilterSelect filter={filter} setFilter={setFilter} />
 						</div>
 					</div>
 					<div className="grid md:grid-cols-3 grid-cols-1 gap-4">
 						{sort === "A-Z" &&
 							resources
 								.filter((res) => favs.includes(res.name))
+								.filter((resource: Resource) => {
+									if (filter === "none") return resource;
+
+									// @ts-ignore
+									return resource.category.includes(filter);
+								})
 								.sort((a, b) => a.name.localeCompare(b.name))
 								.map((res) => (
 									<ResourceCard
@@ -151,6 +151,12 @@ const Profile = () => {
 						{sort === "Z-A" &&
 							resources
 								.filter((res) => favs.includes(res.name))
+								.filter((resource: Resource) => {
+									if (filter === "none") return resource;
+
+									// @ts-ignore
+									return resource.category.includes(filter);
+								})
 								.sort((a, b) => a.name.localeCompare(b.name))
 								.reverse()
 								.map((res) => (

@@ -1,22 +1,24 @@
 "use client";
 
-import { Hero } from "@/components/Hero";
-import { Resource, resources } from "../../../resources";
+import { Category, Resource, resources } from "../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ScrollToTop } from "@/components/ScrollToTop";
 
+import { Hero } from "@/components/Hero";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { createClient } from "@/lib/supabase/client";
 import { Session } from "@supabase/supabase-js";
 import { SortingSelect } from "@/components/SortingSelect";
-import { useState } from "react";
+import { FilterSelect } from "@/components/FilterSelect";
 
 const supabase = createClient();
 
 const Home = () => {
 	const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
-	const [results, setResults] = useState<Resource[]>();
+	const [filter, setFilter] = useState<Category["name"] | "none">("none");
+
 	const createUserFavs = async (session: Session | null) => {
 		if (session === null) return;
 
@@ -59,8 +61,10 @@ const Home = () => {
 							({resources.length})
 						</span>
 					</h2>
-					<div>
+
+					<div className="flex flex-col sm:flex-row gap-2">
 						<SortingSelect sort={sort} setSort={setSort} />
+						<FilterSelect filter={filter} setFilter={setFilter} />
 					</div>
 				</div>
 
@@ -69,6 +73,12 @@ const Home = () => {
 						? resources
 								.sort((a: Resource, b: Resource) => {
 									return a.name.localeCompare(b.name);
+								})
+								.filter((resource: Resource) => {
+									if (filter === "none") return resource;
+
+									// @ts-ignore
+									return resource.category.includes(filter);
 								})
 								.map((resource: Resource) => (
 									<ResourceCard
@@ -84,6 +94,12 @@ const Home = () => {
 						: resources
 								.sort((a: Resource, b: Resource) => {
 									return b.name.localeCompare(a.name);
+								})
+								.filter((resource: Resource) => {
+									if (filter === "none") return resource;
+
+									// @ts-ignore
+									return resource.category.includes(filter);
 								})
 								.map((resource: Resource) => (
 									<ResourceCard

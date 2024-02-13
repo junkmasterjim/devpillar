@@ -847,7 +847,7 @@ export const resources: Resource[] = [
 		name: "React TS Cheatsheet",
 		description:
 			"Cheatsheets for experienced React developers getting started with TypeScript.",
-		category: ["Documentation"],
+		category: ["Documentation", "Cheatsheets"],
 		url: "https://react-typescript-cheatsheet.netlify.app",
 		paid: "Free",
 		keywords: [

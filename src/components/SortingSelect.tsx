@@ -24,7 +24,7 @@ export const SortingSelect = ({
 			onValueChange={(e: "A-Z" | "Z-A") => setSort(e)}
 			defaultValue={sort}
 		>
-			<SelectTrigger className="w-fit focus-visible:ring-0 focus-visible:bg-primary/15">
+			<SelectTrigger className="w-fit max-w-[15ch] focus-visible:ring-0 focus-visible:bg-primary/15">
 				<SelectValue placeholder="Sort by: " />
 			</SelectTrigger>
 			<SelectContent>
