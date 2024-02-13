@@ -34,14 +34,6 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - Recently Added collection (last week - 2 weeks)
 
-- Collections
-  -Quickstart
-  -Designers Toolbox
-  -Frictionless Backend
-  -Etc
-
-- Featured collections. (quickstart, ultimate UI design, backend specialties, the efficiency bundle, etc)
-
 - More/Better categories
 
 - Spice up newsletter welcome email
