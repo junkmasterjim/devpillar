@@ -5,6 +5,7 @@ import { Navbar, Sidebar } from "@/components/Navigation";
 import { resources } from "../../../resources";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { Suspense } from "react";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({
 						id="mainContent"
 						className="max-w-screen-xl w-full py-8 pt-24 lg:pr-4 overflow-auto mx-auto flex flex-col justify-between "
 					>
-						{children}
+						<Suspense>{children}</Suspense>
 						<Footer />
 					</div>
 				</main>

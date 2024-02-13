@@ -6,21 +6,12 @@ import { Resource, categories, resources } from "../../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Reply } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const Page = () => {
 	const searchParams = useSearchParams();
 	const params = searchParams.get("q");
 	const router = useRouter();
-
-	!params ? router.push("/") : console.log("params: ", params);
-
-	useEffect(() => {
-		console.log("params: ", params);
-	}, []);
 
 	const searchResults = params
 		? resources.filter((resource: Resource) => {
@@ -42,6 +33,10 @@ const Page = () => {
 		  })
 		: [];
 
+	useEffect(() => {
+		!params ? router.push("/") : console.log("params: ", params);
+	}, []);
+
 	return (
 		<>
 			{params && (
@@ -60,7 +55,7 @@ const Page = () => {
 						className="pb-4 w-fit"
 					>
 						<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2">
-							Results for &quot;{params}&quot;{" "}
+							Results for &quot;{params.toUpperCase()}&quot;{" "}
 							<span className="opacity-50">({searchResults.length})</span>
 						</h2>
 						<Separator />
