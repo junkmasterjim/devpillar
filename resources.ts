@@ -190,6 +190,7 @@ export const resources: Resource[] = [
 			"react",
 			"hooks",
 			"documentation",
+			"docs",
 			"usehooks",
 			"snippets",
 			"use",
@@ -852,6 +853,7 @@ export const resources: Resource[] = [
 			"typescript",
 			"cheatsheet",
 			"documentation",
+			"docs",
 			"react-ts",
 		],
 		image: "/resources/reactts.jpg",
@@ -965,6 +967,7 @@ export const resources: Resource[] = [
 		keywords: [
 			"readme",
 			"documentation",
+			"docs",
 			"readme.so",
 			"docs",
 			"readme generator",
