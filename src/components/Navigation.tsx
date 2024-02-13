@@ -32,7 +32,9 @@ export const Sidebar = () => {
 			?.addEventListener("keydown", (e) => {
 				if (e.key === "Enter") {
 					e.preventDefault();
-					router.push(`/search?q=${search}`);
+					if (search.trim() !== "") {
+						router.push(`/search?q=${search}`);
+					}
 				}
 			});
 
@@ -42,7 +44,9 @@ export const Sidebar = () => {
 				?.removeEventListener("keydown", (e) => {
 					if (e.key === "Enter") {
 						e.preventDefault();
-						router.push(`/search?q=${search}`);
+						if (search.trim() !== "") {
+							router.push(`/search?q=${search}`);
+						}
 					}
 				});
 		};
@@ -58,8 +62,9 @@ export const Sidebar = () => {
 				<form
 					onSubmit={(e) => {
 						e.preventDefault();
-						e.stopPropagation;
-						router.push(`/search?q=${search}`);
+						if (search.trim() !== "") {
+							router.push(`/search?q=${search}`);
+						}
 					}}
 				>
 					<InputUnstyled
@@ -67,8 +72,9 @@ export const Sidebar = () => {
 						value={search}
 						onSubmit={(e) => {
 							e.preventDefault();
-							e.stopPropagation;
-							router.push(`/search?q=${search}`);
+							if (search.trim() !== "") {
+								router.push(`/search?q=${search}`);
+							}
 						}}
 						onChange={(e) => {
 							setSearch(e.target.value);
@@ -142,7 +148,9 @@ export const Burger = () => {
 			?.addEventListener("keydown", (e) => {
 				if (e.key === "Enter") {
 					e.preventDefault();
-					router.push(`/search?q=${search}`);
+					if (search.trim() !== "") {
+						router.push(`/search?q=${search}`);
+					}
 				}
 			});
 
@@ -152,7 +160,9 @@ export const Burger = () => {
 				?.removeEventListener("keydown", (e) => {
 					if (e.key === "Enter") {
 						e.preventDefault();
-						router.push(`/search?q=${search}`);
+						if (search.trim() !== "") {
+							router.push(`/search?q=${search}`);
+						}
 					}
 				});
 		};
@@ -243,8 +253,10 @@ export const Burger = () => {
 							onSubmit={(e) => {
 								e.preventDefault();
 								e.stopPropagation;
-								router.push(`/search?q=${search}`);
-								document.getElementById("burgerMenu")?.click();
+								if (search.trim() !== "") {
+									router.push(`/search?q=${search}`);
+									document.getElementById("burgerMenu")?.click();
+								}
 							}}
 						>
 							<InputUnstyled
@@ -253,7 +265,9 @@ export const Burger = () => {
 								onSubmit={(e) => {
 									e.preventDefault();
 									e.stopPropagation;
-									router.push(`/search?q=${search}`);
+									if (search.trim() !== "") {
+										router.push(`/search?q=${search}`);
+									}
 								}}
 								onChange={(e) => {
 									setSearch(e.target.value);

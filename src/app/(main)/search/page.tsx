@@ -46,7 +46,6 @@ const Page = () => {
 			{params && (
 				<>
 					<ScrollToTop />
-
 					{searchResults.length === 0 ? (
 						<div className="flex flex-col gap-2 justify-center h-full items-center text-muted-foreground">
 							<p className="font-medium text-lg ">Sorry! No results found.</p>
