@@ -22,6 +22,32 @@ import { toast } from "sonner";
 const supabase = createClient();
 
 export const Sidebar = () => {
+	const [search, setSearch] = useState<string>("");
+
+	const router = useRouter();
+
+	useEffect(() => {
+		document
+			.getElementById("searchButton")
+			?.addEventListener("keydown", (e) => {
+				if (e.key === "Enter") {
+					e.preventDefault();
+					router.push(`/search?q=${search}`);
+				}
+			});
+
+		return () => {
+			document
+				.getElementById("searchButton")
+				?.removeEventListener("keydown", (e) => {
+					if (e.key === "Enter") {
+						e.preventDefault();
+						router.push(`/search?q=${search}`);
+					}
+				});
+		};
+	}, []);
+
 	return (
 		<div className="lg:flex flex-col hidden max-w-sm w-full pt-24 ">
 			<div className="mb-8 w-3/5 text-foreground h-10 rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 grid grid-flow-col bg-background ">
@@ -29,12 +55,32 @@ export const Sidebar = () => {
 					onClick={() => document?.getElementById("search")?.focus()}
 					className="h-5 w-5 mr-2"
 				/>
-				<InputUnstyled
-					id="search"
-					disabled
-					className="line-through border-0 bg-background "
-					placeholder={`Search for a resource`}
-				/>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+						e.stopPropagation;
+						router.push(`/search?q=${search}`);
+					}}
+				>
+					<InputUnstyled
+						type="text"
+						value={search}
+						onSubmit={(e) => {
+							e.preventDefault();
+							e.stopPropagation;
+							router.push(`/search?q=${search}`);
+						}}
+						onChange={(e) => {
+							setSearch(e.target.value);
+						}}
+						id="search"
+						name="search"
+						// disabled
+						className=" border-0 bg-background w-full placeholder:text-muted"
+						placeholder={`Search for a resource`}
+					/>
+					<input type="submit" id="searchButton" hidden />
+				</form>
 			</div>
 
 			<div className="flex flex-col w-3/4 overflow-auto max-w-sm max-h-[calc(100svh-99px)] group select-none">
@@ -62,6 +108,7 @@ export const Sidebar = () => {
 export const Burger = () => {
 	const router = useRouter();
 
+	const [search, setSearch] = useState<string>("");
 	const [loading, setLoading] = useState<boolean>(true);
 	const [isAuth, setIsAuth] = useState<boolean>();
 
@@ -88,6 +135,28 @@ export const Burger = () => {
 	useEffect(() => {
 		getSession();
 	}, [isAuth]);
+
+	useEffect(() => {
+		document
+			.getElementById("searchButton")
+			?.addEventListener("keydown", (e) => {
+				if (e.key === "Enter") {
+					e.preventDefault();
+					router.push(`/search?q=${search}`);
+				}
+			});
+
+		return () => {
+			document
+				.getElementById("searchButton")
+				?.removeEventListener("keydown", (e) => {
+					if (e.key === "Enter") {
+						e.preventDefault();
+						router.push(`/search?q=${search}`);
+					}
+				});
+		};
+	}, []);
 
 	return (
 		<Sheet>
@@ -170,12 +239,33 @@ export const Burger = () => {
 							onClick={() => document?.getElementById("search")?.focus()}
 							className="h-5 w-5"
 						/>
-						<InputUnstyled
-							id="search"
-							disabled
-							className="line-through border-0 bg-background "
-							placeholder={`Search for a resource`}
-						/>
+						<form
+							onSubmit={(e) => {
+								e.preventDefault();
+								e.stopPropagation;
+								router.push(`/search?q=${search}`);
+								document.getElementById("burgerMenu")?.click();
+							}}
+						>
+							<InputUnstyled
+								type="text"
+								value={search}
+								onSubmit={(e) => {
+									e.preventDefault();
+									e.stopPropagation;
+									router.push(`/search?q=${search}`);
+								}}
+								onChange={(e) => {
+									setSearch(e.target.value);
+								}}
+								id="search"
+								name="search"
+								// disabled
+								className=" border-0 bg-background w-full placeholder:text-muted"
+								placeholder={`Search for a resource`}
+							/>
+							<input type="submit" id="searchButton" hidden />
+						</form>
 					</div>
 				</div>
 				<SheetTitle>Categories</SheetTitle>

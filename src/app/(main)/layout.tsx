@@ -33,7 +33,7 @@ export default function RootLayout({
 					<Sidebar />
 					<div
 						id="mainContent"
-						className="max-w-screen-xl py-8 pt-24 lg:pr-4 overflow-auto mx-auto flex flex-col justify-between "
+						className="max-w-screen-xl w-full py-8 pt-24 lg:pr-4 overflow-auto mx-auto flex flex-col justify-between "
 					>
 						{children}
 						<Footer />

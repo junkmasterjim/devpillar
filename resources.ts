@@ -723,6 +723,7 @@ export const resources: Resource[] = [
 
 // Accessibility
 // Animation
+// Web Hosting (vercel, netlify, fly, digitalocean, etc)
 // Browser Extensions
 // Cheatsheets
 // Code Challenges

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Badge } from "./ui/badge";
 
@@ -39,6 +41,7 @@ const ResourceCard = ({
 	const [email, setEmail] = useState<string | null>(null);
 	const [favs, setFavs] = useState<string[]>([]);
 	const [favTimeout, setFavTimeout] = useState<boolean>(true);
+	const [isMounted, setIsMounted] = useState<boolean>(false);
 
 	const getUserEmail = async () => {
 		const { data } = await supabase.auth.getSession();
@@ -93,6 +96,7 @@ const ResourceCard = ({
 	}, []);
 
 	useEffect(() => {
+		setIsMounted(true);
 		getFavs();
 	}, [email]);
 
@@ -114,7 +118,7 @@ const ResourceCard = ({
 								variant={"ghost"}
 								size={"icon"}
 								disabled={favTimeout}
-								className="text-muted-foreground"
+								className={cn("text-muted-foreground", !email && "hidden")}
 								onClick={() => {
 									toggleFav(name);
 								}}
