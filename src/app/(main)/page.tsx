@@ -9,10 +9,14 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 
 import { createClient } from "@/lib/supabase/client";
 import { Session } from "@supabase/supabase-js";
+import { SortingSelect } from "@/components/SortingSelect";
+import { useState } from "react";
 
 const supabase = createClient();
 
 const Home = () => {
+	const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+	const [results, setResults] = useState<Resource[]>();
 	const createUserFavs = async (session: Session | null) => {
 		if (session === null) return;
 
@@ -47,23 +51,52 @@ const Home = () => {
 				initial={{ opacity: 0, y: 10 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.3 }}
-				className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto"
 			>
-				{resources
-					.sort((a: Resource, b: Resource) => {
-						return a.name.localeCompare(b.name);
-					})
-					.map((resource: Resource) => (
-						<ResourceCard
-							key={Math.random()}
-							name={resource.name}
-							category={resource.category}
-							description={resource.description}
-							paid={resource.paid}
-							url={resource.url}
-							image={resource?.image}
-						/>
-					))}
+				<div className="py-4">
+					<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2 select-none">
+						All Resources{" "}
+						<span className="text-muted-foreground/50 text-lg">
+							({resources.length})
+						</span>
+					</h2>
+					<div>
+						<SortingSelect sort={sort} setSort={setSort} />
+					</div>
+				</div>
+
+				<div className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto">
+					{sort === "A-Z"
+						? resources
+								.sort((a: Resource, b: Resource) => {
+									return a.name.localeCompare(b.name);
+								})
+								.map((resource: Resource) => (
+									<ResourceCard
+										key={Math.random()}
+										name={resource.name}
+										category={resource.category}
+										description={resource.description}
+										paid={resource.paid}
+										url={resource.url}
+										image={resource?.image}
+									/>
+								))
+						: resources
+								.sort((a: Resource, b: Resource) => {
+									return b.name.localeCompare(a.name);
+								})
+								.map((resource: Resource) => (
+									<ResourceCard
+										key={Math.random()}
+										name={resource.name}
+										category={resource.category}
+										description={resource.description}
+										paid={resource.paid}
+										url={resource.url}
+										image={resource?.image}
+									/>
+								))}
+				</div>
 			</motion.section>
 		</>
 	);

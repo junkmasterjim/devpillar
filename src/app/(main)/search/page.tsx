@@ -5,13 +5,15 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { Resource, categories, resources } from "../../../../resources";
 import ResourceCard from "@/components/ResourceCard";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Separator } from "@/components/ui/separator";
+import { SortingSelect } from "@/components/SortingSelect";
 
 const Page = () => {
 	const searchParams = useSearchParams();
 	const params = searchParams.get("q");
 	const router = useRouter();
+	const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
 
 	const searchResults = params
 		? resources.filter((resource: Resource) => {
@@ -57,10 +59,16 @@ const Page = () => {
 						<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2">
 							Results for &quot;{params.toUpperCase()}&quot;{" "}
 							<span className="text-muted-foreground/50 text-xl">
+								{" "}
 								({searchResults.length})
 							</span>
 						</h2>
-						<Separator />
+						<div className="space-y-4">
+							<Separator />
+							<div>
+								<SortingSelect sort={sort} setSort={setSort} />
+							</div>
+						</div>
 					</motion.div>
 					{searchResults.length === 0 && (
 						<motion.p
@@ -84,21 +92,37 @@ const Page = () => {
 						transition={{ duration: 0.3 }}
 						className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto"
 					>
-						{searchResults
-							.sort((a: Resource, b: Resource) => {
-								return a.name.localeCompare(b.name);
-							})
-							.map((resource: Resource) => (
-								<ResourceCard
-									key={Math.random()}
-									name={resource.name}
-									category={resource.category}
-									description={resource.description}
-									paid={resource.paid}
-									url={resource.url}
-									image={resource?.image}
-								/>
-							))}
+						{sort === "A-Z"
+							? searchResults
+									.sort((a: Resource, b: Resource) => {
+										return a.name.localeCompare(b.name);
+									})
+									.map((resource: Resource) => (
+										<ResourceCard
+											key={Math.random()}
+											name={resource.name}
+											category={resource.category}
+											description={resource.description}
+											paid={resource.paid}
+											url={resource.url}
+											image={resource?.image}
+										/>
+									))
+							: searchResults
+									.sort((a: Resource, b: Resource) => {
+										return b.name.localeCompare(a.name);
+									})
+									.map((resource: Resource) => (
+										<ResourceCard
+											key={Math.random()}
+											name={resource.name}
+											category={resource.category}
+											description={resource.description}
+											paid={resource.paid}
+											url={resource.url}
+											image={resource?.image}
+										/>
+									))}
 					</motion.section>
 				</>
 			)}

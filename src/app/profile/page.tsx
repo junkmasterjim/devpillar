@@ -18,6 +18,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { SortingSelect } from "@/components/SortingSelect";
 
 const supabase = createClient();
 
@@ -127,27 +128,7 @@ const Profile = () => {
 							Your Favorites
 						</h2>
 						<div>
-							<Select
-								onValueChange={(e: "A-Z" | "Z-A") => setSort(e)}
-								defaultValue={sort}
-							>
-								<SelectTrigger className="w-fit">
-									<SelectValue placeholder="Sort by: " />
-								</SelectTrigger>
-								<SelectContent>
-									<SelectGroup>
-										<SelectLabel></SelectLabel>
-										<SelectItem value={"A-Z"}>
-											<span className="text-muted-foreground">Sort by: </span>
-											A-Z
-										</SelectItem>
-										<SelectItem value={"Z-A"}>
-											<span className="text-muted-foreground">Sort by: </span>
-											Z-A
-										</SelectItem>
-									</SelectGroup>
-								</SelectContent>
-							</Select>
+							<SortingSelect sort={sort} setSort={setSort} />
 						</div>
 					</div>
 					<div className="grid md:grid-cols-3 grid-cols-1 gap-4">
