@@ -28,8 +28,13 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 - ~~Add sorting methods to profile~~
 
+- ~~Search functionality~~
+
+- Add sorting and filter to search
+
+- Recently Added collection (last week - 2 weeks)
+
 - Collections
-  -Recently Added (last week - 2 weeks)
   -Quickstart
   -Designers Toolbox
   -Frictionless Backend
@@ -42,7 +47,5 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 - Spice up newsletter welcome email
 
 - Revamp submission form
-
-- Search functionality
 
 - More resources!
