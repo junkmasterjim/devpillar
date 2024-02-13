@@ -219,7 +219,7 @@ export const resources: Resource[] = [
 	{
 		name: "shadcn-ui Theme Generator",
 		description: "A theme generator for shadcn-ui",
-		category: ["UI UX", "CSS", "Components"],
+		category: ["UI UX", "CSS"],
 		url: "https://zippystarter.com/tools/shadcn-ui-theme-generator",
 		paid: "Free",
 		keywords: [
@@ -275,7 +275,7 @@ export const resources: Resource[] = [
 		name: "Ibelick Backgrounds",
 		description:
 			"A collection of modern and unique backgrounds for your website",
-		category: ["Images", "UI UX", "CSS", "Backgrounds"],
+		category: ["CSS", "Backgrounds", "Snippets & Hooks"],
 		url: "https://bg.ibelick.com",
 		paid: "Free",
 		keywords: ["backgrounds", "images", "ui", "css", "web", "bg", "ibelick"],
@@ -304,7 +304,7 @@ export const resources: Resource[] = [
 		name: "CSS Background Generator",
 		description:
 			"Beautiful pure CSS background patterns that you can actually use in your projects!",
-		category: ["CSS", "UI UX", "Images", "Backgrounds"],
+		category: ["CSS", "Backgrounds"],
 		url: "https://www.magicpattern.design/tools/css-backgrounds",
 		paid: "Free",
 		keywords: [
@@ -324,7 +324,7 @@ export const resources: Resource[] = [
 	{
 		name: "MagicPattern",
 		description: "10+ tools for designers and developers",
-		category: ["Images", "UI UX", "CSS", "Backgrounds", "Design"],
+		category: ["CSS", "Backgrounds", "Design"],
 		url: "https://www.magicpattern.design",
 		paid: "Paid",
 		keywords: [
@@ -383,7 +383,7 @@ export const resources: Resource[] = [
 		name: "Tailwind CSS",
 		description:
 			"A utility-first CSS framework for rapidly building custom designs",
-		category: ["CSS", "UI UX"],
+		category: ["CSS", "Frameworks"],
 		url: "https://tailwindcss.com",
 		paid: "Free",
 		keywords: ["tailwind", "css", "ui", "framework", "tailwindcss"],
@@ -426,7 +426,7 @@ export const resources: Resource[] = [
 	{
 		name: "sharpen.design",
 		description: "Design prompts to sharpen your design skills",
-		category: ["UI UX", "Learning & Challenges", "Design"],
+		category: ["Learning & Challenges", "Design"],
 		url: "https://sharpen.design",
 		paid: "Free",
 		keywords: [
@@ -444,13 +444,15 @@ export const resources: Resource[] = [
 	{
 		name: "Design Resources",
 		description: "A github repository with tons of design resources",
-		category: ["UI UX", "Design", "Documentation"],
+		category: ["Design", "Documentation"],
 		url: "https://github.com/bradtraversy/design-resources-for-developers",
 		paid: "Free",
 		keywords: [
 			"design resources",
 			"ui",
 			"ux",
+			"documentation",
+			"docs",
 			"design",
 			"resources",
 			"github",
@@ -488,7 +490,7 @@ export const resources: Resource[] = [
 	{
 		name: "Stack Sorted",
 		description: "A curated list of community components & element designs",
-		category: ["UI UX", "Components", "CSS"],
+		category: ["Design", "Components", "CSS"],
 		url: "https://stacksorted.com",
 		paid: "Free",
 		keywords: [
@@ -507,7 +509,7 @@ export const resources: Resource[] = [
 	{
 		name: "Dribbble",
 		description: "Discover the world’s top designers & creatives",
-		category: ["UI UX", "Design"],
+		category: ["Design"],
 		url: "https://dribbble.com",
 		paid: "Free",
 		keywords: ["designers", "creatives", "ui", "ux", "design", "dribbble"],
@@ -652,7 +654,7 @@ export const resources: Resource[] = [
 	{
 		name: "AI Skeletons",
 		description: "AI generated skeletons based on your components",
-		category: ["AI", "Components", "UI UX"],
+		category: ["AI", "Components"],
 		url: "https://gpt-skeleton.vercel.app",
 		paid: "Free",
 		keywords: [
@@ -671,7 +673,7 @@ export const resources: Resource[] = [
 	{
 		name: "Framer Motion",
 		description: "A production-ready animation library for React",
-		category: ["Animations", "UI UX", "Libraries & Packages"],
+		category: ["Animations", "Libraries & Packages"],
 		url: "https://www.framer.com/motion/",
 		paid: "Free",
 		keywords: [
@@ -729,7 +731,7 @@ export const resources: Resource[] = [
 	{
 		name: "Google Fonts",
 		description: "Free, open-source fonts optimized for the web",
-		category: ["UI UX", "Fonts"],
+		category: ["Design", "Fonts"],
 		url: "https://fonts.google.com",
 		paid: "Free",
 		keywords: ["google fonts", "fonts", "open-source", "web", "google", "web"],
@@ -739,7 +741,7 @@ export const resources: Resource[] = [
 		name: "CodePen",
 		description:
 			"CodePen is a social development environment for front-end designers and developers. Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.",
-		category: ["UI UX", "CSS", "Components", "Learning & Challenges"],
+		category: ["CSS", "Components", "Learning & Challenges"],
 		url: "https://codepen.io",
 		paid: "Free",
 		keywords: ["codepen", "front-end", "designers", "developers", "web"],
@@ -748,7 +750,7 @@ export const resources: Resource[] = [
 	{
 		name: "Clippy",
 		description: "CSS clip-path maker",
-		category: ["UI UX", "CSS", "Images"],
+		category: ["CSS", "Images"],
 		url: "https://bennettfeely.com/clippy/",
 		paid: "Free",
 		keywords: [
@@ -862,7 +864,7 @@ export const resources: Resource[] = [
 		name: "Flowbite",
 		description:
 			"Build websites even faster with components on top of Tailwind CSS.",
-		category: ["Components", "UI UX", "CSS"],
+		category: ["Components", "UI UX"],
 		url: "https://flowbite.com",
 		paid: "Free Plan Available",
 		keywords: ["tailwind", "css", "components", "flowbite", "ui", "ux"],

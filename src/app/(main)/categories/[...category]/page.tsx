@@ -31,6 +31,12 @@ const Page = ({ params }: { params: any }) => {
 		redirect("/");
 	}
 
+	const results = resources
+		.sort((a: Resource, b: Resource) => {
+			return a.name.localeCompare(b.name);
+		})
+		.filter((resource) => resource.category.includes(category));
+
 	return (
 		<>
 			<motion.div
@@ -41,7 +47,10 @@ const Page = ({ params }: { params: any }) => {
 			>
 				<div className="flex justify-center items-center flex-col">
 					<h1 className="text-4xl leading-10 pb-4 pt-6 font-medium text-foreground">
-						{category}
+						{category}{" "}
+						<span className="text-muted-foreground/50 text-xl">
+							({results.length})
+						</span>
 					</h1>
 					<Button
 						variant={"ghost"}
@@ -61,22 +70,17 @@ const Page = ({ params }: { params: any }) => {
 				transition={{ duration: 0.3 }}
 				className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
 			>
-				{resources
-					.sort((a: Resource, b: Resource) => {
-						return a.name.localeCompare(b.name);
-					})
-					.filter((resource) => resource.category.includes(category))
-					.map((resource) => (
-						<ResourceCard
-							key={Math.random()}
-							name={resource.name}
-							category={resource.category}
-							description={resource.description}
-							paid={resource.paid}
-							url={resource.url}
-							image={resource?.image}
-						/>
-					))}
+				{results.map((resource) => (
+					<ResourceCard
+						key={Math.random()}
+						name={resource.name}
+						category={resource.category}
+						description={resource.description}
+						paid={resource.paid}
+						url={resource.url}
+						image={resource?.image}
+					/>
+				))}
 			</motion.section>
 		</>
 	);

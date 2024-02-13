@@ -56,7 +56,9 @@ const Page = () => {
 					>
 						<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2">
 							Results for &quot;{params.toUpperCase()}&quot;{" "}
-							<span className="opacity-50">({searchResults.length})</span>
+							<span className="text-muted-foreground/50 text-xl">
+								({searchResults.length})
+							</span>
 						</h2>
 						<Separator />
 					</motion.div>
