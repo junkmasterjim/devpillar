@@ -99,7 +99,6 @@ export interface Category {
 
 export const categories: Category[] = [
 	{ icon: FileJsonIcon, name: "Boilerplate" },
-
 	{ icon: Paintbrush, name: "CSS" },
 	{ icon: Hammer, name: "Components" },
 	{ icon: FileSearchIcon, name: "Documentation" },
