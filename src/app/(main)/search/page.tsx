@@ -60,7 +60,7 @@ const Page = () => {
 						className="pb-4 w-fit"
 					>
 						<h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2">
-							Results for "{params}"{" "}
+							Results for &quot;{params}&quot;{" "}
 							<span className="opacity-50">({searchResults.length})</span>
 						</h2>
 						<Separator />
