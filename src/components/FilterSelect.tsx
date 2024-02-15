@@ -37,7 +37,11 @@ export const FilterSelect = ({
 						<Separator />
 					</div>
 					{categories.map((category) => (
-						<SelectItem value={category.name} className="truncate">
+						<SelectItem
+							key={category.name}
+							value={category.name}
+							className="truncate"
+						>
 							<span className="text-muted-foreground">Filter: </span>
 							{category.name}
 						</SelectItem>
