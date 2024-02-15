@@ -6,7 +6,7 @@ DevPillar is an open source resource library for Full Stack Developers, UI/UX De
 ![Frame 1 (1)](https://github.com/noahpittman/devpillar/assets/98414850/79b6754a-07b8-46c4-adf2-0f596da42dcc)
 ## Contributing
 
-Contributions are welcome! Resources can be submitted through the submissions form on the website, or send it to me directly and I'll take a look.
+Contributions are welcome! Resources can be submitted through the submissions form on the website, or update `the resources.ts` file and `/public` images.
 
 ![Frame 1 (2)](https://github.com/noahpittman/devpillar/assets/98414850/84a8fc6b-0e66-4d57-9c5c-0d017cc40e41)
 ## Roadmap
@@ -43,8 +43,13 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 ❌ Revamp submission form
 
-❌ More resources!
+❌ 100 resources.
 
-(❌: not ready yet, ✅ ready yet)
+❌ 250 resources.
+
+❌ 500 resources!
+
+(❌: Not ready yet. ✅ Complete.)
 ---
-Project made by [noah](https://github.com/noahpittman)
+Created by [Noah Pittman](https://npitt.dev)
+
