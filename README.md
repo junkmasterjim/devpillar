@@ -33,7 +33,7 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 
 ✅ ~~Search functionality~~
 
-❌ Add sorting and filter to search
+✅ Add sorting and filter to search
 
 ❌ Recently Added collection (last week - 2 weeks)
 
