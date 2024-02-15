@@ -52,6 +52,7 @@ Contributions are welcome! Resources can be submitted through the submissions fo
 ❌ 500 resources!
 
 (❌: Not ready yet. ✅ Complete.)
+
 ---
 Created by [Noah Pittman](https://npitt.dev)
 
