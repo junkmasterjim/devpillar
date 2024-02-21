@@ -39,6 +39,7 @@ import {
 	PenTool,
 	Youtube,
 	FileBadge2,
+	Blocks,
 } from "lucide-react";
 
 export interface Resource {
@@ -85,6 +86,7 @@ export interface Resource {
 		| "Writing"
 		| "Youtube Channels"
 		| "Frameworks"
+		| "Web3"
 	)[];
 	url: string;
 	paid: "Free" | "Paid" | "Free Plan Available";
@@ -137,6 +139,7 @@ export const categories: Category[] = [
 	{ icon: PenLine, name: "Writing" },
 	{ icon: Youtube, name: "Youtube Channels" },
 	{ icon: FileBadge2, name: "Frameworks" },
+	{ icon: Blocks, name: "Web3" },
 ].sort((a, b) => {
 	return a.name.localeCompare(b.name);
 });
