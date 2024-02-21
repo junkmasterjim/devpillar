@@ -40,6 +40,7 @@ import {
 	Youtube,
 	FileBadge2,
 	Blocks,
+	DatabaseZap,
 } from "lucide-react";
 
 export interface Resource {
@@ -87,6 +88,7 @@ export interface Resource {
 		| "Youtube Channels"
 		| "Frameworks"
 		| "Web3"
+		| "Data Visualization"
 	)[];
 	url: string;
 	paid: "Free" | "Paid" | "Free Plan Available";
@@ -140,6 +142,7 @@ export const categories: Category[] = [
 	{ icon: Youtube, name: "Youtube Channels" },
 	{ icon: FileBadge2, name: "Frameworks" },
 	{ icon: Blocks, name: "Web3" },
+	{ icon: DatabaseZap, name: "Data Visualization" },
 ].sort((a, b) => {
 	return a.name.localeCompare(b.name);
 });
@@ -1221,6 +1224,116 @@ export const resources: Resource[] = [
 		paid: "Free",
 		keywords: ["monkey", "type", "typing", "web", "monkeytype", "type", "test"],
 		image: "/resources/monkeytype.jpg",
+	},
+	{
+		name: "Recharts",
+		description: "A composable charting library built on React components",
+		category: ["Components", "Data Visualization", "Libraries & Packages"],
+		url: "https://recharts.org/en-US/",
+		paid: "Free",
+		keywords: [
+			"recharts",
+			"charting",
+			"charts",
+			"library",
+			"react",
+			"components",
+			"data",
+			"visualization",
+		],
+		image: "/resources/recharts.jpg",
+	},
+	{
+		name: "Postman",
+		description:
+			"Postman is an API platform for building and using APIs. Create better APIs - faster.",
+		category: ["API"],
+		url: "https://www.postman.com",
+		paid: "Free",
+		keywords: [
+			"postman",
+			"api",
+			"platform",
+			"web",
+			"api",
+			"test",
+			"postman.com",
+			"post",
+			"man",
+		],
+		image: "/resources/postman.jpg",
+	},
+	{
+		name: "Revert",
+		description:
+			"Revert is an open-source unified API to build, maintain and scale your ALL of your product integrations",
+		category: ["API", "SAAS"],
+		url: "https://revert.dev",
+		paid: "Free Plan Available",
+		keywords: [
+			"revert",
+			"api",
+			"integration",
+			"product",
+			"saas",
+			"web",
+			"revert.dev",
+			"revert",
+		],
+		image: "/resources/revert.jpg",
+	},
+	{
+		name: "Hover.dev",
+		description: "Animated UI Components for React & Tailwind",
+		category: ["UI UX", "Components", "Animations"],
+		url: "https://www.hover.dev",
+		paid: "Free Plan Available",
+		keywords: [
+			"hover",
+			"ui",
+			"components",
+			"animations",
+			"react",
+			"tailwind",
+			"framer",
+			"motion",
+		],
+		image: "/resources/",
+	},
+	{
+		name: "1000 Inspiring Websites",
+		description:
+			"A growing list of websites that are memorable, clear and delightful.",
+		category: ["Design", "UI UX"],
+		url: "https://supercreative.design/1000-inspiring-websites",
+		paid: "Free",
+		keywords: [
+			"websites",
+			"inspiring",
+			"design",
+			"supercreative",
+			"1000",
+			"inspiration",
+			"inspo",
+		],
+		image: "/resources/1000sites.jpg",
+	},
+	{
+		name: "Curated Design",
+		description:
+			"Unleash your creativity with out-of-this-world web design inspiration from across the web",
+		category: ["Design", "UI UX"],
+		url: "https://www.curated.design",
+		paid: "Free",
+		keywords: [
+			"design",
+			"inspiration",
+			"web",
+			"curated",
+			"curated.design",
+			"ui",
+		],
+		image: "/resources/",
 	},
 	// {
 	// 	name: "",
