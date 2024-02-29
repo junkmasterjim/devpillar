@@ -16,7 +16,7 @@ export const Hero = () => {
 					variant={"outline"}
 					className="w-fit scale-[115%] mb-2 font-normal"
 				>
-					19 New Categories & Search!
+					New Resources Added Bi-Weekly!
 				</Badge>
 				<h1 className="text-6xl pb-4 font-bold text-foreground">
 					Welcome to DevPillar
