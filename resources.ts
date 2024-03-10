@@ -155,7 +155,8 @@ export const resources: Resource[] = [
 		url: "https://shipfa.st/",
 		paid: "Paid",
 		keywords: ["next.js", "boilerplate", "saas", "shipfast"],
-		image: "/resources/shipfast.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/shipfast.jpg",
 	},
 	{
 		name: "LogoFast",
@@ -164,7 +165,8 @@ export const resources: Resource[] = [
 		url: "https://logofa.st/",
 		paid: "Free",
 		keywords: ["logo", "design", "images", "logofast", "logos", "brand"],
-		image: "/resources/logofast.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/logofast.jpg",
 	},
 	{
 		name: "Precedent",
@@ -184,7 +186,8 @@ export const resources: Resource[] = [
 			"precedent",
 			"template",
 		],
-		image: "/resources/precedent.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/precedent.jpg",
 	},
 	{
 		name: "useHooks",
@@ -202,7 +205,8 @@ export const resources: Resource[] = [
 			"use",
 			"hooks",
 		],
-		image: "/resources/usehooks.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/usehooks.jpg",
 	},
 	{
 		name: "shadcn-ui",
@@ -220,7 +224,8 @@ export const resources: Resource[] = [
 			"css",
 			"web",
 		],
-		image: "/resources/shadcnui.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/shadcnui.jpg",
 	},
 	{
 		name: "shadcn-ui Theme Generator",
@@ -238,7 +243,8 @@ export const resources: Resource[] = [
 			"shadcn-ui",
 			"css",
 		],
-		image: "/resources/shadcnthemes.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/shadcnthemes.jpg",
 	},
 	{
 		name: "Ibelick UI",
@@ -256,7 +262,8 @@ export const resources: Resource[] = [
 			"web",
 			"ibelick",
 		],
-		image: "/resources/ibelickui.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/ibelickui.jpg",
 	},
 	{
 		name: "Ibelick LAB",
@@ -275,7 +282,8 @@ export const resources: Resource[] = [
 			"ibelick",
 			"lab",
 		],
-		image: "/resources/ibelicklab.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/ibelicklab.jpg",
 	},
 	{
 		name: "Ibelick Backgrounds",
@@ -285,7 +293,8 @@ export const resources: Resource[] = [
 		url: "https://bg.ibelick.com",
 		paid: "Free",
 		keywords: ["backgrounds", "images", "ui", "css", "web", "bg", "ibelick"],
-		image: "/resources/ibelickbg.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/ibelickbg.jpg",
 	},
 	{
 		name: "Ibelick Buttons",
@@ -294,7 +303,8 @@ export const resources: Resource[] = [
 		url: "https://buttons.ibelick.com",
 		paid: "Free",
 		keywords: ["buttons", "ui", "css", "web", "ibelick", "components"],
-		image: "/resources/ibelickbuttons.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/ibelickbuttons.jpg",
 	},
 	{
 		name: "Ibelick Animations",
@@ -304,7 +314,8 @@ export const resources: Resource[] = [
 		url: "https://animation.ibelick.com",
 		paid: "Free",
 		keywords: ["animations", "css", "tailwind", "ui", "ux", "web", "ibelick"],
-		image: "/resources/ibelickanimations.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/ibelickanimations.jpg",
 	},
 	{
 		name: "CSS Background Generator",
@@ -325,7 +336,8 @@ export const resources: Resource[] = [
 			"generator",
 			"bg",
 		],
-		image: "/resources/cssbackgrounds.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/cssbackgrounds.jpg",
 	},
 	{
 		name: "MagicPattern",
@@ -344,7 +356,8 @@ export const resources: Resource[] = [
 			"web",
 			"magicpattern",
 		],
-		image: "/resources/magicpattern.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/magicpattern.jpg",
 	},
 	{
 		name: "UploadThing",
@@ -366,7 +379,8 @@ export const resources: Resource[] = [
 			"file",
 			"uploader",
 		],
-		image: "/resources/uploadthing.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/uploadthing.jpg",
 	},
 	{
 		name: "Tailwind UI",
@@ -383,7 +397,8 @@ export const resources: Resource[] = [
 			"boilerplate",
 			"tailwindui",
 		],
-		image: "/resources/tailwindui.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/tailwindui.jpg",
 	},
 	{
 		name: "Tailwind CSS",
@@ -393,7 +408,8 @@ export const resources: Resource[] = [
 		url: "https://tailwindcss.com",
 		paid: "Free",
 		keywords: ["tailwind", "css", "ui", "framework", "tailwindcss"],
-		image: "/resources/tailwindcss.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/tailwindcss.jpg",
 	},
 	{
 		name: "DevUI",
@@ -402,7 +418,8 @@ export const resources: Resource[] = [
 		url: "https://www.devui.io/",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components", "css"],
-		image: "/resources/devui.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/devui.jpg",
 	},
 	{
 		name: "UIVerse",
@@ -411,7 +428,8 @@ export const resources: Resource[] = [
 		url: "https://uiverse.io",
 		paid: "Free",
 		keywords: ["react", "tailwind", "ui", "components", "css", "uiverse"],
-		image: "/resources/uiverse.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/uiverse.jpg",
 	},
 	{
 		name: "Code Animations",
@@ -427,7 +445,8 @@ export const resources: Resource[] = [
 			"websites",
 			"animate",
 		],
-		image: "/resources/codeanimations.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/codeanimations.jpg",
 	},
 	{
 		name: "sharpen.design",
@@ -445,7 +464,8 @@ export const resources: Resource[] = [
 			"skills",
 			"sharpen.design",
 		],
-		image: "/resources/sharpendesign.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/sharpendesign.jpg",
 	},
 	{
 		name: "Design Resources",
@@ -464,7 +484,8 @@ export const resources: Resource[] = [
 			"github",
 			"bradtraversy",
 		],
-		image: "/resources/designresources.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/designresources.jpg",
 	},
 	{
 		name: "Figma",
@@ -473,7 +494,8 @@ export const resources: Resource[] = [
 		url: "https://www.figma.com",
 		paid: "Free Plan Available",
 		keywords: ["design tool", "ui", "ux", "figma", "interface"],
-		image: "/resources/figma.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/figma.jpg",
 	},
 	{
 		name: "Spline - 3D Design Tool",
@@ -491,7 +513,8 @@ export const resources: Resource[] = [
 			"3d",
 			"tool",
 		],
-		image: "/resources/spline.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/spline.jpg",
 	},
 	{
 		name: "Stack Sorted",
@@ -510,7 +533,8 @@ export const resources: Resource[] = [
 			"stack",
 			"sorted",
 		],
-		image: "/resources/stacksorted.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/stacksorted.jpg",
 	},
 	{
 		name: "Dribbble",
@@ -519,7 +543,8 @@ export const resources: Resource[] = [
 		url: "https://dribbble.com",
 		paid: "Free",
 		keywords: ["designers", "creatives", "ui", "ux", "design", "dribbble"],
-		image: "/resources/dribbble.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/dribbble.jpg",
 	},
 	{
 		name: "LogoShaper",
@@ -528,7 +553,8 @@ export const resources: Resource[] = [
 		url: "https://www.logoshaper.co",
 		paid: "Free",
 		keywords: ["logo", "design", "images", "logoshaper", "logos", "brand"],
-		image: "/resources/logoshaper.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/logoshaper.jpg",
 	},
 	{
 		name: "Next-Auth",
@@ -537,7 +563,8 @@ export const resources: Resource[] = [
 		url: "https://next-auth.js.org",
 		paid: "Free",
 		keywords: ["next.js", "authentication", "next-auth", "auth", "next"],
-		image: "/resources/nextauth.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/nextauth.jpg",
 	},
 	{
 		name: "Clerk",
@@ -546,7 +573,8 @@ export const resources: Resource[] = [
 		url: "https://clerk.com",
 		paid: "Free Plan Available",
 		keywords: ["user management", "authentication", "clerk", "auth", "users"],
-		image: "/resources/clerk.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/clerk.jpg",
 	},
 	{
 		name: "Lucide",
@@ -555,7 +583,8 @@ export const resources: Resource[] = [
 		url: "https://lucide.dev",
 		paid: "Free",
 		keywords: ["icon set", "icons", "images", "components", "lucide"],
-		image: "/resources/lucide.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/lucide.jpg",
 	},
 	{
 		name: "Strapi",
@@ -564,7 +593,8 @@ export const resources: Resource[] = [
 		url: "https://strapi.io",
 		paid: "Free Plan Available",
 		keywords: ["open-source", "headless", "cms", "strapi", "api", "cms"],
-		image: "/resources/strapi.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/strapi.jpg",
 	},
 	{
 		name: "Replicate",
@@ -573,7 +603,8 @@ export const resources: Resource[] = [
 		url: "https://replicate.com/",
 		paid: "Paid",
 		keywords: ["ai", "api", "synthetic data", "replicate", "data"],
-		image: "/resources/replicate.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/replicate.jpg",
 	},
 	{
 		name: "MongoDB",
@@ -582,7 +613,8 @@ export const resources: Resource[] = [
 		url: "https://www.mongodb.com",
 		paid: "Free Plan Available",
 		keywords: ["database", "mongodb", "storage", "data", "mongo", "db"],
-		image: "/resources/mongodb.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/mongodb.jpg",
 	},
 	{
 		name: "PlanetScale",
@@ -599,7 +631,8 @@ export const resources: Resource[] = [
 			"db",
 			"sql",
 		],
-		image: "/resources/planetscale.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/planetscale.jpg",
 	},
 	{
 		name: "Convex",
@@ -619,7 +652,8 @@ export const resources: Resource[] = [
 			"backend",
 			"server",
 		],
-		image: "/resources/convex.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/convex.jpg",
 	},
 	{
 		name: "Supabase",
@@ -636,7 +670,8 @@ export const resources: Resource[] = [
 			"db",
 			"server",
 		],
-		image: "/resources/supabase.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/supabase.jpg",
 	},
 	{
 		name: "BigDevSoon",
@@ -655,7 +690,8 @@ export const resources: Resource[] = [
 			"big",
 			"practice",
 		],
-		image: "/resources/bigdevsoon.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/bigdevsoon.jpg",
 	},
 	{
 		name: "AI Skeletons",
@@ -674,7 +710,8 @@ export const resources: Resource[] = [
 			"loading",
 			"css",
 		],
-		image: "/resources/aiskeletons.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/aiskeletons.jpg",
 	},
 	{
 		name: "Framer Motion",
@@ -694,7 +731,8 @@ export const resources: Resource[] = [
 			"motion",
 			"library",
 		],
-		image: "/resources/framermotion.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/framermotion.jpg",
 	},
 	{
 		name: "Aceternity UI",
@@ -714,7 +752,8 @@ export const resources: Resource[] = [
 			"aceternity",
 			"aceternityui",
 		],
-		image: "/resources/aceternityui.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/aceternityui.jpg",
 	},
 	{
 		name: "Squoosh",
@@ -732,7 +771,8 @@ export const resources: Resource[] = [
 			"web",
 			"performance",
 		],
-		image: "/resources/squoosh.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/squoosh.jpg",
 	},
 	{
 		name: "Google Fonts",
@@ -741,7 +781,8 @@ export const resources: Resource[] = [
 		url: "https://fonts.google.com",
 		paid: "Free",
 		keywords: ["google fonts", "fonts", "open-source", "web", "google", "web"],
-		image: "/resources/googlefonts.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/googlefonts.jpg",
 	},
 	{
 		name: "CodePen",
@@ -751,7 +792,8 @@ export const resources: Resource[] = [
 		url: "https://codepen.io",
 		paid: "Free",
 		keywords: ["codepen", "front-end", "designers", "developers", "web"],
-		image: "/resources/codepen.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/codepen.jpg",
 	},
 	{
 		name: "Clippy",
@@ -769,7 +811,8 @@ export const resources: Resource[] = [
 			"images",
 			"bennettfeely",
 		],
-		image: "/resources/clippy.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/clippy.jpg",
 	},
 	{
 		name: "godly.website",
@@ -789,7 +832,8 @@ export const resources: Resource[] = [
 			"ui",
 			"ux",
 		],
-		image: "/resources/godly.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/godly.jpg",
 	},
 	{
 		name: "Open Doodles",
@@ -799,7 +843,8 @@ export const resources: Resource[] = [
 		url: "https://www.opendoodles.com",
 		paid: "Free",
 		keywords: ["illustrations", "open design", "design", "images", "doodles"],
-		image: "/resources/opendoodles.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/opendoodles.jpg",
 	},
 	{
 		name: "Footer.design",
@@ -809,7 +854,8 @@ export const resources: Resource[] = [
 		url: "https://www.footer.design",
 		paid: "Free",
 		keywords: ["footer", "inspiration", "web", "design", "footer.design"],
-		image: "/resources/footer.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/footer.jpg",
 	},
 	{
 		name: "Blitz.js",
@@ -819,7 +865,8 @@ export const resources: Resource[] = [
 		url: "https://blitzjs.com",
 		paid: "Free",
 		keywords: ["next.js", "fullstack", "toolkit", "blitz.js", "blitz", "js"],
-		image: "/resources/blitz.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/blitz.jpg",
 	},
 	{
 		name: "Favicon.io",
@@ -829,7 +876,8 @@ export const resources: Resource[] = [
 		url: "https://favicon.io",
 		paid: "Free",
 		keywords: ["favicon", "generator", "favicon.io", "images", "seo"],
-		image: "/resources/faviconio.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/faviconio.jpg",
 	},
 	{
 		name: "Fontshare",
@@ -847,7 +895,8 @@ export const resources: Resource[] = [
 			"ui",
 			"ux",
 		],
-		image: "/resources/fontshare.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/fontshare.jpg",
 	},
 	{
 		name: "React TS Cheatsheet",
@@ -864,7 +913,8 @@ export const resources: Resource[] = [
 			"docs",
 			"react-ts",
 		],
-		image: "/resources/reactts.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/reactts.jpg",
 	},
 	{
 		name: "Flowbite",
@@ -874,7 +924,8 @@ export const resources: Resource[] = [
 		url: "https://flowbite.com",
 		paid: "Free Plan Available",
 		keywords: ["tailwind", "css", "components", "flowbite", "ui", "ux"],
-		image: "/resources/flowbite.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/flowbite.jpg",
 	},
 	{
 		name: "Prettier",
@@ -890,7 +941,8 @@ export const resources: Resource[] = [
 			"vscode",
 			"extension",
 		],
-		image: "/resources/prettier.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/prettier.jpg",
 	},
 	{
 		name: "Console Ninja",
@@ -900,7 +952,8 @@ export const resources: Resource[] = [
 		url: "https://console-ninja.com",
 		paid: "Free",
 		keywords: ["console", "ninja", "debugging", "VS Code Extensions"],
-		image: "/resources/consoleninja.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/consoleninja.jpg",
 	},
 	{
 		name: "Error Lens",
@@ -916,7 +969,8 @@ export const resources: Resource[] = [
 			"vscode",
 			"extension",
 		],
-		image: "/resources/errorlens.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/errorlens.jpg",
 	},
 	{
 		name: "Path Intellisense",
@@ -931,7 +985,8 @@ export const resources: Resource[] = [
 			"vscode",
 			"extension",
 		],
-		image: "/resources/pathintellisense.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/pathintellisense.jpg",
 	},
 	{
 		name: "Tailwind CSS Intellisense",
@@ -948,7 +1003,8 @@ export const resources: Resource[] = [
 			"vscode",
 			"extension",
 		],
-		image: "/resources/tailwindintellisense.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/tailwindintellisense.jpg",
 	},
 	{
 		name: "npm Intellisense",
@@ -964,7 +1020,8 @@ export const resources: Resource[] = [
 			"vscode",
 			"extension",
 		],
-		image: "/resources/npmintellisense.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/npmintellisense.jpg",
 	},
 	{
 		name: "Readme.so",
@@ -980,7 +1037,8 @@ export const resources: Resource[] = [
 			"docs",
 			"readme generator",
 		],
-		image: "/resources/readmeso.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/readmeso.jpg",
 	},
 	{
 		name: "React Email",
@@ -997,7 +1055,8 @@ export const resources: Resource[] = [
 			"email components",
 			"react email",
 		],
-		image: "/resources/reactemail.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/reactemail.jpg",
 	},
 	{
 		name: "Resend",
@@ -1007,7 +1066,8 @@ export const resources: Resource[] = [
 		url: "https://resend.com",
 		paid: "Free",
 		keywords: ["email", "developers", "transactional", "marketing", "resend"],
-		image: "/resources/resend.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/resend.jpg",
 	},
 	{
 		name: "EmailJS",
@@ -1017,7 +1077,8 @@ export const resources: Resource[] = [
 		url: "https://www.emailjs.com",
 		paid: "Free",
 		keywords: ["email", "code", "attachments", "captcha", "emailjs"],
-		image: "/resources/emailjs.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/emailjs.jpg",
 	},
 	{
 		name: "Mobbin",
@@ -1027,7 +1088,8 @@ export const resources: Resource[] = [
 		url: "https://mobbin.com",
 		paid: "Free Plan Available",
 		keywords: ["ui", "ux", "design", "mobbin", "mobile"],
-		image: "/resources/mobbin.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/mobbin.jpg",
 	},
 
 	//02/15/2024
@@ -1048,7 +1110,8 @@ export const resources: Resource[] = [
 			"loading",
 			"spinners",
 		],
-		image: "/resources/cssloaders.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/cssloaders.jpg",
 	},
 	{
 		name: "KitForStartups",
@@ -1067,7 +1130,8 @@ export const resources: Resource[] = [
 			"for",
 			"startups",
 		],
-		image: "/resources/kitforstartups.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/kitforstartups.jpg",
 	},
 	{
 		name: "Myna UI",
@@ -1089,7 +1153,8 @@ export const resources: Resource[] = [
 			"loading",
 			"spinners",
 		],
-		image: "/resources/mynaui.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/mynaui.jpg",
 	},
 	{
 		name: "Tanstack Query",
@@ -1107,7 +1172,8 @@ export const resources: Resource[] = [
 			"data",
 			"fetching",
 		],
-		image: "/resources/tanstack.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/tanstack.jpg",
 	},
 	{
 		name: "query.gg",
@@ -1125,7 +1191,8 @@ export const resources: Resource[] = [
 			"data",
 			"fetching",
 		],
-		image: "/resources/querygg.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/querygg.jpg",
 	},
 	{
 		name: "Mantine",
@@ -1134,7 +1201,8 @@ export const resources: Resource[] = [
 		url: "https://mantine.dev",
 		paid: "Free",
 		keywords: ["mantine", "components", "hooks", "ui", "ux", "web"],
-		image: "/resources/mantinedev.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/mantinedev.jpg",
 	},
 	{
 		name: "Color Contrast Checker",
@@ -1150,7 +1218,8 @@ export const resources: Resource[] = [
 			"design",
 			"web",
 		],
-		image: "/resources/contrastchecker.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/contrastchecker.jpg",
 	},
 	{
 		name: "Color Review",
@@ -1167,7 +1236,8 @@ export const resources: Resource[] = [
 			"web",
 			"color review",
 		],
-		image: "/resources/colorreview.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/colorreview.jpg",
 	},
 	{
 		name: "18F Accessibility Checklist",
@@ -1185,7 +1255,8 @@ export const resources: Resource[] = [
 			"documentation",
 			"docs",
 		],
-		image: "/resources/18f.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/18f.jpg",
 	},
 	{
 		name: "Vercel",
@@ -1194,7 +1265,8 @@ export const resources: Resource[] = [
 		url: "https://vercel.com",
 		paid: "Free Plan Available",
 		keywords: ["vercel", "hosting", "web", "vercel.com", "deploy", "nextjs"],
-		image: "/resources/vercel.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/vercel.jpg",
 	},
 	{
 		name: "App Backend",
@@ -1213,7 +1285,8 @@ export const resources: Resource[] = [
 			"cms",
 			"db",
 		],
-		image: "/resources/appbackend.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/appbackend.jpg",
 	},
 	{
 		name: "MonkeyType",
@@ -1223,7 +1296,8 @@ export const resources: Resource[] = [
 		url: "https://monkeytype.com",
 		paid: "Free",
 		keywords: ["monkey", "type", "typing", "web", "monkeytype", "type", "test"],
-		image: "/resources/monkeytype.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/monkeytype.jpg",
 	},
 	{
 		name: "Recharts",
@@ -1241,7 +1315,8 @@ export const resources: Resource[] = [
 			"data",
 			"visualization",
 		],
-		image: "/resources/recharts.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/recharts.jpg",
 	},
 	{
 		name: "Postman",
@@ -1261,7 +1336,8 @@ export const resources: Resource[] = [
 			"post",
 			"man",
 		],
-		image: "/resources/postman.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/postman.jpg",
 	},
 	{
 		name: "Revert",
@@ -1280,7 +1356,8 @@ export const resources: Resource[] = [
 			"revert.dev",
 			"revert",
 		],
-		image: "/resources/revert.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/revert.jpg",
 	},
 	{
 		name: "Hover.dev",
@@ -1298,7 +1375,8 @@ export const resources: Resource[] = [
 			"framer",
 			"motion",
 		],
-		image: "/resources/",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/hoverdev",
 	},
 	{
 		name: "1000 Inspiring Websites",
@@ -1316,7 +1394,8 @@ export const resources: Resource[] = [
 			"inspiration",
 			"inspo",
 		],
-		image: "/resources/1000sites.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/1000sites.jpg",
 	},
 	{
 		name: "Curated Design",
@@ -1333,7 +1412,8 @@ export const resources: Resource[] = [
 			"curated.design",
 			"ui",
 		],
-		image: "/resources/",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/curated.jpg",
 	},
 	{
 		name: "GSAP",
@@ -1342,7 +1422,8 @@ export const resources: Resource[] = [
 		url: "https://gsap.com/",
 		paid: "Free",
 		keywords: ["gsap", "animation", "library", "web", "gsap.com"],
-		image: "/resources/gsap.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/gsap.jpg",
 	},
 	{
 		name: "Lenis",
@@ -1357,7 +1438,8 @@ export const resources: Resource[] = [
 			"smooth",
 			"studiofreight",
 		],
-		image: "/resources/lenis.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/lenis.jpg",
 	},
 	{
 		name: "Microcopy",
@@ -1366,7 +1448,8 @@ export const resources: Resource[] = [
 		url: "https://www.microcopy.me/",
 		paid: "Free",
 		keywords: ["micro", "copy", "microcopy", "writing", "design", "web"],
-		image: "/resources/microcopy.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/microcopy.jpg",
 	},
 	{
 		name: "Hero Patterns",
@@ -1383,7 +1466,8 @@ export const resources: Resource[] = [
 			"hero patterns",
 			"svg",
 		],
-		image: "/resources/heropatterns.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/heropatterns.jpg",
 	},
 	{
 		name: "Wagmi",
@@ -1393,7 +1477,8 @@ export const resources: Resource[] = [
 		url: "https://wagmi.sh/",
 		paid: "Free",
 		keywords: ["wagmi", "web3", "blockchain", "frontends", "web", "wagmi.sh"],
-		image: "/resources/wagmi.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/wagmi.jpg",
 	},
 	{
 		name: "ThirdWeb",
@@ -1403,7 +1488,8 @@ export const resources: Resource[] = [
 		url: "https://thirdweb.com/",
 		paid: "Free",
 		keywords: [],
-		image: "/resources/thirdweb.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/thirdweb.jpg",
 	},
 	{
 		name: "Conventiional Commits",
@@ -1421,7 +1507,8 @@ export const resources: Resource[] = [
 			"documentation",
 			"github",
 		],
-		image: "/resources/conventional.jpg",
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/conventional.jpg",
 	},
 	// {
 	// 	name: "",
@@ -1430,87 +1517,6 @@ export const resources: Resource[] = [
 	// 	url: "",
 	// 	paid: "Free",
 	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
-	// },
-	// {
-	// 	name: "",
-	// 	description: "",
-	// 	category: [],
-	// 	url: "",
-	// 	paid: "Free",
-	// 	keywords: [],
-	// 	image: "/resources/",
+	// 	image: "https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/",
 	// },
 ];

@@ -132,17 +132,19 @@ const ResourceCard = ({
 							</Button>
 						</CardTitle>
 
-						<div className="w-full relative aspect-video bg-muted rounded-lg hover:opacity-90 transition-opacity">
-							<Link href={url} target="_blank">
-								<Image
-									loading="lazy"
-									placeholder="blur"
-									blurDataURL={`${image}`}
-									src={image}
-									alt={name}
-									fill
-									className="rounded-lg object-cover"
-								/>
+						<div>
+							<Link href={url} target="_blank" className="">
+								<div className="w-full relative aspect-video bg-muted rounded-lg hover:opacity-90 transition-opacity">
+									<Image
+										loading="eager"
+										placeholder="empty"
+										src={image}
+										alt={name}
+										fill
+										sizes="100% 100%"
+										className="rounded-lg object-cover"
+									/>
+								</div>
 							</Link>
 						</div>
 						<CardDescription>{description}</CardDescription>
