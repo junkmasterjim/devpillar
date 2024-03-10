@@ -136,6 +136,7 @@ const ResourceCard = ({
 							<Link href={url} target="_blank" className="">
 								<div className="w-full relative aspect-video bg-muted rounded-lg hover:opacity-90 transition-opacity">
 									<Image
+										unoptimized
 										loading="eager"
 										placeholder="empty"
 										src={image}
