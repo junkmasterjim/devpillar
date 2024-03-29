@@ -1510,6 +1510,17 @@ export const resources: Resource[] = [
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/conventional.jpg",
 	},
+	{
+		name: "Kinde",
+		description:
+			"Simple, powerful authentication to get your product up and running in minutes.",
+		category: ["Authentication"],
+		url: "https://kinde.com/",
+		paid: "Free Plan Available",
+		keywords: ["kinde", "authentication", "auth", "web", "kinde.com", "login"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1711743830/kinde.jpg",
+	},
 	// {
 	// 	name: "",
 	// 	description: "",
