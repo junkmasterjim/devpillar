@@ -7,6 +7,7 @@ import { resources } from "@/lib/resources";
 import { cn } from "@/lib/utils";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: `DevPillar | ${resources.length} Resources`,
@@ -40,7 +41,9 @@ export default function RootLayout({
 
           <div className="grid grid-flow-col xl:grid-cols-[360px,_1fr]">
             <Sidebar />
-            <div className="max-h-svh overflow-y-auto w-full">{children}</div>
+            <div className="max-h-svh overflow-y-auto w-full">
+              <Suspense>{children}</Suspense>
+            </div>
           </div>
         </ThemeProvider>
       </body>

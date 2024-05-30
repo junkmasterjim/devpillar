@@ -1,16 +1,16 @@
 "use client";
 
-import { Category, Resource, categories, resources } from "@/lib/resources";
 import ResourceCard from "@/components/ResourceCard";
+import { Category, Resource, categories, resources } from "@/lib/resources";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
+import { FilterSelect } from "@/components/FilterSelect";
 import { Hero } from "@/components/Hero";
+import { SortingSelect } from "@/components/SortingSelect";
 import { createClient } from "@/lib/supabase/client";
 import { Session } from "@supabase/supabase-js";
-import { SortingSelect } from "@/components/SortingSelect";
-import { FilterSelect } from "@/components/FilterSelect";
 
 const supabase = createClient();
 

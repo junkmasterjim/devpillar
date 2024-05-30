@@ -52,7 +52,7 @@ export const Sidebar = () => {
             <LoginButton />
             <ModeToggle />
           </div>
-          <ResponsiveDialog />
+          <Link href={"/submit"}>Add a resource</Link>
         </div>
 
         <div className="max-h-[calc(100svh-288px)] overflow-auto pr-2">
@@ -143,8 +143,13 @@ export const Sidebar = () => {
               Your ultimate design & development resource
             </p>
             <div className="grid grid-cols-2 w-full gap-2">
-              <ResponsiveDialog />
-              <LoginButton />
+              <Link href={"/submit"} onClick={closeSheet}>
+                Add a resource
+              </Link>
+              <div className="flex gap-2 place-items-center w-full">
+                <LoginButton />
+                <ModeToggle />
+              </div>
             </div>
           </div>
 
