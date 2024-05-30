@@ -22,7 +22,7 @@ export const closeSheet = () => {
 export const Sidebar = () => {
   return (
     <>
-      <div className="w-[360px] xl:block hidden p-2 bg-background border-r max-h-screen overflow-auto">
+      <div className="w-[360px] xl:block hidden p-2 bg-background border-r max-h-screen overflow-hidden">
         <div className="py-8 flex items-center justify-center gap-4 flex-col">
           <Link href={"/"} className="flex items-center justify-center gap-4">
             <Image
@@ -41,29 +41,31 @@ export const Sidebar = () => {
           <ResponsiveDialog />
         </div>
 
-        <div className="flex flex-col gap-2">
-          <SearchBar />
-        </div>
+        <div className="max-h-[calc(100svh-288px)] overflow-auto pr-2">
+          <div className="flex flex-col gap-2">
+            <SearchBar />
+          </div>
 
-        <div className="py-4 px-2">
-          <p className="font-bold mb-2">Categories</p>
+          <div className="py-4 px-2">
+            <p className="font-bold mb-2">Categories</p>
 
-          <div
-          // className="overflow-auto pb-2 max-h-[calc((100vh-64px)/1.12)]"
-          >
-            {categories.map((cat: { name: string; icon: LucideIcon }) => (
-              <Button
-                key={cat.name}
-                asChild
-                variant={"link"}
-                className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all"
-              >
-                <Link href={`/categories/${cat.name}`}>
-                  <cat.icon className="h-4 w-4 mr-2 inline" />
-                  {cat.name}
-                </Link>
-              </Button>
-            ))}
+            <div
+            // className="overflow-auto pb-2 max-h-[calc((100vh-64px)/1.12)]"
+            >
+              {categories.map((cat: { name: string; icon: LucideIcon }) => (
+                <Button
+                  key={cat.name}
+                  asChild
+                  variant={"link"}
+                  className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all"
+                >
+                  <Link href={`/categories/${cat.name}`}>
+                    <cat.icon className="h-4 w-4 mr-2 inline" />
+                    {cat.name}
+                  </Link>
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
