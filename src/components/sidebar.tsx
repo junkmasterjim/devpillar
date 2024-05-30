@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Category, categories } from "@/lib/resources";
-import { Menu, Minus } from "lucide-react";
+import { Menu, Minus, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ResponsiveDialog } from "./ResponsiveDialog";
@@ -52,7 +52,12 @@ export const Sidebar = () => {
             <LoginButton />
             <ModeToggle />
           </div>
-          <Link href={"/submit"}>Add a resource</Link>
+          <Button asChild className="w-full" variant={"secondary"}>
+            <Link href={"https://github.com/noahpittman/devpillar/"}>
+              <PlusCircle className="mr-2" size={24} />
+              Add a resource
+            </Link>
+          </Button>
         </div>
 
         <div className="max-h-[calc(100svh-288px)] overflow-auto pr-2">
@@ -143,9 +148,12 @@ export const Sidebar = () => {
               Your ultimate design & development resource
             </p>
             <div className="grid grid-cols-2 w-full gap-2">
-              <Link href={"/submit"} onClick={closeSheet}>
-                Add a resource
-              </Link>
+              <Button asChild className="w-full" variant={"secondary"}>
+                <Link href={"https://github.com/noahpittman/devpillar/"}>
+                  <PlusCircle className="mr-2" size={24} />
+                  Add a resource
+                </Link>
+              </Button>
               <div className="flex gap-2 place-items-center w-full">
                 <LoginButton />
                 <ModeToggle />
