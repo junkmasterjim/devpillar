@@ -76,10 +76,10 @@ export const Sidebar = () => {
         </SheetTrigger>
         <SheetContent
           side={"bottom"}
-          className="p-2 bg-background border-r max-h-screen overflow-auto"
+          className="p-2 bg-background border-r max-h-screen overflow-auto px-8"
         >
           <SheetClose id="closeSheet" />
-          <div className="py-8 flex items-center justify-center gap-4 flex-col">
+          <div className="flex items-center justify-center gap-4 flex-col h-64 fixed top-0 left-0 w-full p-2 bg-gradient-to-b from-background  from-90%">
             <Link
               href={"/"}
               className="flex items-center justify-center gap-4"
@@ -94,7 +94,7 @@ export const Sidebar = () => {
               />
               <p className="text-5xl">DevPillar</p>
             </Link>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Your ultimate design & development resource
             </p>
             <div className="grid grid-cols-2 w-full gap-2">
@@ -103,16 +103,13 @@ export const Sidebar = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <SearchBar />
-          </div>
+          <div className="mt-56">
+            <div className="w-full">
+              <SearchBar />
+            </div>
+            <p className="font-bold mb-2 mt-4">Categories</p>
 
-          <div className="py-4 px-2">
-            <p className="font-bold mb-2">Categories</p>
-
-            <div
-            // className="overflow-auto pb-2 max-h-[calc((100vh-64px)/1.12)]"
-            >
+            <div className="pb-4">
               {categories.map((cat: { name: string; icon: LucideIcon }) => (
                 <Button
                   key={cat.name}

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ScrollToTop } from "@/components/ScrollToTop";
 import { Category, Resource, resources } from "@/lib/resources";
 import ResourceCard from "@/components/ResourceCard";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -46,8 +45,6 @@ const Page = () => {
     <>
       {params && (
         <>
-          <ScrollToTop />
-
           {searchResults.length === 0 ? (
             <div className="flex flex-col gap-2 justify-center h-full items-center text-muted-foreground"></div>
           ) : (
