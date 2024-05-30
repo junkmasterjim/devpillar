@@ -78,10 +78,10 @@ export const Sidebar = () => {
         </SheetTrigger>
         <SheetContent
           side={"bottom"}
-          className="p-2 bg-background border-r max-h-screen overflow-auto px-8"
+          className="p-2 bg-background border-r max-h-screen overflow-hidden px-8"
         >
           <SheetClose id="closeSheet" />
-          <div className="flex items-center justify-center gap-4 flex-col h-64 fixed top-0 left-0 w-full p-2 bg-gradient-to-b from-background  from-90%">
+          <div className="flex items-center justify-center gap-4 flex-col h-64 top-0 left-0 w-full p-2 bg-gradient-to-b from-background  from-90%">
             <Link
               href={"/"}
               className="flex items-center justify-center gap-4"
@@ -105,7 +105,7 @@ export const Sidebar = () => {
             </div>
           </div>
 
-          <div className="mt-56">
+          <div className="max-h-[calc(100svh-256px)]  overflow-auto pr-2">
             <div className="w-full">
               <SearchBar />
             </div>
