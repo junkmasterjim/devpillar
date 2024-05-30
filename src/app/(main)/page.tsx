@@ -1,9 +1,9 @@
 "use client";
 
-import { Category, Resource, resources } from "@/lib/resources";
+import { Category, Resource, categories, resources } from "@/lib/resources";
 import ResourceCard from "@/components/ResourceCard";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { Hero } from "@/components/Hero";
@@ -17,6 +17,7 @@ const supabase = createClient();
 const Home = () => {
   const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
   const [filter, setFilter] = useState<Category["name"] | "none">("none");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const createUserFavs = async (session: Session | null) => {
     if (session === null) return;
@@ -42,10 +43,47 @@ const Home = () => {
     }
   });
 
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await supabase.auth.getUser();
+      if (user.data.user) {
+        setIsLoggedIn(true);
+      }
+    };
+
+    getUser();
+  }, []);
+
   return (
     <main>
-      {/* example hero content */}
       <Hero />
+      <section className="min-h-96 pb-12">
+        <div className="flex h-16 border-b border-t items-center tracking-tighter text-3xl px-2 justify-between">
+          <span>Featured Resources</span>
+          <span className="text-muted-foreground font-light">
+            Good for all occasions
+          </span>
+        </div>
+      </section>
+
+      {categories.map((cat) => (
+        <section key={cat.name} className="min-h-96 pb-12">
+          <div className="flex h-16 border-b border-t items-center tracking-tighter text-3xl px-2 justify-between">
+            <p>{cat.name}</p>
+            <p className=" text-muted-foreground font-light">
+              {
+                resources
+                  .sort((a: Resource, b: Resource) => {
+                    return a.name.localeCompare(b.name);
+                  })
+                  .filter((resource) =>
+                    resource.category.includes(cat.name as any),
+                  ).length
+              }
+            </p>
+          </div>
+        </section>
+      ))}
     </main>
 
     // <>

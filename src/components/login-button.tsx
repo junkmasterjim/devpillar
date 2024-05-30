@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { LogIn, User } from "lucide-react";
+import { Loader, LogIn, User } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
 import { useEffect, useState } from "react";
@@ -38,13 +38,14 @@ export const LoginButton = ({ className }: { className?: string }) => {
           variant={"outline"}
           disabled
         >
+          <Loader className="h-5 w-5 animate-spin mr-2" />
           Loading...
         </Button>
       ) : null}
       {isAuth === false ? (
         <Button
           variant={"outline"}
-          className={cn("text-muted-foreground w-full", className)}
+          className={cn("w-full", className)}
           size={"sm"}
           asChild
         >
@@ -61,7 +62,7 @@ export const LoginButton = ({ className }: { className?: string }) => {
         isAuth === true && (
           <Button
             variant={"outline"}
-            className={cn("text-muted-foreground w-full", className)}
+            className={cn("w-full", className)}
             size={"sm"}
             asChild
           >

@@ -34,7 +34,7 @@ const ResourceCard = ({
   description: string;
   category: Resource["category"];
   url: string;
-  paid: "Free" | "Paid" | "Free Plan Available";
+  paid: "Free" | "Paid" | "Free Plan";
   image: string;
   className?: string;
 }) => {
@@ -182,12 +182,12 @@ const ResourceCard = ({
                     Free
                   </Badge>
                 )}
-                {paid == "Free Plan Available" && (
+                {paid == "Free Plan" && (
                   <Badge
                     className="font-normal opacity-100"
                     variant={"secondary"}
                   >
-                    Free Plan Available
+                    Free Plan
                   </Badge>
                 )}
               </div>

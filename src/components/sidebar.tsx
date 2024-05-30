@@ -6,20 +6,31 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { categories } from "@/lib/resources";
-import { LucideIcon, Menu } from "lucide-react";
+import { Category, categories } from "@/lib/resources";
+import { Menu, Minus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ResponsiveDialog } from "./ResponsiveDialog";
 import { LoginButton } from "./login-button";
 import { SearchBar } from "./search-bar";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { ModeToggle } from "./mode-toggle";
 
 export const closeSheet = () => {
   document.getElementById("closeSheet")?.click();
 };
 
 export const Sidebar = () => {
+  let pathname = usePathname();
+  while (pathname.includes("%26")) {
+    pathname = pathname.replace("%26", "&");
+  }
+  while (pathname.includes("%20")) {
+    pathname = pathname.replace("%20", " ");
+  }
+
   return (
     <>
       <div className="w-[360px] xl:block hidden p-2 bg-background border-r max-h-screen overflow-hidden">
@@ -30,14 +41,17 @@ export const Sidebar = () => {
               alt="logo"
               width={512}
               height={512}
-              className="size-16 rounded-2xl shadow-xl"
+              className="size-16 rounded-2xl shadow-lg dark:invert "
             />
-            <p className="text-5xl">DevPillar</p>
+            <p className="text-5xl tracking-tighter">DevPillar</p>
           </Link>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground tracking-tight">
             Your ultimate design & development resource
           </p>
-          <LoginButton />
+          <div className="flex gap-2 place-items-center w-full">
+            <LoginButton />
+            <ModeToggle />
+          </div>
           <ResponsiveDialog />
         </div>
 
@@ -52,18 +66,47 @@ export const Sidebar = () => {
             <div
             // className="overflow-auto pb-2 max-h-[calc((100vh-64px)/1.12)]"
             >
-              {categories.map((cat: { name: string; icon: LucideIcon }) => (
-                <Button
-                  key={cat.name}
-                  asChild
-                  variant={"link"}
-                  className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all"
-                >
-                  <Link href={`/categories/${cat.name}`}>
-                    <cat.icon className="h-4 w-4 mr-2 inline" />
-                    {cat.name}
-                  </Link>
-                </Button>
+              {categories.map((cat: Category) => (
+                <span key={cat.name}>
+                  <Button
+                    key={cat.name}
+                    asChild
+                    variant={"link"}
+                    className={cn(
+                      "my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all",
+                      pathname.includes(cat.name)
+                        ? "font-semibold underline text-foreground"
+                        : null,
+                    )}
+                  >
+                    <Link href={`/categories/${cat.name}`}>
+                      <cat.icon className="h-4 w-4 mr-2 inline" />
+                      {cat.name}
+                    </Link>
+                  </Button>
+
+                  {cat.subcategories
+                    .sort((a, b) => a.localeCompare(b))
+                    .map((sub) => (
+                      <Button
+                        key={sub}
+                        asChild
+                        variant={"link"}
+                        className={cn(
+                          "px-2 text-left block text-muted-foreground hover:text-foreground transition-all ml-4 h-auto text-xs",
+                          pathname.split("/")[2] ===
+                            cat.subcategories[cat.subcategories.indexOf(sub)]
+                            ? "font-semibold underline text-foreground"
+                            : "text-muted-foreground",
+                        )}
+                      >
+                        <Link href={`/categories/${sub}`}>
+                          <Minus className="h-4 w-4 mr-2 inline" />
+                          {sub}
+                        </Link>
+                      </Button>
+                    ))}
+                </span>
               ))}
             </div>
           </div>
@@ -71,17 +114,17 @@ export const Sidebar = () => {
       </div>
 
       <Sheet>
-        <SheetTrigger asChild className="fixed xl:hidden top-4 right-4 z-50">
-          <Button size={"icon"}>
+        <SheetTrigger asChild className="fixed xl:hidden top-2 right-2 z-50">
+          <Button size={"icon"} variant={"ghost"} className="backdrop-blur">
             <Menu size={24} />
           </Button>
         </SheetTrigger>
         <SheetContent
           side={"bottom"}
-          className="p-2 bg-background border-r max-h-screen overflow-hidden px-8"
+          className="p-2 bg-background border-r max-h-screen h-full overflow-hidden px-8"
         >
           <SheetClose id="closeSheet" />
-          <div className="flex items-center justify-center gap-4 flex-col h-64 top-0 left-0 w-full p-2 bg-gradient-to-b from-background  from-90%">
+          <div className="flex items-center gap-4 flex-col h-52 top-0 left-0 w-full p-2 bg-gradient-to-b from-background  from-90%">
             <Link
               href={"/"}
               className="flex items-center justify-center gap-4"
@@ -92,11 +135,11 @@ export const Sidebar = () => {
                 alt="logo"
                 width={512}
                 height={512}
-                className="size-16 rounded-2xl shadow-xl"
+                className="size-16 rounded-2xl shadow-lg dark:invert"
               />
-              <p className="text-5xl">DevPillar</p>
+              <p className="text-5xl tracking-tighter">DevPillar</p>
             </Link>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm tracking-tight">
               Your ultimate design & development resource
             </p>
             <div className="grid grid-cols-2 w-full gap-2">
@@ -112,18 +155,36 @@ export const Sidebar = () => {
             <p className="font-bold mb-2 mt-4">Categories</p>
 
             <div className="pb-4">
-              {categories.map((cat: { name: string; icon: LucideIcon }) => (
-                <Button
-                  key={cat.name}
-                  asChild
-                  variant={"link"}
-                  className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all"
-                >
-                  <Link href={`/categories/${cat.name}`}>
-                    <cat.icon className="h-4 w-4 mr-2 inline" />
-                    {cat.name}
-                  </Link>
-                </Button>
+              {categories.map((cat: Category) => (
+                <span key={cat.name}>
+                  <Button
+                    key={cat.name}
+                    asChild
+                    variant={"link"}
+                    className="my-1 px-2 text-left block text-muted-foreground hover:text-foreground transition-all"
+                  >
+                    <Link href={`/categories/${cat.name}`} onClick={closeSheet}>
+                      <cat.icon className="h-4 w-4 mr-2 inline" />
+                      {cat.name}
+                    </Link>
+                  </Button>
+
+                  {cat.subcategories
+                    .sort((a, b) => a.localeCompare(b))
+                    .map((sub) => (
+                      <Button
+                        key={sub}
+                        asChild
+                        variant={"link"}
+                        className="px-2 text-left block text-muted-foreground hover:text-foreground transition-all ml-4 h-auto text-xs"
+                      >
+                        <Link href={`/categories/${sub}`} onClick={closeSheet}>
+                          <Minus className="h-4 w-4 mr-2 inline" />
+                          {sub}
+                        </Link>
+                      </Button>
+                    ))}
+                </span>
               ))}
             </div>
           </div>

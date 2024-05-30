@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { Sidebar } from "@/components/sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { resources } from "@/lib/resources";
 import { cn } from "@/lib/utils";
@@ -19,22 +20,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={cn(
           GeistSans.className,
-          "overflow-hidden max-h-svh w-screen",
+          "overflow-hidden max-h-svh h-screen w-screen",
         )}
       >
-        <>
-          <Toaster position="top-center" />
-          <ScrollToTop />
-        </>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <>
+            <Toaster position="top-center" />
+            <ScrollToTop />
+          </>
 
-        <div className="grid w-full h-full bg-blue-50 grid-flow-col-dense">
-          <Sidebar />
-          {children}
-        </div>
+          <div className="grid grid-flow-col xl:grid-cols-[360px,_1fr]">
+            <Sidebar />
+            <div className="max-h-svh overflow-y-auto w-full">{children}</div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

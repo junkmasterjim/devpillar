@@ -1,31 +1,35 @@
-"use client";
-
-import { Badge } from "./ui/badge";
-import { motion } from "framer-motion";
+import { ExpandBadge } from "./expand-badge";
 
 export const Hero = () => {
-	return (
-		<motion.div
-			initial={{ opacity: 0, y: 5 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.3 }}
-			className="flex py-20 text-center justify-center items-center flex-col select-none"
-		>
-			<div className="flex justify-center items-center flex-col">
-				<Badge
-					variant={"outline"}
-					className="w-fit scale-[115%] mb-2 font-normal"
-				>
-					New Resources Added Bi-Weekly!
-				</Badge>
-				<h1 className="text-6xl pb-4 font-bold text-foreground">
-					Welcome to DevPillar
-				</h1>
-			</div>
-			<p className="text-muted-foreground max-w-prose">
-				The foundation of your next project. An open source collection of
-				quality resources for developers & designers.
-			</p>
-		</motion.div>
-	);
+  return (
+    <div className="bg-gradient-to-t from-background to-secondary">
+      <div className="flex py-8 text-center justify-center items-center flex-col select-none">
+        <div className="flex justify-center items-center flex-col">
+          <h1 className="text-6xl font-medium text-foreground capitalize tracking-tighter">
+            Top notch developer tools
+          </h1>
+          <h2 className="text-4xl font-medium capitalize text-foreground/80 tracking-tighter">
+            Quality resources
+          </h2>
+        </div>
+        <p className="text-muted-foreground max-w-prose mt-4 text-lg tracking-tight">
+          Welcome to DevPillar. We think you&apos;ll like it here.
+        </p>
+
+        <div className="mt-4">
+          <ExpandBadge />
+        </div>
+
+        <div className="max-w-sm w-full mx-auto overflow-hidden items-center justify-center mt-2 pb-12">
+          <iframe
+            scrolling="no"
+            src="https://embeds.beehiiv.com/083e2abd-d1cb-4d50-b5d5-3146de92c860?slim=true"
+            data-test-id="beehiiv-embed"
+            height="52"
+            className="scale-[80%] overflow-hidden rounded-md w-full"
+          />
+        </div>
+      </div>
+    </div>
+  );
 };

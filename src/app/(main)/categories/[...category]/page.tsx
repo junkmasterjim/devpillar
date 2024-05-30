@@ -1,6 +1,6 @@
 "use client";
 
-import { Resource, categories, resources } from "@/lib/resources";
+import { Category, Resource, categories, resources } from "@/lib/resources";
 import { redirect } from "next/navigation";
 import ResourceCard from "@/components/ResourceCard";
 import { motion } from "framer-motion";
@@ -10,25 +10,42 @@ import { Reply } from "lucide-react";
 import Link from "next/link";
 
 const Page = ({ params }: { params: any }) => {
-  // If there is no category, redirect to home
   if (!params.category[0]) {
     redirect("/");
   }
-
   let category = params.category[0];
-
   while (category.includes("%26")) {
     category = category.replace("%26", "&");
   }
-
   while (category.includes("%20")) {
     category = category.replace("%20", " ");
   }
-
   // If the category is not recognized, redirect to home
   const allowedCategories = categories.map((category) => category.name);
+  const allowedSubcategories = categories
+    .map((category) => category.subcategories)
+    .flat()
+    .map((sub) => sub);
+
   if (!allowedCategories.includes(category)) {
-    redirect("/");
+    if (!allowedSubcategories.includes(category)) {
+      // if not in the category registry, redirect to home. This is to prevent arbitrary redirects and avoid 404 errors.
+      redirect("/");
+    }
+
+    // we are now in subcategory territory
+    const parentCategory = categories.find((cat) =>
+      cat.subcategories.includes(category),
+    );
+
+    const results = resources
+      .sort((a: Resource, b: Resource) => {
+        return a.name.localeCompare(b.name);
+      })
+      .filter((resource) => resource.subcategory.includes(category));
+
+    // subcategory render
+    return <Results results={results} cat={category} />;
   }
 
   const results = resources
@@ -37,8 +54,21 @@ const Page = ({ params }: { params: any }) => {
     })
     .filter((resource) => resource.category.includes(category));
 
+  // main categories render
+  return <Results results={results} cat={category} />;
+};
+
+export default Page;
+
+const Results = ({
+  cat,
+  results,
+}: {
+  cat: Category;
+  results: Array<Resource>;
+}) => {
   return (
-    <>
+    <div>
       <motion.div
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
@@ -47,7 +77,7 @@ const Page = ({ params }: { params: any }) => {
       >
         <div className="flex justify-center items-center flex-col">
           <h1 className="text-4xl leading-10 pb-4 pt-6 font-medium text-foreground">
-            {category}{" "}
+            {cat.name ?? cat}{" "}
             <span className="text-muted-foreground/50 text-xl">
               ({results.length})
             </span>
@@ -59,7 +89,7 @@ const Page = ({ params }: { params: any }) => {
           >
             <Link href="/">
               <Reply className="mr-2" />
-              All Categories
+              Home
             </Link>
           </Button>
         </div>
@@ -82,8 +112,6 @@ const Page = ({ params }: { params: any }) => {
           />
         ))}
       </motion.section>
-    </>
+    </div>
   );
 };
-
-export default Page;
