@@ -1,3 +1,6 @@
+# DevPillar
+Community led resource library.
+
 # Contribution Guidelines for Adding Resources
 
 We welcome and appreciate contributions from the community to help grow our directory of developer resources. Follow these guidelines to ensure your pull request is accepted smoothly.
