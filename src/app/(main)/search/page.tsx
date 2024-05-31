@@ -1,17 +1,24 @@
 "use client";
 
-import ResourceCard from "@/components/ResourceCard";
-import { SortSelect } from "@/components/sort-select";
-import { Separator } from "@/components/ui/separator";
+import { ResourceCard } from "@/components/resource-card";
+import RouteHeading from "@/components/route-heading";
+import { Button } from "@/components/ui/button";
 import { Resource, resources } from "@/lib/resources";
-import { motion } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
+import { User } from "@supabase/supabase-js";
+import { PlusCircle } from "lucide-react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+
+const supabase = createClient();
 
 const Page = () => {
   const searchParams = useSearchParams();
   const params = searchParams.get("q");
   const router = useRouter();
+  const [user, setUser] = useState<User>();
+  const [favs, setFavs] = useState<string[]>([]);
 
   const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
 
@@ -37,82 +44,90 @@ const Page = () => {
 
   useEffect(() => {
     !params ? router.push("/") : console.log("params: ", params);
+
+    const getUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) setUser(data.user);
+    };
+    getUser();
   }, []);
+
+  useEffect(() => {
+    const getUserFavs = async () => {
+      if (!user) return;
+      const { data, error } = await supabase
+        .from("userFavs")
+        .select("*")
+        .eq("email", user.email);
+      if (error) console.error(error);
+      if (data) {
+        setFavs(data[0].favs);
+      }
+    };
+
+    getUserFavs();
+  }, [user]);
 
   return (
     <>
       {params && (
-        <>
-          {searchResults.length === 0 ? (
-            <div className="flex flex-col gap-2 justify-center h-full items-center text-muted-foreground"></div>
-          ) : (
-            <></>
-          )}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="pb-4 w-fit"
-          >
-            <h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2">
-              Results for &quot;{params.toUpperCase()}&quot;{" "}
-              <span className="text-muted-foreground/50 text-xl">
-                {" "}
-                ({searchResults.length})
-              </span>
-            </h2>
-            <div className="space-y-4">
-              <Separator />
-              <div className="flex gap-2">
-                <SortSelect sort={sort} setSort={setSort} />
-              </div>
-            </div>
-          </motion.div>
+        <div className="min-h-svh">
+          <RouteHeading
+            h1="Search"
+            h2={`${searchResults.length} results for "${params}"`}
+            sort={sort}
+            setSort={setSort}
+            noSort={searchResults.length === 0 ? true : false}
+          />
 
           {searchResults.length === 0 && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-sm text-muted-foreground"
-            >
-              Try different keywords, or{" "}
-              <span
-                onClick={() => document.getElementById("add-resource")?.click()}
-                className="border-b border-muted-foreground cursor-pointer hover:text-foreground hover:border-foreground transition-colors"
-              >
-                request a new resource.
-              </span>
-            </motion.p>
+            <div className="flex flex-col gap-2 justify-center h-96 mt-16 items-center text-muted-foreground tracking-tight">
+              <p>Sorry! We don&apos;t have anything for that yet!</p>
+              <Button asChild>
+                <Link
+                  href={"https://github.com/noahpittman/devpillar"}
+                  target="_blank"
+                >
+                  <PlusCircle className="size-5 mr-2" />
+                  Add a resource?
+                </Link>
+              </Button>
+            </div>
           )}
 
-          <motion.section
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto"
-          >
+          <section className="grid lg:grid-cols-2 place-items-center gap-4 p-4">
             {searchResults
-              .sort((a: Resource, b: Resource) => {
+              .sort((a, b) => {
                 if (sort === "A-Z") {
                   return a.name.localeCompare(b.name);
                 } else {
                   return b.name.localeCompare(a.name);
                 }
               })
-              .map((resource: Resource) => (
-                <ResourceCard
-                  key={Math.random()}
-                  name={resource.name}
-                  category={resource.category}
-                  description={resource.description}
-                  paid={resource.paid}
-                  url={resource.url}
-                  image={resource?.image}
-                />
+              .map((res) => (
+                <span key={res.name}>
+                  <ResourceCard
+                    user={user}
+                    biggerText
+                    className="border even:bg-card odd:bg-card sm:hidden aspect-[4/3]"
+                    imgRes="16/9"
+                    favs={favs}
+                    setFavs={setFavs}
+                    resource={res}
+                  />
+                  <ResourceCard
+                    user={user}
+                    biggerText
+                    favs={favs}
+                    setFavs={setFavs}
+                    className="border lg:hover:scale-[1.005] lg:hover:shadow-md transition-all even:bg-card odd:bg-card hidden sm:block aspect-[4/3]"
+                    resource={res}
+                    imgRes="4/3"
+                  />
+                </span>
               ))}
-          </motion.section>
-        </>
+          </section>
+        </div>
       )}
     </>
   );

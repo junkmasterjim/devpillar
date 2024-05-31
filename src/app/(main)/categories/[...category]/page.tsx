@@ -1,34 +1,48 @@
 "use client";
 
 import { ResourceCard } from "@/components/resource-card";
-import { SortSelect } from "@/components/sort-select";
-import { Button } from "@/components/ui/button";
+import RouteHeading from "@/components/route-heading";
 import { Category, Resource, categories, resources } from "@/lib/resources";
 import { createClient } from "@/lib/supabase/client";
 import { User } from "@supabase/supabase-js";
-import { PlusCircle } from "lucide-react";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 const supabase = createClient();
 
 const Page = ({ params }: { params: any }) => {
   const [user, setUser] = useState<User>();
+  const [favs, setFavs] = useState<string[]>([]);
+  const [favTimeout, setFavTimeout] = useState(true);
   const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
 
-  const getUser = async () => {
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) {
-      return;
-    } else {
-      setUser(data.user);
-    }
-  };
-
   useEffect(() => {
+    const getUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        setUser(data.user);
+      }
+    };
+
     getUser();
   }, []);
+
+  useEffect(() => {
+    const getUserFavs = async () => {
+      if (!user) return;
+      const { data, error } = await supabase
+        .from("userFavs")
+        .select("*")
+        .eq("email", user.email);
+      if (error) console.error(error);
+      if (data) {
+        setFavs(data[0].favs);
+      }
+      setFavTimeout(false);
+    };
+
+    getUserFavs();
+  }, [user]);
 
   if (!params.category[0]) {
     redirect("/");
@@ -49,14 +63,8 @@ const Page = ({ params }: { params: any }) => {
 
   if (!allowedCategories.includes(category)) {
     if (!allowedSubcategories.includes(category)) {
-      // if not in the category registry, redirect to home. This is to prevent arbitrary redirects and avoid 404 errors.
       redirect("/");
     }
-
-    // we are now in subcategory territory
-    const parentCategory = categories.find((cat) =>
-      cat.subcategories.includes(category),
-    );
 
     const results = resources
       .sort((a: Resource, b: Resource) => {
@@ -67,9 +75,11 @@ const Page = ({ params }: { params: any }) => {
     // subcategory render
     return (
       <Results
-        setSort={setSort}
         sort={sort}
+        favs={favs}
+        setFavs={setFavs}
         user={user}
+        setSort={setSort}
         results={results}
         cat={category}
       />
@@ -85,8 +95,10 @@ const Page = ({ params }: { params: any }) => {
   // main categories render
   return (
     <Results
-      setSort={setSort}
       sort={sort}
+      favs={favs}
+      setSort={setSort}
+      setFavs={setFavs}
       user={user}
       results={results}
       cat={category}
@@ -100,49 +112,31 @@ const Results = ({
   cat,
   results,
   sort,
-  setSort,
   user,
+  favs,
+  setFavs,
+  setSort,
 }: {
   cat: Category;
   results: Array<Resource>;
   sort: "A-Z" | "Z-A";
-  setSort: (sort: "A-Z" | "Z-A") => void;
   user?: User;
+  favs: string[];
+  setFavs: Dispatch<SetStateAction<string[]>>;
+  setSort: Dispatch<SetStateAction<"A-Z" | "Z-A">>;
 }) => {
   return (
     <>
       <div className="min-h-svh">
-        <div className="flex px-4 py-8 justify-center flex-col select-none border-b-2">
-          <span>
-            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-medium text-foreground capitalize tracking-tighter">
-              {cat.name ?? cat}
-            </h1>
-            <div className="flex place-items-start justify-between">
-              <h2 className="xl:text-4xl sm:text-2xl text-xl font-medium capitalize text-foreground/80 tracking-tighter">
-                {results.length} resources.
-              </h2>
+        <RouteHeading
+          setSort={setSort}
+          sort="A-Z"
+          h1={cat.name ?? cat}
+          h2={results.length + " resources."}
+          noSort
+        />
 
-              <div className="flex gap-2 flex-col place-items-center">
-                <Button
-                  variant={"ghost"}
-                  className="text-muted-foreground"
-                  asChild
-                >
-                  <Link
-                    href={"https://github.com/noahpittman/devpillar/"}
-                    target="_blank"
-                  >
-                    <PlusCircle className="mr-2 size-4" />
-                    Add a resource
-                  </Link>
-                </Button>
-
-                <SortSelect setSort={setSort} sort={sort} />
-              </div>
-            </div>
-          </span>
-        </div>
-        <div className=" grid lg:grid-cols-2 place-items-center gap-4 p-4">
+        <section className=" grid lg:grid-cols-2 place-items-center gap-4 p-4">
           {results
             .sort((a, b) => {
               if (sort === "A-Z") {
@@ -152,26 +146,28 @@ const Results = ({
               }
             })
             .map((res) => (
-              <>
+              <div key={res.name}>
                 <ResourceCard
                   user={user}
                   biggerText
                   className="border even:bg-card odd:bg-card sm:hidden aspect-[4/3]"
                   imgRes="16/9"
+                  favs={favs}
+                  setFavs={setFavs}
                   resource={res}
-                  key={res.name}
                 />
                 <ResourceCard
                   user={user}
                   biggerText
+                  favs={favs}
+                  setFavs={setFavs}
                   className="border lg:hover:scale-[1.005] lg:hover:shadow-md transition-all even:bg-card odd:bg-card hidden sm:block aspect-[4/3]"
                   resource={res}
                   imgRes="4/3"
-                  key={res.name}
                 />
-              </>
+              </div>
             ))}
-        </div>
+        </section>
       </div>
     </>
   );

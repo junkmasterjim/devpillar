@@ -8,7 +8,7 @@ import { ArrowUpRight, Share, Star } from "lucide-react";
 import { toast } from "sonner";
 import { Resource } from "@/lib/resources";
 import { User } from "@supabase/supabase-js";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 const supabase = createClient();
@@ -22,6 +22,8 @@ export const ResourceCard = ({
   biggerText,
   imgRes = "16/9",
   user,
+  favs,
+  setFavs,
 }: {
   resource: Resource;
   mapIdx?: number;
@@ -31,12 +33,13 @@ export const ResourceCard = ({
   biggerText?: boolean;
   imgRes?: "4/3" | "16/9";
   user?: User;
+  favs: string[];
+  setFavs?: Dispatch<SetStateAction<string[]>>;
 }) => {
-  const [userFavourites, setUserFavourites] = useState<string[]>([]);
-  const [favTimeout, setFavTimeout] = useState<boolean>(true);
+  const [favTimeout, setFavTimeout] = useState(false);
 
-  const isFav = (r: string) => userFavourites.includes(r);
   const handleFav = async () => {
+    if (setFavs === undefined) return;
     if (!user) {
       toast.error("You need to be signed in to favourite a resource.");
       return;
@@ -55,7 +58,7 @@ export const ResourceCard = ({
 
     if (data) {
       console.log(data);
-      const favs = data[0].favs as string[];
+      setFavs(data[0].favs as string[]);
       if (favs.includes(resource.name)) {
         const newFavs = favs.filter((fav) => fav !== resource.name);
         const { data, error } = await supabase
@@ -67,8 +70,8 @@ export const ResourceCard = ({
           toast.error("An error occurred. Please try again.");
         } else {
           toast.success("Resource removed from favourites.");
-          setUserFavourites(newFavs);
           setFavTimeout(true);
+          setFavs(newFavs);
           setTimeout(() => setFavTimeout(false), 1000);
         }
       } else {
@@ -82,30 +85,13 @@ export const ResourceCard = ({
           toast.error("An error occurred. Please try again.");
         } else {
           toast.success("Resource added to favourites.");
-          setUserFavourites(newFavs);
           setFavTimeout(true);
+          setFavs(newFavs);
           setTimeout(() => setFavTimeout(false), 1000);
         }
       }
     }
   };
-
-  useEffect(() => {
-    const getFavs = async () => {
-      if (!user) return;
-      const { data, error } = await supabase
-        .from("userFavs")
-        .select("*")
-        .eq("email", user.email);
-      if (error) console.error(error);
-      if (data) {
-        setUserFavourites(data[0].favs);
-      }
-      setFavTimeout(false);
-    };
-
-    getFavs();
-  });
 
   return (
     <div
@@ -169,7 +155,7 @@ export const ResourceCard = ({
                 <Star
                   className={cn(
                     "size-5",
-                    userFavourites.includes(resource.name) && "fill-foreground",
+                    favs.includes(resource.name) && "fill-foreground",
                   )}
                 />
               </Button>
@@ -183,7 +169,9 @@ export const ResourceCard = ({
                 <Star
                   className={cn(
                     "size-5",
-                    isFav(resource.name) ? "fill-foreground" : "fill-none",
+                    favs.includes(resource.name)
+                      ? "fill-foreground"
+                      : "fill-none",
                   )}
                 />
               </Button>

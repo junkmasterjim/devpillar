@@ -12,6 +12,9 @@ const supabase = createClient();
 const Home = () => {
   const [user, setUser] = useState<User | null>(null);
 
+  const [userFavourites, setUserFavourites] = useState<string[]>([]);
+  const [favTimeout, setFavTimeout] = useState<boolean>(true);
+
   const createUserFavs = async (session: Session | null) => {
     if (session === null) return;
 
@@ -43,8 +46,26 @@ const Home = () => {
         setUser(data.user);
       }
     };
+
     getUser();
   }, []);
+
+  useEffect(() => {
+    const getUserFavs = async () => {
+      if (!user) return;
+      const { data, error } = await supabase
+        .from("userFavs")
+        .select("*")
+        .eq("email", user.email);
+      if (error) console.error(error);
+      if (data) {
+        setUserFavourites(data[0].favs);
+      }
+      setFavTimeout(false);
+    };
+
+    getUserFavs();
+  }, [user]);
 
   return (
     <main>
@@ -90,6 +111,8 @@ const Home = () => {
                   fixedHeight
                   resource={res}
                   key={res.name}
+                  favs={userFavourites}
+                  setFavs={setUserFavourites}
                   className="rounded-none"
                   mapIdx={idx}
                 />

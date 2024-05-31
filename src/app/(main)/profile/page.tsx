@@ -1,150 +1,108 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ResourceCard } from "@/components/resource-card";
+import RouteHeading from "@/components/route-heading";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { resources } from "@/lib/resources";
 import { createClient } from "@/lib/supabase/client";
-import { UserMetadata } from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { resources } from "@/lib/resources";
-import ResourceCard from "@/components/ResourceCard";
-import { SortSelect } from "@/components/sort-select";
 
 const supabase = createClient();
 
 const Profile = () => {
   const router = useRouter();
 
-  const [loading, setLoading] = useState<boolean>(true);
-  const [authenticated, setAuthenticated] = useState<boolean>(false);
-  const [email, setEmail] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>([]);
-
   const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+  const [user, setUser] = useState<User>();
 
-  const [user, setUser] = useState<
-    | {
-        avatar_url: string;
-        email: string;
-        email_verified: boolean;
-        full_name: string;
-        iss: string;
-        name: string;
-        phone_verified: boolean;
-        preferred_username: string;
-        provider_id: string;
-        sub: string;
-        user_name: string;
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        setUser(data.user);
       }
-    | UserMetadata
-  >();
+    };
 
-  const getUser = async () => {
-    const { data, error } = await supabase.auth.getUser();
+    getUser();
+  }, []);
 
-    if (error) {
-      router.push("/login");
-    } else if (!data.user?.user_metadata) {
-      router.push("/login");
-    } else if (data.user?.user_metadata) {
-      setAuthenticated(true);
-      setLoading(false);
-      setUser(data.user?.user_metadata);
-      setEmail(data.user?.user_metadata.email);
-    }
-  };
-
-  const getFavs = async () => {
-    const { data, error } = await supabase
-      .from("userFavs")
-      .select("*")
-      .eq("email", email)
-      .select();
-
-    if (error) console.error(error);
-    if (data) {
-      if (data[0]?.favs) {
+  useEffect(() => {
+    const getUserFavs = async () => {
+      if (!user) return;
+      const { data, error } = await supabase
+        .from("userFavs")
+        .select("*")
+        .eq("email", user.email);
+      if (error) console.error(error);
+      if (data) {
         setFavs(data[0].favs);
       }
-    }
-  };
+    };
+    getUserFavs();
+  }, [user]);
 
-  useEffect(() => {
-    getUser();
-  });
-
-  useEffect(() => {
-    if (email) {
-      getFavs();
-    }
-  });
-
-  if (loading) {
+  if (!user) {
     return (
-      <div className="flex justify-center h-3/5 items-center w-full ">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-t-2 border-primary" />
-      </div>
+      <main className="flex flex-col items-center justify-center h-full gap-4">
+        <h1 className="md:text-4xl text-2xl font-semibold">
+          You need to be logged in to view this page.
+        </h1>
+        <Button onClick={() => router.push("/login")}>Login</Button>
+      </main>
     );
   }
 
-  if (!authenticated || (!user && !loading)) {
-    router.push("/login");
-  }
-
-  if (authenticated && user && !loading) {
+  if (user) {
     return (
       <main className="md:space-y-16 space-y-8 p-2">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h1 className="md:text-4xl text-2xl font-semibold">
-            Welcome to DevPillar, {user?.name.split(" ")[0] || user?.name}! 🎉
-          </h1>
-          <div className="flex gap-2 md:flex-row flex-row-reverse items-center line-through">
-            <Button variant={"ghost"} disabled>
-              Edit Profile
-            </Button>
-            <Avatar>
-              <AvatarImage src={user?.avatar_url} alt={user?.name} />
-              <AvatarFallback>{user?.name[0]}</AvatarFallback>
-            </Avatar>
-          </div>
-        </div>
+        <RouteHeading
+          sort={sort}
+          setSort={setSort}
+          h1="Profile"
+          h2={"Welcome back " + user.user_metadata?.name}
+          extraHeadings={
+            <p className="font-medium text-muted-foreground px-0.5">
+              View your saved resources below.
+            </p>
+          }
+        />
 
-        <Separator />
-
-        <div className="space-y-4">
-          <div className="flex flex-col gap-2">
-            <h2 className="md:text-3xl text-xl font-semibold text-muted-foreground">
-              Your Favorites
-            </h2>
-            <div className="flex gap-2">
-              <SortSelect sort={sort} setSort={setSort} />
-            </div>
-          </div>
-          <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-            {resources
-              .filter((res) => favs.includes(res.name))
-              .sort((a, b) => {
-                if (sort === "A-Z") {
-                  return a.name.localeCompare(b.name);
-                } else {
-                  return b.name.localeCompare(a.name);
-                }
-              })
-              .map((res) => (
+        <section className=" grid lg:grid-cols-2 place-items-center gap-4 p-4">
+          {resources
+            .filter((res) => favs.includes(res.name))
+            .sort((a, b) => {
+              if (sort === "A-Z") {
+                return a.name.localeCompare(b.name);
+              } else {
+                return b.name.localeCompare(a.name);
+              }
+            })
+            .map((res) => (
+              <div key={res.name}>
                 <ResourceCard
-                  className="mx-auto w-full"
-                  key={res.name}
-                  name={res.name}
-                  description={res.description}
-                  category={res.category}
-                  url={res.url}
-                  paid={res.paid}
-                  image={res.image}
+                  user={user}
+                  biggerText
+                  className="border even:bg-card odd:bg-card sm:hidden aspect-[4/3]"
+                  imgRes="16/9"
+                  favs={favs}
+                  setFavs={setFavs}
+                  resource={res}
                 />
-              ))}
-          </div>
-        </div>
+                <ResourceCard
+                  user={user}
+                  biggerText
+                  favs={favs}
+                  setFavs={setFavs}
+                  className="border lg:hover:scale-[1.005] lg:hover:shadow-md transition-all even:bg-card odd:bg-card hidden sm:block aspect-[4/3]"
+                  resource={res}
+                  imgRes="4/3"
+                />
+              </div>
+            ))}
+        </section>
       </main>
     );
   }

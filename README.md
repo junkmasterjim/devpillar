@@ -21,7 +21,7 @@ Each resource should be an object with the following properties:
   url: string;
   paid: "Free" | "Paid";
   keywords: string[];
-  image: string; // Preferred hosting on Cloudinary
+  image: string; // Preferred hosting on Cloudinary but anywhere works
 }
 ```
 Example:
@@ -95,9 +95,8 @@ When adding a resource, please choose appropriate categories and subcategories f
    - Web3
 
 ## Image Hosting
-- Preferred image hosting is on Cloudinary.
-- If using another hosting service, ensure the URL is accessible and add the domain to `remotepatterns` in the Next.js config.
 - Images should typically be screenshots of the resource's home page.
+- Images should be hosted on Cloudinary or another accessible hosting service.
 
 ## Pull Request Workflow
 1. **Fork the Repository**: Create a fork of the repository to your own GitHub account.
