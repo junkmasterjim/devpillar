@@ -156,7 +156,6 @@ export const categories: Category[] = [
 			"Books",
 			"Youtube Channels",
 			"Accessibility",
-			"Typing",
 		],
 		icon: BookOpenCheck,
 	},
