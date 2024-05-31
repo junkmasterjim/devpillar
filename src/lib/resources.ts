@@ -96,6 +96,17 @@ export interface Category {
 
 export const categories: Category[] = [
 	{
+		name: "Components & Libraries",
+		subcategories: [
+			"Components",
+			"Snippets & Hooks",
+			"Libraries & Packages",
+			"Frameworks",
+			"Web3",
+		],
+		icon: Hammer,
+	},
+	{
 		name: "Development Tools & Extensions",
 		subcategories: [
 			"VS Code Extensions",
@@ -122,16 +133,6 @@ export const categories: Category[] = [
 		name: "Media",
 		subcategories: ["Images", "Video", "Animations", "Screenshots"],
 		icon: Camera,
-	},
-	{
-		name: "Components & Libraries",
-		subcategories: [
-			"Components",
-			"Snippets & Hooks",
-			"Libraries & Packages",
-			"Frameworks",
-		],
-		icon: Hammer,
 	},
 	{
 		name: "Backend & Infrastructure",
@@ -177,7 +178,7 @@ export const categories: Category[] = [
 	},
 	{
 		name: "Open Source & Community",
-		subcategories: ["Open Source", "Web3"],
+		subcategories: ["Open Source"],
 		icon: FolderOpen,
 	},
 ].sort((a, b) => {
@@ -674,7 +675,7 @@ export const resources: Resource[] = [
 	{
 		name: "Replicate",
 		description: "AI API for generating synthetic data",
-		category: ["Backend & Infrastructure"],
+		category: ["Backend & Infrastructure", "Development Tools & Extensions"],
 		subcategory: ["AI", "API"],
 		url: "https://replicate.com/",
 		paid: "Paid",
@@ -737,7 +738,7 @@ export const resources: Resource[] = [
 	{
 		name: "Supabase",
 		description: "The open source Firebase alternative",
-		category: ["Backend & Infrastructure"],
+		category: ["Backend & Infrastructure", "Open Source & Community"],
 		subcategory: ["Database", "Authentication", "Open Source"],
 		url: "https://supabase.com",
 		paid: "Free Plan",
@@ -777,7 +778,7 @@ export const resources: Resource[] = [
 	{
 		name: "AI Skeletons",
 		description: "AI generated skeletons based on your components",
-		category: ["Design & UI"],
+		category: ["Design & UI", "Development Tools & Extensions"],
 		subcategory: ["AI", "Components"],
 		url: "https://gpt-skeleton.vercel.app",
 		paid: "Free",
@@ -952,7 +953,7 @@ export const resources: Resource[] = [
 		name: "Blitz.js",
 		description:
 			"The Missing Fullstack Toolkit for Next.js. Providing battle-tested libraries and conventions for shipping and scaling world wide applications.",
-		category: ["Development Tools & Extensions", "Components & Libraries"],
+		category: ["Development Tools & Extensions", "Backend & Infrastructure"],
 		subcategory: ["Boilerplate", "Components", "Frameworks", "Authentication"],
 		url: "https://blitzjs.com",
 		paid: "Free",
@@ -964,7 +965,7 @@ export const resources: Resource[] = [
 		name: "Favicon.io",
 		description:
 			"The only favicon generator you need for your next project. Quickly generate your favicon from text, image, or choose from hundreds of emojis.",
-		category: ["Development Tools & Extensions", "Media"],
+		category: ["Development Tools & Extensions", "SEO & Analytics"],
 		subcategory: ["Images", "SEO"],
 		url: "https://favicon.io",
 		paid: "Free",
@@ -1030,14 +1031,7 @@ export const resources: Resource[] = [
 		subcategory: ["VS Code Extensions"],
 		url: "https://prettier.io",
 		paid: "Free",
-		keywords: [
-			"prettier",
-			"code",
-			"formatter",
-			"VS Code Extensions",
-			"vscode",
-			"extension",
-		],
+		keywords: ["prettier", "code", "formatter", "vscode", "extension"],
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/prettier.jpg",
 	},
@@ -1061,13 +1055,7 @@ export const resources: Resource[] = [
 		subcategory: ["VS Code Extensions"],
 		url: "https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens",
 		paid: "Free",
-		keywords: [
-			"error lens",
-			"diagnostics",
-			"VS Code Extensions",
-			"vscode",
-			"extension",
-		],
+		keywords: ["error lens", "diagnostics", "vscode", "extension"],
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/errorlens.jpg",
 	},
@@ -1078,13 +1066,7 @@ export const resources: Resource[] = [
 		subcategory: ["VS Code Extensions"],
 		url: "https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense",
 		paid: "Free",
-		keywords: [
-			"path",
-			"intellisense",
-			"VS Code Extensions",
-			"vscode",
-			"extension",
-		],
+		keywords: ["path", "intellisense", "vscode", "extension"],
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/pathintellisense.jpg",
 	},
@@ -1096,14 +1078,7 @@ export const resources: Resource[] = [
 		subcategory: ["VS Code Extensions"],
 		url: "https://marketplace.visualstudio.com/items?itemName=bradlc.VS Code Extensions-tailwindcss",
 		paid: "Free",
-		keywords: [
-			"tailwind",
-			"css",
-			"intellisense",
-			"VS Code Extensions",
-			"vscode",
-			"extension",
-		],
+		keywords: ["tailwind", "css", "intellisense", "vscode", "extension"],
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/tailwindintellisense.jpg",
 	},
@@ -1115,13 +1090,7 @@ export const resources: Resource[] = [
 		subcategory: ["VS Code Extensions"],
 		url: "https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense",
 		paid: "Free",
-		keywords: [
-			"npm",
-			"intellisense",
-			"VS Code Extensions",
-			"vscode",
-			"extension",
-		],
+		keywords: ["npm", "intellisense", "vscode", "extension"],
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/npmintellisense.jpg",
 	},
@@ -1602,11 +1571,7 @@ export const resources: Resource[] = [
 		name: "Wagmi",
 		description:
 			"Type Safe, Extensible, and Modular by design. Build high-performance blockchain frontends.",
-		category: [
-			"Backend & Infrastructure",
-			"Components & Libraries",
-			"Open Source & Community",
-		],
+		category: ["Components & Libraries", "Open Source & Community"],
 		subcategory: ["Web3", "Open Source"],
 		url: "https://wagmi.sh/",
 		paid: "Free",

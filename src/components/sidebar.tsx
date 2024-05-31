@@ -10,7 +10,7 @@ import { Category, categories } from "@/lib/resources";
 import { Menu, Minus, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ResponsiveDialog } from "./ResponsiveDialog";
+
 import { LoginButton } from "./login-button";
 import { SearchBar } from "./search-bar";
 import { Button } from "./ui/button";

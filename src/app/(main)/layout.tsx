@@ -41,7 +41,8 @@ export default function RootLayout({
 
           <div className="grid grid-flow-col xl:grid-cols-[360px,_1fr]">
             <Sidebar />
-            <div className="max-h-svh overflow-y-auto w-full">
+            <div className="max-h-svh overflow-y-auto w-full relative">
+              <div className="h-96 absolute inset-0 bg-gradient-to-b from-secondary -z-50" />
               <Suspense>{children}</Suspense>
             </div>
           </div>
