@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 // import { FilterSelect } from "@/components/FilterSelect";
 // import { SortingSelect } from "@/components/SortingSelect";
-import { Hero } from "@/components/hero";
+import { Hero } from "@/components/hero/";
 import { createClient } from "@/lib/supabase/client";
 import { Session } from "@supabase/supabase-js";
 import { cn } from "@/lib/utils";
