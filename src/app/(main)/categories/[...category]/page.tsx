@@ -1,15 +1,35 @@
 "use client";
 
-import { Category, Resource, categories, resources } from "@/lib/resources";
-import { redirect } from "next/navigation";
-import ResourceCard from "@/components/ResourceCard";
-import { motion } from "framer-motion";
-
+import { ResourceCard } from "@/components/resource-card";
+import { SortSelect } from "@/components/sort-select";
 import { Button } from "@/components/ui/button";
-import { Reply } from "lucide-react";
+import { Category, Resource, categories, resources } from "@/lib/resources";
+import { createClient } from "@/lib/supabase/client";
+import { User } from "@supabase/supabase-js";
+import { PlusCircle } from "lucide-react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
+
+const supabase = createClient();
 
 const Page = ({ params }: { params: any }) => {
+  const [user, setUser] = useState<User>();
+  const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+
+  const getUser = async () => {
+    const { data } = await supabase.auth.getUser();
+    if (!data.user) {
+      return;
+    } else {
+      setUser(data.user);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   if (!params.category[0]) {
     redirect("/");
   }
@@ -45,7 +65,15 @@ const Page = ({ params }: { params: any }) => {
       .filter((resource) => resource.subcategory.includes(category));
 
     // subcategory render
-    return <Results results={results} cat={category} />;
+    return (
+      <Results
+        setSort={setSort}
+        sort={sort}
+        user={user}
+        results={results}
+        cat={category}
+      />
+    );
   }
 
   const results = resources
@@ -55,7 +83,15 @@ const Page = ({ params }: { params: any }) => {
     .filter((resource) => resource.category.includes(category));
 
   // main categories render
-  return <Results results={results} cat={category} />;
+  return (
+    <Results
+      setSort={setSort}
+      sort={sort}
+      user={user}
+      results={results}
+      cat={category}
+    />
+  );
 };
 
 export default Page;
@@ -63,55 +99,80 @@ export default Page;
 const Results = ({
   cat,
   results,
+  sort,
+  setSort,
+  user,
 }: {
   cat: Category;
   results: Array<Resource>;
+  sort: "A-Z" | "Z-A";
+  setSort: (sort: "A-Z" | "Z-A") => void;
+  user?: User;
 }) => {
   return (
-    <div>
-      <motion.div
-        initial={{ opacity: 0, y: 5 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="flex py-20 text-center justify-center items-center flex-col"
-      >
-        <div className="flex justify-center items-center flex-col">
-          <h1 className="text-4xl leading-10 pb-4 pt-6 font-medium text-foreground">
-            {cat.name ?? cat}{" "}
-            <span className="text-muted-foreground/50 text-xl">
-              ({results.length})
-            </span>
-          </h1>
-          <Button
-            variant={"ghost"}
-            className="mt-4 text-muted-foreground"
-            asChild
-          >
-            <Link href="/">
-              <Reply className="mr-2" />
-              Home
-            </Link>
-          </Button>
+    <>
+      <div className="min-h-svh">
+        <div className="flex px-4 py-8 justify-center flex-col select-none border-b-2">
+          <span>
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-medium text-foreground capitalize tracking-tighter">
+              {cat.name ?? cat}
+            </h1>
+            <div className="flex place-items-start justify-between">
+              <h2 className="xl:text-4xl sm:text-2xl text-xl font-medium capitalize text-foreground/80 tracking-tighter">
+                {results.length} resources.
+              </h2>
+
+              <div className="flex gap-2 flex-col place-items-center">
+                <Button
+                  variant={"ghost"}
+                  className="text-muted-foreground"
+                  asChild
+                >
+                  <Link
+                    href={"https://github.com/noahpittman/devpillar/"}
+                    target="_blank"
+                  >
+                    <PlusCircle className="mr-2 size-4" />
+                    Add a resource
+                  </Link>
+                </Button>
+
+                <SortSelect setSort={setSort} sort={sort} />
+              </div>
+            </div>
+          </span>
         </div>
-      </motion.div>
-      <motion.section
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
-      >
-        {results.map((resource) => (
-          <ResourceCard
-            key={Math.random()}
-            name={resource.name}
-            category={resource.category}
-            description={resource.description}
-            paid={resource.paid}
-            url={resource.url}
-            image={resource?.image}
-          />
-        ))}
-      </motion.section>
-    </div>
+        <div className=" grid lg:grid-cols-2 place-items-center gap-4 p-4">
+          {results
+            .sort((a, b) => {
+              if (sort === "A-Z") {
+                return a.name.localeCompare(b.name);
+              } else {
+                return b.name.localeCompare(a.name);
+              }
+            })
+            .map((res) => (
+              <>
+                <ResourceCard
+                  user={user}
+                  biggerText
+                  className="border even:bg-card odd:bg-card sm:hidden aspect-[4/3]"
+                  imgRes="16/9"
+                  resource={res}
+                  key={res.name}
+                />
+                <ResourceCard
+                  user={user}
+                  biggerText
+                  className="border lg:hover:scale-[1.005] lg:hover:shadow-md transition-all even:bg-card odd:bg-card hidden sm:block aspect-[4/3]"
+                  resource={res}
+                  imgRes="4/3"
+                  key={res.name}
+                />
+              </>
+            ))}
+        </div>
+      </div>
+    </>
   );
 };

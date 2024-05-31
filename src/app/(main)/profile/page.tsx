@@ -7,11 +7,9 @@ import { createClient } from "@/lib/supabase/client";
 import { UserMetadata } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Category, Resource, resources } from "@/lib/resources";
+import { resources } from "@/lib/resources";
 import ResourceCard from "@/components/ResourceCard";
-
-import { SortingSelect } from "@/components/SortingSelect";
-import { FilterSelect } from "@/components/FilterSelect";
+import { SortSelect } from "@/components/sort-select";
 
 const supabase = createClient();
 
@@ -24,7 +22,6 @@ const Profile = () => {
   const [favs, setFavs] = useState<string[]>([]);
 
   const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
-  const [filter, setFilter] = useState<Category["name"] | "none">("none");
 
   const [user, setUser] = useState<
     | {
@@ -75,13 +72,13 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
   useEffect(() => {
     if (email) {
       getFavs();
     }
-  }, [email]);
+  });
 
   if (loading) {
     return (
@@ -121,56 +118,31 @@ const Profile = () => {
               Your Favorites
             </h2>
             <div className="flex gap-2">
-              <SortingSelect sort={sort} setSort={setSort} />
-              <FilterSelect filter={filter} setFilter={setFilter} />
+              <SortSelect sort={sort} setSort={setSort} />
             </div>
           </div>
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-            {sort === "A-Z" &&
-              resources
-                .filter((res) => favs.includes(res.name))
-                .filter((resource: Resource) => {
-                  if (filter === "none") return resource;
-
-                  // @ts-ignore
-                  return resource.category.includes(filter);
-                })
-                .sort((a, b) => a.name.localeCompare(b.name))
-                .map((res) => (
-                  <ResourceCard
-                    className="mx-auto w-full"
-                    key={res.name}
-                    name={res.name}
-                    description={res.description}
-                    category={res.category}
-                    url={res.url}
-                    paid={res.paid}
-                    image={res.image}
-                  />
-                ))}
-            {sort === "Z-A" &&
-              resources
-                .filter((res) => favs.includes(res.name))
-                .filter((resource: Resource) => {
-                  if (filter === "none") return resource;
-
-                  // @ts-ignore
-                  return resource.category.includes(filter);
-                })
-                .sort((a, b) => a.name.localeCompare(b.name))
-                .reverse()
-                .map((res) => (
-                  <ResourceCard
-                    className="mx-auto w-full"
-                    key={res.name}
-                    name={res.name}
-                    description={res.description}
-                    category={res.category}
-                    url={res.url}
-                    paid={res.paid}
-                    image={res.image}
-                  />
-                ))}
+            {resources
+              .filter((res) => favs.includes(res.name))
+              .sort((a, b) => {
+                if (sort === "A-Z") {
+                  return a.name.localeCompare(b.name);
+                } else {
+                  return b.name.localeCompare(a.name);
+                }
+              })
+              .map((res) => (
+                <ResourceCard
+                  className="mx-auto w-full"
+                  key={res.name}
+                  name={res.name}
+                  description={res.description}
+                  category={res.category}
+                  url={res.url}
+                  paid={res.paid}
+                  image={res.image}
+                />
+              ))}
           </div>
         </div>
       </main>

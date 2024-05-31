@@ -1,9 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 
 export function ModeToggle({ className }: { className?: string }) {
@@ -18,7 +16,7 @@ export function ModeToggle({ className }: { className?: string }) {
   return (
     <Button
       variant={"outline"}
-      className="h-9"
+      className="size-9 min-w-9"
       size={"icon"}
       onClick={() => {
         toggleTheme();

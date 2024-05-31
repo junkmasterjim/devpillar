@@ -86,10 +86,12 @@ const Home = () => {
               .filter((res) => res.category.includes(cat.name as any))
               .map((res) => (
                 <ResourceCard
-                  user={user}
+                  user={user as User}
+                  fixedHeight
                   resource={res}
                   key={res.name}
-                  idx={idx}
+                  className="rounded-none"
+                  mapIdx={idx}
                 />
               ))}
           </div>

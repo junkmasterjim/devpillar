@@ -53,7 +53,10 @@ export const Sidebar = () => {
             <ModeToggle />
           </div>
           <Button asChild className="w-full" variant={"secondary"}>
-            <Link href={"https://github.com/noahpittman/devpillar/"}>
+            <Link
+              target="_blank"
+              href={"https://github.com/noahpittman/devpillar/"}
+            >
               <PlusCircle className="mr-2" size={24} />
               Add a resource
             </Link>
@@ -126,7 +129,7 @@ export const Sidebar = () => {
         </SheetTrigger>
         <SheetContent
           side={"bottom"}
-          className="p-2 bg-background border-r max-h-screen h-full overflow-hidden px-8"
+          className="p-2 bg-background border-r max-h-screen h-full overflow-hidden px-2"
         >
           <SheetClose id="closeSheet" />
           <div className="flex items-center gap-4 flex-col h-52 top-0 left-0 w-full p-2 bg-gradient-to-b from-background  from-90%">
@@ -149,7 +152,10 @@ export const Sidebar = () => {
             </p>
             <div className="grid grid-cols-2 w-full gap-2">
               <Button asChild className="w-full" variant={"secondary"}>
-                <Link href={"https://github.com/noahpittman/devpillar/"}>
+                <Link
+                  target="_blank"
+                  href={"https://github.com/noahpittman/devpillar/"}
+                >
                   <PlusCircle className="mr-2" size={24} />
                   Add a resource
                 </Link>
@@ -162,7 +168,7 @@ export const Sidebar = () => {
           </div>
 
           <div className="max-h-[calc(100svh-256px)]  overflow-auto pr-2">
-            <div className="w-full">
+            <div className="w-full mt-1">
               <SearchBar />
             </div>
             <p className="font-bold mb-2 mt-4">Categories</p>

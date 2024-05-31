@@ -15,18 +15,27 @@ const supabase = createClient();
 
 export const ResourceCard = ({
   resource,
+  mapIdx,
+  className,
+  fixedHeight,
+  clamp = "auto",
+  biggerText,
+  imgRes = "16/9",
   user,
-  idx,
 }: {
   resource: Resource;
-  user?: User | null;
-  idx: number;
+  mapIdx?: number;
+  className?: string;
+  fixedHeight?: boolean;
+  clamp?: 1 | 2 | 3 | 4 | 5 | 6 | "auto";
+  biggerText?: boolean;
+  imgRes?: "4/3" | "16/9";
+  user?: User;
 }) => {
   const [userFavourites, setUserFavourites] = useState<string[]>([]);
   const [favTimeout, setFavTimeout] = useState<boolean>(true);
 
   const isFav = (r: string) => userFavourites.includes(r);
-
   const handleFav = async () => {
     if (!user) {
       toast.error("You need to be signed in to favourite a resource.");
@@ -96,28 +105,42 @@ export const ResourceCard = ({
     };
 
     getFavs();
-  }, [user]);
+  });
 
   return (
     <div
       key={resource.name}
       className={cn(
-        "h-56 lg:h-80 aspect-[4/3] hover:bg-popover transition-colors relative",
-        idx % 2 == 0 ? "odd:bg-muted" : "even:bg-muted",
+        "min-h-56 lg:min-h-80 transition duration-200 relative rounded lg:hover:opacity-90  backdrop-blur",
+        mapIdx && mapIdx % 2 == 0 ? "odd:bg-muted" : "even:bg-muted",
+        className,
+        fixedHeight && "aspect-[4/3] h-56 lg:h-80",
       )}
     >
-      <div className="grid grid-cols-[2fr,_1fr]">
+      <div className="grid grid-cols-[2fr,_1fr] h-full">
         <div className="h-full grid grid-rows-[1fr,_auto,_0.5fr] divide-y-2">
           <Link
             href={resource.url + "/?ref=devpillar"}
             target="_blank"
             className="p-2"
           >
-            <p className="text-lg font-semibold tracking-tighter inline-flex gap-2 place-items-center">
+            <p
+              className={cn(
+                "text-lg font-semibold tracking-tighter inline-flex gap-2 place-items-center",
+                biggerText ? "text-2xl" : "text-lg",
+              )}
+            >
               {resource.name}
               <ArrowUpRight size={16} />
             </p>
-            <p className="text-xs lg:line-clamp-3 line-clamp-2 text-muted-foreground leading-3 tracking-tight">
+            <p
+              className={cn(
+                "text-xs text-muted-foreground leading-3 tracking-tight",
+                clamp === "auto"
+                  ? "lg:line-clamp-3 line-clamp-2"
+                  : "line-clamp-" + clamp,
+              )}
+            >
               {resource.description}
             </p>
           </Link>
@@ -129,7 +152,10 @@ export const ResourceCard = ({
               unoptimized
               height={90 * 2}
               width={160 * 2}
-              className="object-cover aspect-video w-full group-hover:opacity-75 transition-opacity"
+              className={cn(
+                "object-cover aspect-video w-full group-hover:opacity-75 transition-opacity",
+                imgRes === "4/3" ? "aspect-[4/3]" : "aspect-[16/9]",
+              )}
             />
           </Link>
           <div className="flex justify-between items-center h-full  text-xs tracking-tight lg:p-1 overflow-hidden">
@@ -166,7 +192,7 @@ export const ResourceCard = ({
               variant={"ghost"}
               size={"icon"}
               onClick={() => {
-                navigator.clipboard.writeText(resource.url + "/?ref=devpillar");
+                navigator.clipboard.writeText(resource.url);
                 toast.success("Link copied to clipboard.");
               }}
             >
@@ -178,7 +204,10 @@ export const ResourceCard = ({
         <Link
           href={resource.url + "/?ref=devpillar"}
           target="_blank"
-          className="grid grid-rows-[1fr,_auto] h-56 lg:h-80 w-full text-sm divide-y-2 border-l-2"
+          className={cn(
+            "grid grid-rows-[1fr,_auto] min-h-56 lg:min-h-80 w-full text-sm divide-y-2 border-l-2",
+            fixedHeight && "h-56 lg:h-80",
+          )}
         >
           <div className="flex flex-col h-full gap-2 text-sm tracking-tight p-1 overflow-hidden">
             <div>
@@ -199,7 +228,7 @@ export const ResourceCard = ({
               ))}
             </div>
           </div>
-          <div className="flex w-full justify-center items-center py-1 text-sm font-medium tracking-tight text-muted-foreground">
+          <div className="text-center py-1 text-sm font-medium tracking-tight text-muted-foreground h-8 mb-1 grid contentce">
             {resource.paid}
           </div>
         </Link>
