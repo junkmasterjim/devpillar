@@ -61,7 +61,7 @@ export const Sidebar = () => {
         </div>
 
         <div className="max-h-[calc(100svh-288px)] overflow-auto pr-2">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 mt-1">
             <SearchBar />
           </div>
 

@@ -13,12 +13,6 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
-export interface userFavourites {
-  id: string;
-  email: string;
-  favs: string[];
-}
-
 const supabase = createClient();
 
 const ResourceCard = ({
