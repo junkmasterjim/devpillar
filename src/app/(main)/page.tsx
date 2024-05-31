@@ -6,14 +6,12 @@ import { Category, Resource, categories, resources } from "@/lib/resources";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-// import { FilterSelect } from "@/components/FilterSelect";
-// import { SortingSelect } from "@/components/SortingSelect";
-import { Hero } from "@/components/hero/";
 import { createClient } from "@/lib/supabase/client";
 import { Session } from "@supabase/supabase-js";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { ExpandBadge } from "@/components/expand-badge";
 
 const supabase = createClient();
 
@@ -59,14 +57,42 @@ const Home = () => {
 
   return (
     <main className="pb-12">
-      <Hero />
+      <div>
+        <div className="flex py-8 text-center justify-center items-center flex-col select-none">
+          <div className="flex justify-center items-center flex-col">
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-medium text-foreground capitalize tracking-tighter">
+              Top notch developer tools
+            </h1>
+            <h2 className="xl:text-4xl sm:text-2xl text-xl font-medium capitalize text-foreground/80 tracking-tighter">
+              Quality resources
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-prose mt-4 sm:text-base lg:text-lg tracking-tight">
+            Welcome to DevPillar. <br />
+            We think you&apos;ll like it here.
+          </p>
+
+          <div className="mt-4">
+            <ExpandBadge />
+          </div>
+
+          <div className="max-w-sm w-full mx-auto overflow-hidden items-center justify-center mt-2 pb-12">
+            <iframe
+              src="https://embeds.beehiiv.com/083e2abd-d1cb-4d50-b5d5-3146de92c860?slim=true"
+              data-test-id="beehiiv-embed"
+              height="52"
+              className="scale-[80%] overflow-hidden rounded-md w-full"
+            />
+          </div>
+        </div>
+      </div>
 
       <section className="min-h-96">
         <div className="flex h-16 border-b border-t items-center tracking-tighter text-3xl px-2 justify-between">
           <span>Featured Resources</span>
-          <span className="text-muted-foreground font-light">
+          <p className="text-muted-foreground text-xl font-light mr-2 tracking-tight">
             Good for all occasions
-          </span>
+          </p>
         </div>
         <div className="w-full h-80 flex place-items-center justify-center text-muted-foreground">
           Nothing yet...
@@ -165,74 +191,6 @@ const Home = () => {
         </section>
       ))}
     </main>
-
-    // <>
-    //   <motion.section
-    //     initial={{ opacity: 0, y: 0 }}
-    //     animate={{ opacity: 1, y: 0 }}
-    //     transition={{ duration: 0.3 }}
-    //   >
-    //     <div className="py-4">
-    //       <h2 className="md:text-3xl text-xl font-semibold text-muted-foreground py-2 select-none">
-    //         All Resources{" "}
-    //         <span className="text-muted-foreground/50 text-lg">
-    //           ({resources.length})
-    //         </span>
-    //       </h2>
-
-    //       <div className="flex flex-col sm:flex-row gap-2">
-    //         <SortingSelect sort={sort} setSort={setSort} />
-    //         <FilterSelect filter={filter} setFilter={setFilter} />
-    //       </div>
-    //     </div>
-
-    //     <div className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto">
-    //       {sort === "A-Z"
-    //         ? resources
-    //             .sort((a: Resource, b: Resource) => {
-    //               return a.name.localeCompare(b.name);
-    //             })
-    //             .filter((resource: Resource) => {
-    //               if (filter === "none") return resource;
-
-    //               // @ts-ignore
-    //               return resource.category.includes(filter);
-    //             })
-    //             .map((resource: Resource) => (
-    //               <ResourceCard
-    //                 key={Math.random()}
-    //                 name={resource.name}
-    //                 category={resource.category}
-    //                 description={resource.description}
-    //                 paid={resource.paid}
-    //                 url={resource.url}
-    //                 image={resource?.image}
-    //               />
-    //             ))
-    //         : resources
-    //             .sort((a: Resource, b: Resource) => {
-    //               return b.name.localeCompare(a.name);
-    //             })
-    //             .filter((resource: Resource) => {
-    //               if (filter === "none") return resource;
-
-    //               // @ts-ignore
-    //               return resource.category.includes(filter);
-    //             })
-    //             .map((resource: Resource) => (
-    //               <ResourceCard
-    //                 key={Math.random()}
-    //                 name={resource.name}
-    //                 category={resource.category}
-    //                 description={resource.description}
-    //                 paid={resource.paid}
-    //                 url={resource.url}
-    //                 image={resource?.image}
-    //               />
-    //             ))}
-    //     </div>
-    //   </motion.section>
-    // </>
   );
 };
 
