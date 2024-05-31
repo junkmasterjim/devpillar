@@ -57,7 +57,7 @@ const Profile = () => {
 
   if (user) {
     return (
-      <main className="md:space-y-16 space-y-8 p-2">
+      <main>
         <RouteHeading
           sort={sort}
           setSort={setSort}
