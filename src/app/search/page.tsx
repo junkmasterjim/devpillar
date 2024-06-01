@@ -3,32 +3,54 @@
 import { ResourceCard } from "@/components/resource-card";
 import RouteHeading from "@/components/route-heading";
 import { Button } from "@/components/ui/button";
-
-import { resources } from "@/lib/resources";
+import { Resource, resources } from "@/lib/resources";
 import { createClient } from "@/lib/supabase/client";
 import { User } from "@supabase/supabase-js";
+import { PlusCircle } from "lucide-react";
 import Link from "next/link";
-
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const supabase = createClient();
 
-const Profile = () => {
-  const [loading, setLoading] = useState(true);
-  const [favs, setFavs] = useState<string[]>([]);
-  const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+const Page = () => {
+  const searchParams = useSearchParams();
+  const params = searchParams.get("q");
+  const router = useRouter();
   const [user, setUser] = useState<User>();
+  const [favs, setFavs] = useState<string[]>([]);
+
+  const [sort, setSort] = useState<"A-Z" | "Z-A">("A-Z");
+
+  const searchResults = params
+    ? resources.filter((resource: Resource) => {
+        const categories = resource.category.map((category) =>
+          category.toLowerCase(),
+        );
+
+        const keywords = resource.keywords?.map((key) => {
+          return key.toLowerCase();
+        });
+
+        return (
+          resource.name.toLowerCase().includes(params.toLowerCase()) ||
+          categories.some((category) =>
+            category.includes(params.toLowerCase()),
+          ) ||
+          keywords?.some((keyword) => keyword.includes(params.toLowerCase()))
+        );
+      })
+    : [];
 
   useEffect(() => {
+    !params ? router.push("/") : console.log("params: ", params);
+
     const getUser = async () => {
       const { data } = await supabase.auth.getUser();
-      if (data.user) {
-        setUser(data.user);
-      }
-      setLoading(false);
+      if (data.user) setUser(data.user);
     };
     getUser();
-  }, []);
+  });
 
   useEffect(() => {
     const getUserFavs = async () => {
@@ -42,48 +64,39 @@ const Profile = () => {
         setFavs(data[0].favs);
       }
     };
+
     getUserFavs();
   }, [user]);
 
   return (
     <>
-      {loading && (
-        <main className="flex flex-col items-center justify-center h-svh gap-4">
-          <h1 className="md:text-4xl text-2xl font-semibold">Loading...</h1>
-        </main>
-      )}
-
-      {!user && !loading && (
-        <main className="flex flex-col items-center justify-center h-svh gap-4">
-          <h1 className="md:text-4xl text-2xl font-semibold">
-            You are not logged in.
-          </h1>
-          <p className="text-lg text-center">
-            Please log in to view your profile.
-          </p>
-          <Button asChild>
-            <Link href="/login">Log in</Link>
-          </Button>
-        </main>
-      )}
-
-      {user && favs && !loading && (
-        <main>
+      {params && (
+        <div className="min-h-svh">
           <RouteHeading
+            h1="Search"
+            h2={`${searchResults.length} results for "${params}"`}
             sort={sort}
             setSort={setSort}
-            h1="Profile"
-            h2={"Welcome back " + user.user_metadata?.name}
-            extraHeadings={
-              <p className="font-medium text-muted-foreground px-0.5">
-                View your saved resources below.
-              </p>
-            }
+            noSort={searchResults.length === 0 ? true : false}
           />
 
-          <section className=" grid lg:grid-cols-2 place-items-center gap-4 p-4">
-            {resources
-              .filter((res) => favs.includes(res.name))
+          {searchResults.length === 0 && (
+            <div className="flex flex-col gap-2 justify-center h-96 mt-16 items-center text-muted-foreground tracking-tight">
+              <p>Sorry! We don&apos;t have anything for that yet!</p>
+              <Button asChild>
+                <Link
+                  href={"https://github.com/noahpittman/devpillar"}
+                  target="_blank"
+                >
+                  <PlusCircle className="size-5 mr-2" />
+                  Add a resource?
+                </Link>
+              </Button>
+            </div>
+          )}
+
+          <section className="grid lg:grid-cols-2 place-items-center gap-4 p-4">
+            {searchResults
               .sort((a, b) => {
                 if (sort === "A-Z") {
                   return a.name.localeCompare(b.name);
@@ -92,7 +105,7 @@ const Profile = () => {
                 }
               })
               .map((res) => (
-                <div key={res.name}>
+                <span key={res.name}>
                   <ResourceCard
                     user={user}
                     biggerText
@@ -111,13 +124,13 @@ const Profile = () => {
                     resource={res}
                     imgRes="4/3"
                   />
-                </div>
+                </span>
               ))}
           </section>
-        </main>
+        </div>
       )}
     </>
   );
 };
 
-export default Profile;
+export default Page;
