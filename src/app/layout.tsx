@@ -1,6 +1,6 @@
 import "@/app/globals.css";
-import { Footer } from "@/components/footer";
 
+import { Footer } from "@/components/footer-section";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { Sidebar } from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
