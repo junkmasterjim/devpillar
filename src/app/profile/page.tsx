@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 import { resources } from "@/lib/resources";
 import { createClient } from "@/lib/supabase/client";
 import { User } from "@supabase/supabase-js";
+import { LogOut } from "lucide-react";
 import Link from "next/link";
 
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const supabase = createClient();
 
@@ -75,9 +77,29 @@ const Profile = () => {
             h1="Profile"
             h2={"Welcome back " + user.user_metadata?.name}
             extraHeadings={
-              <p className="font-medium text-muted-foreground px-0.5">
-                View your saved resources below.
-              </p>
+              <>
+                <p className="font-medium text-muted-foreground px-0.5">
+                  View your saved resources below.
+                </p>
+
+                <Button
+                  className="mt-2"
+                  onClick={async () => {
+                    let { error } = await supabase.auth.signOut();
+
+                    if (error) {
+                      console.error(error);
+                      toast.error("Error signing out");
+                    } else {
+                      setUser(undefined);
+                      toast.success("Signed out successfully");
+                    }
+                  }}
+                >
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign out
+                </Button>
+              </>
             }
           />
 
