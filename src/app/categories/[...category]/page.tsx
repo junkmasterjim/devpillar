@@ -127,13 +127,16 @@ const Results = ({
 }) => {
   return (
     <>
-      <div className="min-h-svh">
+      <div>
         <RouteHeading
           setSort={setSort}
-          sort="A-Z"
+          sort={sort}
           h1={cat.name ?? cat}
-          h2={results.length + " resources."}
-          noSort
+          h2={
+            results.length === 1
+              ? results.length + " resource."
+              : results.length + " resources."
+          }
         />
 
         <section className=" grid lg:grid-cols-2 place-items-center gap-4 p-4">

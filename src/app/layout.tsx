@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { Sidebar } from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -44,6 +45,7 @@ export default function RootLayout({
             <div className="max-h-svh overflow-y-auto w-full relative">
               <div className="h-96 absolute inset-0 bg-gradient-to-b from-secondary -z-50" />
               <Suspense>{children}</Suspense>
+              <Footer />
             </div>
           </div>
         </ThemeProvider>
