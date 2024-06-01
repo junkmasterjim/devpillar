@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Separator } from "./ui/separator";
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { toast } from "sonner";
 
 export const Footer = () => {
