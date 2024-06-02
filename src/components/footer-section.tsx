@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 export const Footer = () => {
   return (
-    <footer className="border-t-2 p-4 mt-16 pb-8">
+    <footer className="border-t-2 p-4 mt-16 pb-24">
       <h1 className="text-2xl sm:text-4xl lg:text-6xl font-medium text-foreground capitalize tracking-tighter">
         DevPillar
       </h1>
