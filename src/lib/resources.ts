@@ -35,6 +35,7 @@ export interface Resource {
 		| "Components"
 		| "Documentation"
 		| "Backgrounds"
+		| "3D"
 		| "Images"
 		| "Video"
 		| "UI UX"
@@ -113,6 +114,8 @@ export const categories: Category[] = [
 			"Browser Extensions",
 			"Website Builders",
 			"AI",
+			"3D",
+			"Animations",
 		],
 		icon: Laptop,
 	},
@@ -194,6 +197,51 @@ export const categories: Category[] = [
 
 export const resources: Resource[] = [
 	{
+		name: "Popmotion",
+		description:
+			"The animator’s JavaScript toolbox. The library that powers Framer Motion.",
+		category: ["Components & Libraries"],
+		subcategory: ["Libraries & Packages"],
+		url: "https://popmotion.io",
+		paid: "Free",
+		keywords: ["pop", "motion", "framer motion", "animation", "javascript"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717616454/popmotion.png",
+	},
+	{
+		name: "Caching Best Practices",
+		description: "Don't Cache Without Asking Questions",
+		category: ["Learning & Documentation"],
+		subcategory: ["Documentation"],
+		url: "https://newsletter.systemdesigncodex.com/p/dont-cache-without-asking-questions",
+		paid: "Free",
+		keywords: ["cache", "caching", "blog"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717610985/caching.png",
+	},
+	{
+		name: "Teck Stack Icons",
+		description: "Tech Stack & Design Stack icons library.",
+		category: ["Design & UI"],
+		subcategory: ["Icons"],
+		url: "https://www.tech-stack-icons.com/",
+		paid: "Free",
+		keywords: ["icons", "tech", "stack"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717610835/techstackicons.png",
+	},
+	{
+		name: "GLTF Preview",
+		description: "Preview your GLTF files before using them in your projects.",
+		category: ["Development Tools & Extensions"],
+		subcategory: ["3D", "Animations"],
+		url: "https://gltf.pmnd.rs",
+		paid: "Free",
+		keywords: ["gltf", "3d", "preview", "object", "obj"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717456213/gltf.png",
+	},
+	{
 		name: "ShipFast",
 		description: "A Next.js boilerplate for building SaaS applications",
 		category: ["Development Tools & Extensions"],
@@ -258,24 +306,51 @@ export const resources: Resource[] = [
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/usehooks.jpg",
 	},
 	{
+		name: "Cubic Bezier Generator",
+		description: "A cubic bezier generator. Simple and easy to use.",
+		category: ["Media"],
+		subcategory: ["Animations"],
+		url: "https://cubic-bezier.com/",
+		paid: "Free",
+		keywords: ["cubic", "bezier", "generator", "animation", "spring"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717611033/cubicbezier.png",
+	},
+	{
 		name: "shadcn-ui",
 		description:
 			"A collection of UI components for React. Built with Tailwind CSS",
 		category: ["Components & Libraries"],
-		subcategory: ["Components", "UI UX", "CSS"],
+		subcategory: ["Components", "UI UX"],
 		url: "https://ui.shadcn.com",
 		paid: "Free",
-		keywords: [
-			"react",
-			"tailwind",
-			"ui",
-			"components",
-			"shadcn-ui",
-			"css",
-			"web",
-		],
+		keywords: ["tailwind", "ui", "components", "shadcn-ui", "css", "web"],
 		image:
 			"https://res.cloudinary.com/doopql2iw/image/upload/v1710038150/shadcnui.jpg",
+	},
+	{
+		name: "v0.dev",
+		description:
+			"AI generated shadcn-ui components. Copy and paste right into your projects.",
+		category: ["Components & Libraries"],
+		subcategory: ["Components", "UI UX"],
+		url: "https://v0.dev",
+		paid: "Free Plan",
+		keywords: ["shadcn-ui", "v0", "dev"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717612021/v0dev.png",
+	},
+	{
+		name: "Lunar UI",
+		description:
+			"Lunar UI is a set of interactive re-usable components built with Tailwind CSS.",
+		category: ["Components & Libraries"],
+		subcategory: ["Components", "UI UX"],
+		url: "https://lunarui.dev/components",
+		paid: "Free",
+		keywords: ["lunar", "ui", "components", "lunar ui", "css"],
+		image:
+			"https://res.cloudinary.com/doopql2iw/image/upload/v1717456995/lunar-ui.png",
 	},
 	{
 		name: "shadcn-ui Theme Generator",
